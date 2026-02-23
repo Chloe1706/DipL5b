@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <!-- main html stylesheet -->
+    <link rel="stylesheet" href="../CSS/stylesheet.css" />
+    <link rel="stylesheet" href="../CSS/algorithmic-art.css">
+
+    <!-- navigation bar  -->
+    <link rel="stylesheet" type="text/css" href="../CSS/nav-bar.css">
+    <script src="../JavaScript/nav.js" defer></script>
+
+    <!-- p5.js extension -->
+    <script src="../P5.js-extension/libraries/p5.min.js"></script>
+    <script src="../P5.js-extension/libraries/p5.sound.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+
+        <!-- burger menu for small screens -->
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Grid Research</a></li>
+            <li><a href="./p5.js-basics.html">p5.js Basics</a></li>
+            <li><a href="./SVG-tessellation.html">SVG Tessellation</a></li>
+            <li><a href="./grid-composition.html">Grid Composition</a></li>
+            <li><a href="./mathsvis.html">MathsVis</a></li>
+            <li><a href="./interactive-spiral.html">Interactive Spiral</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- MASTER HEADER -->
+
+    <header class="master-header">
+        <div class="header-content">
+
+            <div class="title-container">
+                <h1 class="title-black">
+                    <span class="main">Grid Composition</span>
+                    <span class="accent">A P5.JS study inspired by Sol LeWitt</span>
+                </h1>
+            </div>
+
+
+        </div>
+    </header>
+
+
+
+    <!-- ARTWORK SECTION -->
+    <section class="artwork-section">
+        <div class="artwork-container">
+            <img src="../Images1/Sol-LeWitt-Square.jpeg" />
+            <div class="artwork-credit">
+                Inspired by Sol LeWitt, Wall Drawing series<br />
+                p5.js study by Your Name
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DOCUMENTATION SECTIONS -->
+    <main>
+
+        <section class="step">
+            <h3>Step 1 — Canvas Setup</h3>
+            <p>
+                In this sketch I began by creating a 600 x 600 canvas, setting the background to white and adjusting
+                stroke weight (sw) so it would more closely resemble the reference. I defined the value of ‘inset’, and
+                drew a border around the parameter of the canvas using rect() where the x and y coordinates are set to
+                inset. The reason for this is so that the full width of the border is contained within the canvas.
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images2/setup.jpg" />
+                <img src="../Images2/1.png" />
+            </div>
+        </section>
+
+        <section class="step">
+            <h3>Step 2 — Dividing the canvas into quadrants </h3>
+            <p>
+                First I defined the value of half (let half = width / 2 e.g. 300). I then used this value as well as the
+                full value of width and height to draw two lines, one that divides the canvas vertically, and one that
+                divides the canvas horizontally. The result is that the canvas is now divided into four equal quadrants.
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images2/quadrants.jpg" />
+                <img src="../Images2/2.png" />
+            </div>
+        </section>
+
+        <section class="step single-image">
+            <h3>Step 3 — Drawing vertical parallel lines that fill the top, left quadrant </h3>
+            <p>
+                I defined the value of spacing e.g. the space between each line that will be drawn, and using the value
+                of half, created a while loop that fills the quadrant with vertical parallel lines with 20px of spacing
+                in between them. However, there was an issue where the spacing between where the lines begin and where
+                they ended was not evenly distributed. E.g:
+
+            </p>
+
+            <div class="image-single">
+                <img src="../Images2/3.png" />
+            </div>
+        </section>
+
+
+
+        <section class="step">
+            <h3>Step 4 — Centering the Vertical Lines </h3>
+            <p>
+                To resolve the issue of unevenly spaced lines I calculated a boundary by first defining a value I called
+                ‘clearance’ (let clearance = spacing / 2 ), which is the value alloted the left and right side. Using
+                this value I then defined a series of parametres that make up the quadrant, accounting for the left and
+                right side of the quadrant to determine the usable width. Additionally, I created the offsetL which
+                calculated how much the lines would need to be offset to compensate for the black border. This resulted
+                in the lines having even spacing on either side of them.
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images2/top-left.jpg" />
+                <img src="../Images2/4.png" />
+            </div>
+        </section>
+
+
+        <section class="step">
+            <h3>Step 5 — Drawing horizontal parallel lines in the top, right quadrant</h3>
+            <p>
+                I created a while loop that fills the top right quadrant with horizontal, parallel lines. I needed to
+                centre the lines so there was even spacing at the top and bottom of the quadrant in a similar manner to
+                what I had done previously:
+            </p>
+            <div class="image-grid">
+                <img src="../Images2/top-right.jpg" />
+                <img src="../Images2/6.png" />
+            </div>
+        </section>
+
+        <section class="step single-image">
+            <h3>Step 6 — Drawing diagonal lines in the bottom, left quadrant</h3>
+            <p>
+                I implemented a while loop to draw diagonal lines across the bottom left quadrant. The diagonal line is
+                achieved by the two coordinate points for each line, which increase while maintaining the same
+                difference to create parallel diagonal lines.
+            </p>
+            <p>
+                This however created multiple changes where initially the lines exceeded their designated area and the
+                spacing between lines appeared smaller.
+            </p>
+
+            <div class="image-single">
+                <img src="../Images2/7.png" />
+            </div>
+        </section>
+
+        <section class="step single-image">
+            <h3>Step 7 — Implementing Clipping Contraints</h3>
+            <p>
+                To solve the issue of the lines exceeding their area I implemented clipping constraints. This first
+                required me to define the area of the quadrant in a similar way to that which I’d done previously. I
+                used a push() and pop(), enabling me to introduce new rules inside. I then added clipping constraints
+                which are defined within the new variable clip(), so that the lines stay within the quadrant.
+
+            </p>
+
+            <div class="image-single">
+                <img src="../Images2/8.png" />
+            </div>
+        </section>
+
+
+        </section>
+
+        <section class="step">
+            <h3>Step 8 — Increasing Spacing Between Lines</h3>
+            <p>
+                I needed to adjust the spacing between the lines so that it matched the other segments. Within the
+                push()/pop() I added a new spacing rule e.g. let spacingBL = 25.
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images2/bottom-left.jpg" />
+                <img src="../Images2/9.png" />
+            </div>
+        </section>
+
+        <section class="step">
+            <h3>Step 9 — Drawing vertical lines in bottom, right quadrant</h3>
+            <p>
+                Now I just needed to add the diagonal lines to the bottom right quadrant and went about doing this in a
+                similar way to what I had done previously:
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images2/bottom-right.jpg" />
+                <img src="../Images2/10.png" />
+            </div>
+        </section>
+    </main>
+
+    <section class="final-context">
+        <h3>Final Outcome</h3>
+        <p>
+            This is the final of the artist studies that I have completed for the 2D algorithmic art project. I am
+            satisfied that I managed to recreate the reference with reasonable accurancy however, if I were to take it
+            further, I would be interested in potentially implementing some movement within the image as I think this
+            would really lend itself to the optical nature of Sol LeWitt's work.
+
+        </p>
+    </section>
+
+
+
+    <!-- Linked algorithmic art -->
+
+    <script src="../JavaScript/sol-lewitt.js"></script>
+
+
+
+</body>
+
+</html>

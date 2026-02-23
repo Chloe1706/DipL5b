@@ -1,0 +1,56 @@
+/* HEADER */
+.sources-header {
+    padding: 80px 10vw 40px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.sources-header h1 {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 600;
+    color: #d2213d;
+    /* red accent */
+    margin: 0 0 12px;
+}
+
+.sources-header .intro {
+    max-width: 700px;
+    opacity: 0.75;
+    font-size: 0.95rem;
+}
+
+/* REFERENCES BLOCK */
+.sources-main {
+    padding: 60px 10vw 100px;
+}
+
+.reference-list {
+    list-style: none;
+    padding: 0 0 0 20px;
+    margin: 0;
+    border-left: 3px solid #d2213d;
+    /* vertical structure line */
+}
+
+/* INDIVIDUAL REFERENCES */
+.reference-list li {
+    margin-bottom: 22px;
+    max-width: 850px;
+}
+
+/* LINKS / DIGITAL CITATIONS */
+.reference-list a {
+    text-decoration: none;
+    color: #d2213d;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s ease;
+}
+
+.reference-list a:hover {
+    border-bottom-color: #d2213d;
+}
+
+/* YELLOW HIGHLIGHT OPTION */
+.reference-list li em {
+    background: linear-gradient(to bottom, transparent 60%, #e6e27e 60%);
+    font-style: italic;
+}

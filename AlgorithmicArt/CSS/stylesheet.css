@@ -1,0 +1,564 @@
+/* ------------------
+   Global Styles
+------------------ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #111;
+    background-color: #f5f5f5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-display: swap;
+}
+
+/* ------------------
+   Section 1 quote heading
+------------------ */
+/* .master-header--intro .header-content {
+    transform: translateY(-12vh);
+} */
+
+
+
+/* ------------------
+   Section Layout
+------------------ */
+.section {
+    background-color: #ffffff;
+}
+
+.section-marker {
+    position: relative;
+    top: -50vh;
+    height: 40vh;
+    pointer-events: none;
+}
+
+.parallax-headerMV {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    padding-top: 30vh;
+}
+
+.parallax-header {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* display: flex;
+    align-items: flex-start;
+    justify-content: center; */
+    position: relative;
+    padding-top: 30vh;
+}
+
+.header-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 71, 171, 0.4)
+}
+
+.text-container {
+    position: relative;
+    z-index: 5;
+    padding: 5% 5%;
+    text-align: left;
+    padding: 13% 2% 0 8%;
+}
+
+/* Main Title Container */
+.title {
+    display: block;
+    line-height: 1.25;
+    /* very tight line spacing */
+
+}
+
+.title .main {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 1.05;
+    /* Regular */
+    font-size: clamp(5rem, 12vw, 10rem);
+    color: #E6E27E;
+    /* yellow */
+    display: block;
+    margin-bottom: -0.2em;
+    /* pull lines closer together */
+    z-index: 9;
+
+}
+
+/* "Circle Limit" in Light Italic Poppins */
+.title .accent {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    /* Light */
+    font-style: italic;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: #E6E27E;
+    /* same yellow */
+    display: block;
+    line-height: 1.05;
+    transform: translateX(2%) rotate(-1deg);
+    line-height: 1.6;
+    z-index: 9;
+
+
+}
+
+.title-container {
+    width: 65vw;
+    height: 100vh;
+}
+
+.title-black {
+    display: block;
+    line-height: 2;
+    /* very tight line spacing */
+
+}
+
+.title-black .main {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    /* Regular */
+    font-size: clamp(3rem, 12vw, 7rem);
+    color: #1a1a1a;
+    /* yellow */
+    display: block;
+    /* pull lines closer together */
+    z-index: 9;
+    margin-top: 3rem;
+
+}
+
+.title-black .accent {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    /* Light */
+    font-style: italic;
+    font-size: clamp(1rem, 7vw, 2rem);
+    color: #1a1a1a;
+    /* same yellow */
+    display: block;
+    line-height: 1.05;
+    line-height: 1;
+    margin-top: 3rem;
+
+}
+
+.header-overlay h1 {
+
+    opacity: 0;
+    /* start slighly lower so it can animate up */
+    transform: translateY(12px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    will-change: opacity, transform;
+}
+
+
+.header-overlay.is-visible h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header-content {
+    max-width: 60rem;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 9vw;
+
+}
+
+.header-credit {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(0, 0, 0, 0.35);
+    padding: 0.4rem 0.6rem;
+    z-index: 5;
+}
+
+
+
+/* ------------------
+   Content Grid
+------------------ */
+.content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.content.full {
+    grid-template-columns: 1fr;
+}
+
+.text-block p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+.image-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ------------------
+   art accreditaion 
+------------------ */
+.artwork {
+    margin: 0;
+}
+
+.artwork img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.artwork-credit {
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    line-height: 1.4;
+    color: #777;
+    text-align: center;
+}
+
+.artwork-credit2 {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    line-height: 1.4;
+    color: #777;
+    text-align: center;
+}
+
+/* ------------------
+   Sources section
+------------------ */
+.sources {
+    background: #fff;
+    color: #1a1a1a;
+    padding: 70px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sources-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 6vw;
+    position: relative;
+}
+
+/* Section header */
+.sources h2 {
+    font-size: clamp(1.3rem, 1.8vw, 2rem);
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #d2213d;
+}
+
+/* Vertical accent line */
+.references {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 24px;
+    border-left: 2px solid #d2213d;
+}
+
+/* Individual reference blocks */
+.references li {
+    margin-bottom: 18px;
+    line-height: 1.45;
+    max-width: 800px;
+}
+
+/* Inline link styling */
+.references a {
+    color: #d2213d;
+    text-decoration: none;
+    margin-left: 0.4rem;
+    border-bottom: 1px solid transparent;
+    transition: 0.25s ease;
+}
+
+.references a:hover {
+    border-bottom-color: #d2213d;
+}
+
+
+/* ------------------
+typing headers
+------------------ */
+/* blue pixel */
+.pixel-hero {
+    height: 100vh;
+    background-color: #0047ab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding-top: 15vh;
+    padding-left: 7vw;
+    color: #f5f5f5;
+
+}
+
+
+.typing-target {
+    font-family: "Pixelify Sans", sans-serif;
+    /* color: #f5f5f5; */
+    font-weight: 700;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1.05;
+    white-space: normal;
+    overflow: visible;
+    text-wrap: balance;
+}
+
+.typing-block {
+    display: inline-block;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.cursor1 {
+    width: 0.5em;
+    height: 4em;
+    /* slightly taller than text */
+    display: inline-block;
+    vertical-align: baseline;
+    background: currentColor;
+    opacity: 1;
+    animation: blink 0.9s steps(1) infinite;
+    margin-left: 0.12em;
+    color: #f5f5f5;
+}
+
+/* blinking cursor */
+@keyframes blink {
+
+    0%,
+    60% {
+        opacity: 1;
+    }
+
+    60.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* yellow pixel */
+.pixel-yellow {
+    height: 100vh;
+    background-color: #E6E27E;
+    /* yellow background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding-top: 15vh;
+    padding-left: 7vw;
+    color: #111;
+    margin-bottom: 100px;
+}
+
+.typing-target-yellow {
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1.05;
+    white-space: normal;
+    overflow: visible;
+    text-wrap: balance;
+    color: #111;
+    /* black text */
+}
+
+.cursor-yellow {
+    width: 0.5em;
+    height: 4em;
+    display: inline-block;
+    vertical-align: baseline;
+    background: currentColor;
+    opacity: 1;
+    animation: blink 0.9s steps(1) infinite;
+    margin-left: 0.12em;
+    color: #111;
+    /* black cursor */
+}
+
+/* quote at the start of grids */
+.quote-hero {
+    position: relative;
+    height: 100vh;
+    background: url("../Images1/Rosalind-Krauss.jpeg") center/cover no-repeat;
+    display: flex;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw;
+}
+
+.cursor-quote {
+    width: 0.15em;
+    height: 2em;
+    /* slightly taller than text */
+    display: inline-block;
+    vertical-align: baseline;
+    background: currentColor;
+    opacity: 1;
+    animation: blink 0.9s steps(1) infinite;
+    margin-left: 0.12em;
+    color: #f5f5f5;
+}
+
+/* blinking cursor */
+@keyframes blink {
+
+    0%,
+    60% {
+        opacity: 1;
+    }
+
+    60.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.quote-overlay {
+    background-color: rgba(0, 71, 171, 0.4);
+    padding: 1.5rem 2rem;
+    width: 30rem;
+    height: 30rem;
+    box-sizing: border-box;
+}
+
+
+
+.typing-target-quote {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    /* font-style: italic; */
+    font-size: clamp(1rem, 10vw, 3rem);
+    line-height: 1.05;
+    white-space: normal;
+    overflow: visible;
+    text-wrap: balance;
+    color: #f5f5f5;
+    /* black text */
+}
+
+.quote-author {
+    margin-top: 9rem;
+    font-weight: 300;
+    opacity: 0.8;
+    color: #f5f5f5;
+    font-family: "Cormorant Garamond", serif;
+}
+
+/* white text on blue background */
+.cursor-white {
+    width: 0.15em;
+    height: 2em;
+    /* slightly taller than text */
+    display: inline-block;
+    vertical-align: baseline;
+    background: currentColor;
+    opacity: 1;
+    animation: blink 0.9s steps(1) infinite;
+    margin-left: 0.12em;
+    color: #f5f5f5;
+}
+
+@keyframes blink {
+
+    0%,
+    60% {
+        opacity: 1;
+    }
+
+    60.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.typing-target-white {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 10vw, 3rem);
+    line-height: 1.05;
+    white-space: normal;
+    overflow: visible;
+    text-wrap: balance;
+    color: #f5f5f5;
+}
+
+.blue-background {
+    height: 100vh;
+    background-color: #0047ab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding-top: 15vh;
+    padding-left: 7vw;
+    color: #f5f5f5;
+    margin-bottom: 100px;
+}
+
+/* ------------------
+   Responsive
+------------------ */
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .parallax-header {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 1280px) {
+    .side-nav {
+        display: none;
+    }
+}

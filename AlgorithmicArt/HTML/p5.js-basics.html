@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>p5.js Basics</title>
+
+    <!-- main html stylesheet -->
+    <link rel="stylesheet" href="../CSS/algorithmic-art.css">
+    <link rel="stylesheet" href="../CSS/stylesheet.css" />
+
+    <!-- navigation bar  -->
+    <link rel="stylesheet" type="text/css" href="../CSS/nav-bar.css">
+    <script src="../JavaScript/nav.js" defer></script>
+
+    <!-- p5.js extension -->
+    <script src="../P5.js-extension/libraries/p5.min.js"></script>
+    <script src="../P5.js-extension/libraries/p5.sound.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+
+        <!-- burger menu for small screens -->
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Grid Research</a></li>
+            <li><a href="./p5.js-basics.html">p5.js Basics</a></li>
+            <li><a href="./SVG-tessellation.html">SVG Tessellation</a></li>
+            <li><a href="./grid-composition.html">Grid Composition</a></li>
+            <li><a href="./mathsvis.html">MathsVis</a></li>
+            <li><a href="./interactive-spiral.html">Interactive Spiral</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- MASTER HEADER -->
+
+    <header class="master-header">
+        <div class="header-content">
+
+            <div class="title-container">
+                <h1 class="title-black">
+                    <span class="main">p5.js Basics</span>
+                    <span class="accent">Documenting early research and Yayoi Kusama Response</span>
+                </h1>
+            </div>
+
+
+        </div>
+    </header>
+
+
+    <!-- ARTWORK SECTION -->
+    <section class="artwork-section">
+        <div class="artwork-container">
+            <img src="../Images3/Yayoi-Kusama.png" />
+            <div class="artwork-credit">
+                Inspired by Sol LeWitt, Wall Drawing series<br />
+                p5.js study by Your Name
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DOCUMENTATION SECTIONS -->
+    <main>
+
+        <section class="step">
+            <h3>Basic setup, functions and shapes </h3>
+            <p>
+                The earliest takeaway from learning to use p5.js was learning to set up the canvas; defining its
+                parameters, calling a function e.g. draw() and drawing simple shapes such as circles or squares by
+                looking at the p5.js references page.
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images3/setup.jpg" />
+                <img src="../Images3/circle.png" />
+            </div>
+        </section>
+
+        <section class="step">
+            <h3>Let and While Loops</h3>
+            <p>
+                Let is used to define a value and is needed for creating ‘while’ loops.
+                I’m still struggling to wrap my head around loops as a whole, particularly as they get more complex as
+                you introduce more ‘let’ values. This is a simple implementation of a while loop:
+
+            </p>
+            <h3>For loops</h3>
+            <p>The best way I can describe a ‘for’ loop with my limited technical knowledge is it seems to be a more
+                condensed expression where the let and the incremental step are embedded within a single line of code.
+                Below is an example of a simple while and for loop which both yeild the same result:
+            </p>
+            <div class="image-grid">
+                <img src="../Images3/loops.jpg" />
+                <img src="../Images3/circles.png" />
+            </div>
+        </section>
+
+        <section class="step">
+            <h3>Nested while loops</h3>
+            <p>
+                This technique introduces a 2nd variable for instance, Y as well as X. This is needed to plot drawings
+                e.g. circles on a vertical and horizontal axis.
+
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images3/nested loop.jpg" alt="Line variations" />
+                <img src="../Images3/nested circles.png" alt="Line code" />
+
+        </section>
+
+        <section class="step">
+            <h3>Push() / Pop() and translate()</h3>
+            <p>
+                Push begins its own drawing group that contains its own styles and transformations and pop ends the
+                drawing group. Within the following example I also experiment with translate(), a function that shifts
+                everything that comes after according to new x and y coordinates.
+            </p>
+            <div class="image-grid">
+                <img src="../Images3/push:pop.jpg" />
+                <img src="../Images3/push:pop circles.png" />
+            </div>
+        </section>
+
+        <section class="step">
+            <h3>Random() and noLoop()</h3>
+            <p>
+                In class we created a looping function which fills the canvas with 50x50px squares. In addition to this,
+                we introduced the ‘random’ attribute with the let ‘chosenColour’. This enabled us to input a range of
+                colours which would be chosen at random to ‘fill’ each square. The noLoop() attribute is added to the
+                setup function so that the act of choosing a random colour only happens once.
+
+            </p>
+            <div class="image-grid">
+                <img src="../Images3/random.jpg" />
+                <img src="../Images3/random colours.png" />
+            </div>
+        </section>
+
+
+        <section class="step single-image">
+            <h3>Yayoi Kusama - Inspired art:</h3>
+            <p>
+                Using the techniques discussed so far; and, I think, partially inspired by all the circles, I
+                created an
+                algorithmic piece that responds to Yayoi Kusama’s artwork.
+                The work uses a nested ‘while’ loop that fills the canvas with circles. However, within the nested
+                loop
+                there is a push/pop, inside which is a translate() function with its coordinates set to random. The
+                effect of this is that random creates a small offset variation to the new drawing reference points
+                introduced with translate, this creates a more organic structure where the circles aren't perfectly
+                spaced.
+            </p>
+
+            <div class="image-single">
+                <img src="../Images3/kusama.jpg" alt="process image" />
+            </div>
+        </section>
+
+
+        <section class="final-context">
+            <h3>Final Outcome</h3>
+            <p>
+                My research for this project in addition to this experimentation has led me to want to focus more on
+                recreating analog art with p5.js.
+            </p>
+        </section>
+
+        <!-- Linked algorithmic art -->
+        <script src="../JavaScript/yayoi-kusama.js"></script>
+
+    </main>
+
+
+</body>
+
+</html>

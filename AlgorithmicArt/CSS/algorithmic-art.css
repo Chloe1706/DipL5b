@@ -1,0 +1,141 @@
+/* MASTER HEADER */
+.master-header {
+    height: 100vh;
+    background-color: #e6e27e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding-top: 15vh;
+
+
+}
+
+.header-content {
+    max-width: 900px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 8rem;
+    margin-bottom: 2.5rem;
+    line-height: 0.95;
+}
+
+h2 {
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    display: block;
+    width: 100%;
+}
+
+/* ARTWORK IMAGE */
+.artwork-section {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.artwork-container {
+    position: relative;
+    width: min(80vw, 700px);
+}
+
+.artwork-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid #111;
+}
+
+/* Hover credit */
+.artwork-credit {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+}
+
+.artwork-container:hover .artwork-credit {
+    opacity: 1;
+}
+
+
+/* DOCUMENTATION */
+main {
+    padding: 4rem 2rem;
+}
+
+.step {
+    max-width: 1000px;
+    margin: 0 auto 4rem auto;
+}
+
+.step h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.step p {
+    margin-bottom: 1.5rem;
+}
+
+/* IMAGE GRID */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    border: 2px solid #111;
+}
+
+/* SINGLE IMAGE SECTION*/
+.image-single {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.image-single img {
+    border: 2px solid #111;
+    width: min(600px, 100%);
+    /* max similar to 2-up total width */
+    max-width: 600px;
+    /* protects large screens */
+}
+
+
+
+/* FINAL SECTION */
+section.final-context {
+    max-width: 800px;
+    margin: 4rem auto 2rem auto;
+    padding: 2rem;
+    background: #f4f3e8;
+    border-left: 5px solid #111;
+}
+
+section.final-context h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+section.final-context p {
+    opacity: 0.85;
+    line-height: 1.5;
+}

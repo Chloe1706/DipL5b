@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Tessellation</title>
+
+    <!-- navigation bar  -->
+    <link rel="stylesheet" type="text/css" href="../CSS/nav-bar.css">
+    <script src="../JavaScript/nav.js" defer></script>
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="../CSS/algorithmic-art.css" />
+    <link rel="stylesheet" href="../CSS/stylesheet.css" />
+
+    <!-- p5.js extension -->
+    <script src="../P5.js-extension/libraries/p5.min.js" defer></script>
+    <script src="../P5.js-extension/libraries/p5.sound.min.js" defer></script>
+
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Grid Research</a></li>
+            <li><a href="./p5.js-basics.html">p5.js Basics</a></li>
+            <li><a href="./SVG-tessellation.html">SVG Tessellation</a></li>
+            <li><a href="./grid-composition.html">Grid Composition</a></li>
+            <li><a href="./mathsvis.html">MathsVis</a></li>
+            <li><a href="./interactive-spiral.html">Interactive Spiral</a></li>
+        </ul>
+    </nav>
+
+    <!-- MASTER HEADER -->
+    <header class="master-header">
+        <div class="header-content">
+
+            <div class="title-container">
+                <h1 class="title-black">
+                    <span class="main">SVG Tessellation</span>
+                    <span class="accent">Creating an M.C. Escher inspired work using an SVG and p5.js</span>
+                </h1>
+            </div>
+
+
+        </div>
+    </header>
+
+
+    <!-- ARTWORK SECTION -->
+    <section class="artwork-section">
+        <div class="artwork-container">
+            <img src="../Images4/two-birds.jpeg" />
+            <div class="artwork-credit">
+                Two Birds (no. 18), 1938<br />
+                M.C. Escher
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTATION SECTIONS -->
+    <section class="step single-image">
+        <h3>Creating an SVG</h3>
+        <p>
+            I created a drawing in photoshop with the grid set to visible, mimicking Escher's birds. I used an online
+            converter to turn this drawing into a SVG file for the purposes of this project.
+        </p>
+
+        <div class="image-single">
+            <img src="../Images4/photoshop.png" />
+        </div>
+    </section>
+
+    <section class="step single-image">
+        <h3>Loading the SVG File</h3>
+        <p>
+            The bird SVG is added to the document and stored under the variable ‘bird’.
+
+        </p>
+
+        <div class="image-single">
+            <img src="../Images4/svg.jpg" />
+        </div>
+    </section>
+
+    <section class="step single-image">
+        <h3>Canvas Setup</h3>
+        <p>
+            The size of the canvas is set in addition to the function ‘noLoop()’ so that the draw function runs only one
+            time.
+
+        </p>
+
+        <div class="image-single">
+            <img src="../Images4/setup.jpg" />
+        </div>
+    </section>
+
+    <section class="step single-image">
+        <h3>Defining Three Layout Parameters</h3>
+        <p>
+            The scale factor for the bird (s = 0.25), the horizontal spacing between bird positions (xSpacing = 325) and
+            the vertical spacing between bird positions (ySpacing = 260). Defining these values was mostly a process of
+            experimentation, where I would input different values until birds tessellated properly.
+        </p>
+
+        <div class="image-single">
+            <img src="../Images4/const.jpg" />
+        </div>
+    </section>
+
+    <section class="step single-image">
+        <h3>Create a Nested While Loop</h3>
+        <p>
+            The goal was to draw copies of the bird SVG across the canvas. To do this I needed two loops, one for the
+            rows (top to bottom), and one for the columns (left to right). Col * xSpacing determines how far across the
+            canvas the next bird should be placed and row * ySpacing calculates how far down the canvas the next bird
+            should be placed. These two values give the (x , y) positioning of each bird. ImageMode(CENTER) is used to
+            place the bird at the center of the (x , y) point.
+        </p>
+
+        <div class="image-single">
+            <img src="../Images4/loop.jpg" />
+        </div>
+    </section>
+
+    <section class="final-context">
+        <h3>Final Visual Result:</h3>
+        <p>
+            The birds are positioned in an arbitrary 5x5 grid where each bird is centred in its position within the
+            grid. The result is a tessellating pattern. Were I to revisit this, I would redo the svg design to produce a
+            more seamless, refined outcome.
+
+        </p>
+    </section>
+
+    <!-- Linked algorithmic art -->
+    <script src="../JavaScript/Escher.js" defer></script>
+</body>
+
+</html>
