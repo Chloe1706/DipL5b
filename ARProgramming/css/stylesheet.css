@@ -5,6 +5,30 @@ html {
     font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: #f8f8f6;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 120px 120px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.09) 0%,
+            rgba(0, 0, 0, 0.02) 10%,
+            transparent 20%,
+            transparent 80%,
+            rgba(0, 0, 0, 0.02) 90%,
+            rgba(0, 0, 0, 0.09) 100%);
+}
+
 /* Common header styles */
 .master-header {
     width: 100vw;
@@ -15,6 +39,21 @@ html {
     text-align: center;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.master-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+
+    background-size: 120px 120px;
 }
 
 .first-header,
@@ -287,7 +326,6 @@ html {
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 0.5rem;
 }
 
