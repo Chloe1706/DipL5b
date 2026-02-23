@@ -68,15 +68,119 @@ html {
 /* Second header: same image without overlay */
 .second-header {
     background-image: url('../Images1/BucketMan.jpeg');
-    /* same image */
+    position: relative;
+    overflow: hidden;
 }
 
 .second-header h1 {
-    font-size: 4rem;
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 700;
-    color: white;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    text-align: center;
 }
+
+.second-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    backdrop-filter: blur(6px);
+
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.35) 30%,
+            rgba(0, 0, 0, 0.1) 60%,
+            rgba(0, 0, 0, 0) 85%);
+}
+
+.second-header .header-left {
+    position: relative;
+    padding-right: 4rem;
+    /* space before divider */
+}
+
+/* Vertical divider */
+.second-header .header-left::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    /* adjust depending on overlay */
+}
+
+.second-header .header-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 4rem;
+}
+
+.second-header .header-left h1 {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.05;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.second-header .header-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    /* lighter weight */
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    color: #E6E27E;
+}
+
+/* RIGHT SIDE */
+.second-header .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Video */
+.second-header .phone-video {
+    width: 320px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.4);
+}
+
+/* Video caption */
+.second-header .video-caption {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Background image caption */
+.second-header .bg-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+    z-index: 2;
+    color: white;
+}
+
 
 
 /* ------------------
@@ -127,4 +231,151 @@ html {
     line-height: 1.4;
     color: #777;
     text-align: center;
+}
+
+.artwork video {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.phone-video {
+    width: 280px;
+    /* controls size */
+    aspect-ratio: 9 / 16;
+    /* forces vertical phone ratio */
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+
+.video-caption {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    /* or dark depending on overlay */
+    opacity: 0.8;
+    text-align: center;
+    max-width: 400px;
+}
+
+/* ------------------
+   Main text section
+------------------ */
+/* Make full-width text content grid for extended text */
+.content.full {
+    display: block;
+    /* single column */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Research sections */
+.research-section {
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+}
+
+/* Section headings */
+.research-section h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.text-block p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.highlight {
+    font-style: italic;
+    /* subtle emphasis */
+    background-color: rgba(245, 245, 245, 0.5);
+    /* light highlight */
+    border-left: 4px solid #ccc;
+    /* visual accent */
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+}
+
+/* ------------------
+   Responsive
+------------------ */
+
+/* ==========================================
+   SECOND HEADER — MOBILE FIX (STACK PROPERLY)
+========================================== */
+
+@media (max-width: 900px) {
+
+    /* Force single column layout */
+    .second-header .header-content {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto;
+        gap: 2rem;
+    }
+
+    /* Ensure both left + right sections span full width */
+    .second-header .header-left,
+    .second-header .image-block,
+    .second-header .artwork {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    /* Stack order: title first, video second */
+    .second-header .header-left {
+        order: 1;
+    }
+
+    .second-header .image-block {
+        order: 2;
+    }
+
+    /* Video sizing */
+    .second-header video {
+        display: block;
+        width: 80%;
+        max-width: 320px;
+        margin: 0 auto;
+        border-radius: 22px;
+    }
+
+    /* Remove vertical divider */
+    .vertical-divider {
+        display: none !important;
+    }
+
+    /* Improve spacing */
+    .second-header {
+        height: auto;
+        min-height: unset;
+        padding: 5rem 1.5rem;
+    }
+
+    /* Title scaling */
+    .second-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .second-header .header-subtitle {
+        font-size: 1rem;
+        color: #E6E27E;
+    }
+
 }
