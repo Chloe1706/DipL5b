@@ -1,0 +1,130 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Common header styles */
+.master-header {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.first-header,
+.second-header {
+    background-attachment: fixed;
+    /* makes the background move slower than the scroll */
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* First header: image with semi-transparent overlay */
+.first-header {
+    background-image: url('../Images1/BucketMan.jpeg');
+    /* replace with your image */
+    position: relative;
+}
+
+.first-header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* semi-transparent white */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* align to top */
+}
+
+.first-header .header-content {
+    margin-top: 25vh;
+    /* pushes the text down 25% of viewport height */
+    text-align: center;
+}
+
+.first-header h1 {
+    font-size: 6vw;
+    font-weight: 400;
+    margin: 0;
+}
+
+.first-header h2 {
+    font-size: 6vw;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Second header: same image without overlay */
+.second-header {
+    background-image: url('../Images1/BucketMan.jpeg');
+    /* same image */
+}
+
+.second-header h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ------------------
+   Content Grid
+------------------ */
+.content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.content.full {
+    grid-template-columns: 1fr;
+}
+
+.text-block p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+.image-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ------------------
+   art accreditaion 
+------------------ */
+.artwork {
+    margin: 0;
+}
+
+.artwork img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.artwork-credit {
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    line-height: 1.4;
+    color: #777;
+    text-align: center;
+}

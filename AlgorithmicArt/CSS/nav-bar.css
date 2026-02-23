@@ -54,11 +54,35 @@
     margin: 5px 0;
 }
 
+/* ------------------
+   Back link positioning
+------------------ */
+
+/* Make the back-link push other links to the right */
+.nav-links .back-link {
+    margin-right: 19rem;
+    /* pushes everything else to the right */
+}
+
+/* Optional: style the back link slightly differently */
+.nav-links .back-link a {
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Hover effect for back link */
+.nav-links .back-link a:hover {
+    color: #d2213d;
+    /* matches the rest of your nav hover color */
+}
+
 
 /* ------------------
    Responsive
 ------------------ */
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
     .navbar {
         justify-content: space-between;
     }
