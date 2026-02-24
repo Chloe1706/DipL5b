@@ -50,11 +50,27 @@ body::before {
     pointer-events: none;
 
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
 
     background-size: 120px 120px;
+
+    animation: gridDrift 40s linear infinite;
+    z-index: 1;
+    pointer-events: none;
 }
+
+
+@keyframes gridDrift {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+
+    100% {
+        background-position: 120px 120px, 120px 120px;
+    }
+}
+
 
 .first-header,
 .second-header {
@@ -88,8 +104,27 @@ body::before {
 
 .first-header .header-content {
     margin-top: 25vh;
-    /* pushes the text down 25% of viewport height */
     text-align: center;
+
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+
+    animation: headerReveal 1.2s ease forwards;
+}
+
+@keyframes headerReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }
 
 .first-header h1 {
