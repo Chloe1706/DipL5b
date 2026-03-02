@@ -10,9 +10,8 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
     padding: 1rem 2rem;
-
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -23,6 +22,11 @@
 
     margin: 0;
     padding: 0;
+}
+
+.nav-links.main-links {
+    display: flex;
+    gap: 2rem;
 }
 
 .nav-links a {
@@ -60,7 +64,7 @@
 
 /* Make the back-link push other links to the right */
 .nav-links .back-link {
-    margin-right: 19rem;
+    display: flex;
     /* pushes everything else to the right */
 }
 
