@@ -1,34 +1,32 @@
 body,
 html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f4f6f8;
+  background-color: #f4f6f8;
 
-    background-size: 120px 120px;
+  background-size: 120px 120px;
 }
-
-
 
 /* ===============================
    MASTER HEADER
 ================================= */
 .master-header {
-    position: relative;
-    height: 85vh;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  position: relative;
+  height: 85vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
-    background-color: #1f242b;
-    /* charcoal */
-    color: #e8edf2;
-    /* cool light text */
+  background-color: #1f242b;
+  /* charcoal */
+  color: #e8edf2;
+  /* cool light text */
 }
 
 /* ===============================
@@ -36,86 +34,88 @@ body {
 ================================= */
 
 .header-grid {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
 
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 
-    background-size: 120px 120px;
+  background-size: 120px 120px;
 
-    animation: gridDrift 40s linear infinite;
-    z-index: 1;
-    pointer-events: none;
+  animation: gridDrift 40s linear infinite;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes gridDrift {
-    0% {
-        background-position: 0 0, 0 0;
-    }
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
 
-    100% {
-        background-position: 120px 120px, 120px 120px;
-    }
+  100% {
+    background-position:
+      120px 120px,
+      120px 120px;
+  }
 }
-
-
 
 /* ===============================
    HEADER CONTENT
 ================================= */
 
 .header-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
+  position: relative;
+  z-index: 3;
+  text-align: center;
 
-    max-width: 1000px;
-    /* allow more width */
-    padding: 0 2rem;
+  max-width: 1000px;
+  /* allow more width */
+  padding: 0 2rem;
 
-    animation: introFocus 1.2s ease forwards;
+  animation: introFocus 1.2s ease forwards;
 }
 
 .header-content h1 {
-    font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
 
-    line-height: 1.1;
-    /* better stacking */
-    letter-spacing: 0.02em;
-    /* reduce for readability */
-    margin-bottom: 1.2rem;
+  line-height: 1.1;
+  /* better stacking */
+  letter-spacing: 0.02em;
+  /* reduce for readability */
+  margin-bottom: 1.2rem;
 
-    font-weight: 600;
+  font-weight: 600;
 }
 
 @keyframes introFocus {
-    0% {
-        opacity: 0;
-        transform: translateY(12px);
-        filter: blur(6px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(6px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 .subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.75;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.75;
 }
 
 .header-divider {
-    margin: 2rem auto 0;
-    width: 80px;
-    height: 2px;
-    background: #E6E27E;
+  margin: 2rem auto 0;
+  width: 80px;
+  height: 2px;
+  background: #e6e27e;
 }
 
 /* ===============================
@@ -123,18 +123,20 @@ body {
 ================================= */
 
 .header-fade {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
 
-    background: linear-gradient(to bottom,
-            rgba(31, 36, 43, 0) 0%,
-            rgba(31, 36, 43, 0.7) 20%,
-            #f4f6f8 100%);
-    z-index: 2;
-    pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(31, 36, 43, 0) 0%,
+    rgba(31, 36, 43, 0.7) 20%,
+    #f4f6f8 100%
+  );
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* ===============================
@@ -142,20 +144,20 @@ body {
 ================================= */
 /* Initial hidden state */
 .section {
-    opacity: 0;
-    transform: translateY(40px);
-    filter: blur(6px);
-    transition:
-        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* When visible */
 .section.in-view {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 /* ===============================
@@ -163,14 +165,14 @@ body {
 ================================= */
 
 .section-major {
-    position: relative;
-    padding: 8rem 0;
-    background: #ffffff;
-    overflow: hidden;
+  position: relative;
+  padding: 8rem 0;
+  background: #ffffff;
+  overflow: hidden;
 }
 
 .section-major.alt {
-    background: #f4f6f8;
+  background: #f4f6f8;
 }
 
 /* ===============================
@@ -178,35 +180,33 @@ body {
 ================================= */
 
 .section-major.grid {
-    background: #1f242b;
-    color: #e8edf2;
+  background: #1f242b;
+  color: #e8edf2;
 }
 
 .section-major.grid::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
 
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
 
-    background-size: 160px 160px;
-    pointer-events: none;
+  background-size: 160px 160px;
+  pointer-events: none;
 }
-
-
 
 /* ===============================
    INNER LAYOUT
 ================================= */
 
 .major-inner {
-    position: relative;
-    z-index: 2;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 /* ===============================
@@ -214,15 +214,15 @@ body {
 ================================= */
 
 .section-label {
-    position: absolute;
-    top: 4rem;
-    left: 2rem;
+  position: absolute;
+  top: 4rem;
+  left: 2rem;
 
-    font-size: 6rem;
-    font-weight: 600;
-    opacity: 0.05;
+  font-size: 6rem;
+  font-weight: 600;
+  opacity: 0.05;
 
-    pointer-events: none;
+  pointer-events: none;
 }
 
 /* ===============================
@@ -230,28 +230,28 @@ body {
 ================================= */
 
 .major-header {
-    max-width: 700px;
-    margin-bottom: 5rem;
+  max-width: 700px;
+  margin-bottom: 5rem;
 }
 
 .section-major h2 {
-    font-size: 2rem;
-    letter-spacing: 0.06em;
-    margin-bottom: 1.2rem;
-    font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
 }
 
 .section-intro {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    opacity: 0.85;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.85;
 }
 
 .accent-line {
-    width: 60px;
-    height: 2px;
-    background: #E6E27E;
-    margin-top: 2rem;
+  width: 60px;
+  height: 2px;
+  background: #e6e27e;
+  margin-top: 2rem;
 }
 
 /* ===============================
@@ -259,46 +259,45 @@ body {
 ================================= */
 
 .subsection {
-    max-width: 800px;
-    margin-bottom: 6rem;
+  max-width: 800px;
+  margin-bottom: 6rem;
 }
 
 .subsection h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.04em;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
 }
 
 .subsection p {
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
 }
-
 
 /* ===============================
    CODE IMAGES
 ================================= */
 
 .image-container {
-    margin: 2rem 0;
+  margin: 2rem 0;
 }
 
 .code-image {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 
-    border: 1px solid rgba(28, 33, 40, 0.15);
-    /* earthy black-brown tint */
-    background: #ffffff;
+  border: 1px solid rgba(28, 33, 40, 0.15);
+  /* earthy black-brown tint */
+  background: #ffffff;
 
-    padding: 0.5rem;
-    /* separates white code from page white */
+  padding: 0.5rem;
+  /* separates white code from page white */
 }
 
 /* Optional subtle lift */
 .code-image:hover {
-    border-color: rgba(28, 33, 40, 0.3);
+  border-color: rgba(28, 33, 40, 0.3);
 }
 
 /* ===============================
@@ -306,41 +305,57 @@ body {
 ================================= */
 
 .unity-image {
-    margin: 2.5rem auto;
-    max-width: 600px;
-    /* controls overall scale */
+  margin: 2.5rem auto;
+  max-width: 600px;
+  /* controls overall scale */
 }
 
 .unity-image img {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 
-    border: 1px solid rgba(28, 33, 40, 0.15);
-    border-radius: 4px;
-    background: #ffffff;
+  border: 1px solid rgba(28, 33, 40, 0.15);
+  border-radius: 4px;
+  background: #ffffff;
 }
 
 /* Caption */
 .image-caption {
-    font-size: 0.85rem;
-    margin-top: 0.8rem;
-    opacity: 0.65;
-    line-height: 1.5;
-    text-align: left;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  opacity: 0.65;
+  line-height: 1.5;
+  text-align: left;
 }
 
 /* ===============================
-   VIDEO PLACEHOLDER (Future)
+   VIDEOS
 ================================= */
 
-.video-placeholder {
-    margin: 2rem 0;
-    padding: 3rem;
+.video-wrapper {
+  position: relative;
+  width: 280px;
+  margin: 3rem auto; /* centers the whole block */
+}
 
-    border: 1px dashed rgba(40, 35, 30, 0.2);
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.6;
+.phone-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+.video-caption {
+  position: absolute;
+  top: 0;
+  left: -220px; /* moves caption to left of video */
+  width: 200px;
+
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  text-align: right;
 }
 
 /* ===============================
@@ -348,9 +363,9 @@ body {
 ================================= */
 
 .reference {
-    font-size: 0.85rem;
-    opacity: 0.6;
-    margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 1rem;
 }
 
 /* =========================
@@ -358,58 +373,57 @@ body {
 ========================= */
 
 .sources-section {
-    position: relative;
-    margin-top: 6rem;
-    padding: 6rem 2rem;
+  position: relative;
+  padding: 6rem 2rem;
 
-    background-color: #1f242b;
-    /* charcoal */
-    color: #e8edf2;
-    /* cool off-white */
+  background-color: #e6eaee;
+  /* charcoal */
+  color: #090909;
+  /* cool off-white */
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Subtle grid overlay */
 .sources-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
 
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 
-    background-size: 160px 160px;
-    pointer-events: none;
+  background-size: 160px 160px;
+  pointer-events: none;
 }
 
 /* Keep content above grid */
 .sources-inner {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Main Section Title */
 .sources-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    color: #e8edf2;
-    position: relative;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #090909;
+  position: relative;
 }
 
 /* Yellow accent underline */
 .sources-title::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #E6E27E;
-    margin-top: 0.8rem;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #e6e27e;
+  margin-top: 0.8rem;
 }
 
 /* =========================
@@ -417,15 +431,15 @@ body {
 ========================= */
 
 .source-group {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .source-subtitle {
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0.7;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
 }
 
 /* =========================
@@ -433,30 +447,30 @@ body {
 ========================= */
 
 .asset-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .asset-list li {
-    margin-bottom: 1.6rem;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    color: #cfd6dd;
+  margin-bottom: 1.6rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #090909;
 }
 
 /* Asset names */
 .asset-list strong {
-    color: #e8edf2;
-    font-weight: 600;
+  color: #090909;
+  font-weight: 600;
 }
 
 /* License text (subtle) */
 .license {
-    display: block;
-    font-size: 0.85rem;
-    opacity: 0.6;
-    margin-top: 0.3rem;
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.3rem;
 }
 
 /* =========================
@@ -464,20 +478,24 @@ body {
 ========================= */
 
 .sources-section a {
-    color: #e8edf2;
-    text-decoration: none;
-    word-break: break-word;
+  color: #090909;
+  text-decoration: none;
+  word-break: break-word;
 
-    background-image: linear-gradient(rgba(230, 226, 126, 0.6),
-            rgba(230, 226, 126, 0.6));
-    background-repeat: no-repeat;
-    background-size: 100% 0.6em;
-    background-position: 0 90%;
+  background-image: linear-gradient(
+    rgba(230, 226, 126, 0.6),
+    rgba(230, 226, 126, 0.6)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.6em;
+  background-position: 0 90%;
 
-    transition: background-size 0.25s ease, opacity 0.25s ease;
+  transition:
+    background-size 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .sources-section a:hover {
-    background-size: 100% 1em;
-    opacity: 0.9;
+  background-size: 100% 1em;
+  opacity: 0.9;
 }

@@ -1,990 +1,1286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exploratory Research</title>
 
     <!-- Google Font: Cormorant Garamond -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- main html stylesheet -->
     <link rel="stylesheet" href="../css/customAR.css" />
 
-
     <!-- navigation bar  -->
-    <link rel="stylesheet" type="text/css" href="../../AlgorithmicArt/CSS/nav-bar.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../AlgorithmicArt/CSS/nav-bar.css"
+    />
     <script src="../../AlgorithmicArt/JavaScript/nav.js" defer></script>
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <!-- NAVIGATION BAR -->
     <nav class="navbar">
-        <button class="nav-toggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <ul class="nav-links">
+      <ul class="nav-links">
+        <!-- link back to landing page -->
+        <li class="back-link">
+          <a href="../../index.html">← Back to Index</a>
+        </li>
+      </ul>
 
-            <!-- link back to landing page -->
-            <li class="back-link"><a href="../../index.html">← Back to Index</a></li>
-        </ul>
-
-        <ul class="nav-links main-links">
-            <li><a href="./research.html">Exploratory Research</a></li>
-            <li><a href="./planning.html">Planning</a></li>
-            <li><a href="./customAR.html">Custom AR</a></li>
-        </ul>
+      <ul class="nav-links main-links">
+        <li><a href="./research.html">Exploratory Research</a></li>
+        <li><a href="./planning.html">Planning</a></li>
+        <li><a href="./customAR.html">Custom AR</a></li>
+      </ul>
     </nav>
 
     <header class="master-header">
-        <div class="header-grid"></div>
-        <div class="header-fade"></div>
+      <div class="header-grid"></div>
+      <div class="header-fade"></div>
 
-        <div class="header-content">
-            <h1>Making an Image-Tracking AR Experience</h1>
-            <p class="subtitle">Unity · C# · Assets</p>
-            <div class="header-divider"></div>
-        </div>
+      <div class="header-content">
+        <h1>Making an Image-Tracking AR Experience</h1>
+        <p class="subtitle">Unity · C# · Assets</p>
+        <div class="header-divider"></div>
+      </div>
     </header>
 
     <section class="section-major alt">
+      <div class="major-inner">
+        <div class="section-label">01</div>
 
-        <div class="major-inner">
-
-            <div class="section-label">01</div>
-
-            <div class="major-header section">
-                <h2>Cartomancy AR</h2>
-                <p class="section-intro">
-                    This page outlines the process of creating my Image Tracking AR project using Unity which places 3D
-                    models, sprite sheet animations and interactable text boxes on tracked playing cards.
-                </p>
-                <div class="accent-line section"></div>
-            </div>
-
-            <!-- SUBSECTION 1 -->
-            <div class="subsection section">
-                <h3>Workshop: AR Simple Image Tracking</h3>
-
-                <p>
-                    I began by following the ‘AR Simple Image Tracking’ workshop provided on the VLE. In place of the QR
-                    code example, I used a photo of a playing card from the Gypsy Witch deck. This, the ace of
-                    hearts,was the first card I used, from which expanded to incorporate more cards in a multi-image
-                    tracking AR experience.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/reference-image-library.png" alt="Unity Reference Image Library">
-                    <p class="image-caption">
-                        Unity Reference Image Library
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- SUBSECTION 2 -->
-            <div class="subsection section">
-                <h3>Workshop: Interaction with a Tracked Object</h3>
-
-                <p>
-                    I then followed the ‘Interaction with a Tracked Object’ workshop and implemented the
-                    SetSelectedState script as shown in the workshop. However, I noticed that by following this
-                    tutorial, it would make the selected object flash the alternative material briefly. I wanted the
-                    ability to toggle the selected state on and off so the prefab object would maintain its changed
-                    state until selected again so I made some alterations to the SetSelectedState script:
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/set-selected-state.png" alt="Set Selected State script">
-                    <p class="image-caption">
-                        Origional SetSelectedState Script - Provided in the Image Tracking with Touch Interaction
-                        Workshop
-                    </p>
-                </div>
-            </div>
+        <div class="major-header section">
+          <h2>Cartomancy AR</h2>
+          <p class="section-intro">
+            This page outlines the process of creating my Image Tracking AR
+            project using Unity which places 3D models, sprite sheet animations
+            and interactable text boxes on tracked playing cards.
+          </p>
+          <div class="accent-line section"></div>
         </div>
+
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <h3>Workshop: AR Simple Image Tracking</h3>
+
+          <p>
+            I began by following the ‘AR Simple Image Tracking’ workshop
+            provided on the VLE. In place of the QR code example, I used a photo
+            of a playing card from the Gypsy Witch deck. This, the ace of
+            hearts,was the first card I used, from which expanded to incorporate
+            more cards in a multi-image tracking AR experience.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/reference-image-library.png"
+              alt="Unity Reference Image Library"
+            />
+            <p class="image-caption">Unity Reference Image Library</p>
+          </div>
+        </div>
+
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Workshop: Interaction with a Tracked Object</h3>
+
+          <p>
+            I then followed the ‘Interaction with a Tracked Object’ workshop and
+            implemented the SetSelectedState script as shown in the workshop.
+            However, I noticed that by following this tutorial, it would make
+            the selected object flash the alternative material briefly. I wanted
+            the ability to toggle the selected state on and off so the prefab
+            object would maintain its changed state until selected again so I
+            made some alterations to the SetSelectedState script:
+          </p>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/set-selected-state.png"
+              alt="Set Selected State script"
+            />
+            <p class="image-caption">
+              Origional SetSelectedState Script - Provided in the Image Tracking
+              with Touch Interaction Workshop
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section-major grid">
+      <div class="major-inner">
+        <div class="section-label">02</div>
 
-        <div class="major-inner">
+        <div class="major-header section">
+          <h2><code>SetSelectedState</code></h2>
 
-            <div class="section-label">02</div>
+          <p class="section-intro section">
+            This next section breaks down the changes I implemented to the
+            SetSelectedState script, describing the methods used with
+            explanations and referencing.
+          </p>
 
-            <div class="major-header section">
-                <h2><code>SetSelectedState</code></h2>
+          <div class="accent-line section"></div>
+        </div>
 
-                <p class="section-intro section">
-                    This next section breaks down the changes I implemented to the SetSelectedState script, describing
-                    the methods used with explanations and referencing.
-                </p>
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <h3>Using Awake()</h3>
 
-                <div class="accent-line section"></div>
-            </div>
+          <p>
+            I used <code>Awake()</code> instead of <code>Start()</code>. Unity
+            calls awake when loading an instance of a script component. This
+            ensures that the script runs when the game objects that it is
+            assigned to is initialised and stores the original material applied
+            to the prefab before any interaction takes place.
+          </p>
 
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/Selected-state1.png"
+              alt="C# awake() Logic"
+              class="code-image"
+            />
+          </div>
 
-            <!-- SUBSECTION 1 -->
-            <div class="subsection section">
+          <p class="reference section">
+            Technologies, U. (n.d.)
+            <em>Event function execution order, Unity.</em>. Available at:
+            https://docs.unity3d.com/Manual/execution-order.html
+          </p>
+        </div>
 
-                <h3>Using Awake():</h3>
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Caching the MeshRenderer</h3>
 
-                <p>
-                    I used <code>Awake()</code> instead of <code>Start()</code>. Unity calls awake when loading an
-                    instance of a script component. This ensures that the script runs when the game objects that it is
-                    assigned to is initialised and
-                    stores the original material applied to the prefab before any interaction takes place.
-                </p>
+          <p>
+            The original SetSelectedState script used
+            <code>GetComponent</code> every time the selection state updates. In
+            Unity Documentation it recommends creating a reference to a
+            component of a type so that GetComponent is only called once in
+            Awake() and after that the script reuses the stored reference. This
+            is intended to improve efficiency.
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Selected-state1.png" alt="C# awake() Logic" class="code-image">
-                </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/Selected-state2.png"
+              alt="Find the MeshRenderer"
+              class="code-image"
+            />
+          </div>
 
-                <p class="reference section">
-                    Technologies, U. (n.d.) <em>Event function execution order, Unity.</em>.
-                    Available at: https://docs.unity3d.com/Manual/execution-order.html
-                </p>
+          <p class="reference section">
+            Technologies, U. (n.d.) <em>Component.getcomponent, Unity.</em>.
+            Available at:
+            https://docs.unity3d.com/ScriptReference/Component.GetComponent.html
+          </p>
+        </div>
 
-            </div>
+        <!-- SUBSECTION 3 -->
+        <div class="subsection section">
+          <h3>Adding Null</h3>
 
+          <p>
+            While developing this aspect of the project I ran into some issues
+            which prompted me to add some null checks. In the event that the
+            script cannot locate a reference, this prevents getting null
+            reference errors at runtime.
+          </p>
 
-            <!-- SUBSECTION 2 -->
-            <div class="subsection section">
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/Selected-state3.png"
+              alt="Null Reference"
+              class="code-image"
+            />
+          </div>
 
-                <h3>Caching the MeshRenderer:</h3>
+          <p class="reference section">
+            Technologies, U. (n.d.) <em>Null references, Unity.</em>. Available
+            at:
+            https://docs.unity3d.com/6000.1/Documentation/Manual/null-reference-exception.html
+          </p>
+        </div>
 
-                <p>
-                    The original SetSelectedState script used <code>GetComponent</code> every time the selection state
-                    updates. In
-                    Unity Documentation it recommends creating a reference to a component of a type so that GetComponent
-                    is only called once in Awake() and after that the script reuses the stored reference. This is
-                    intended to improve efficiency.
-                </p>
+        <!-- SUBSECTION 4 -->
+        <div class="subsection section">
+          <h3>Toggling Selection State</h3>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Selected-state2.png" alt="Find the MeshRenderer" class="code-image">
-                </div>
+          <p>
+            The previous script used <code>SetSelected()</code> and
+            <code>SetUnselected()</code>. After some research I learnt then
+            introducing a Toggle event would solve the issue I had earlier with
+            the object not retaining its altered material until tapped again. I
+            researched Boolean state management. To summarise my understanding,
+            a boolean stores the current state where <code>‘= False’</code> (in
+            this instance) means the object is unselected and
+            <code>‘= True’</code> means the object is selected. When the
+            interaction event happens this variable switches, and the material
+            of the object is switched accordingly. This in turn creates the
+            toggling effect. This also means the object can switch between the
+            two states using just one interactable event (Select Entered).
+          </p>
 
-                <p class="reference section">
-                    Technologies, U. (n.d.) <em>Component.getcomponent, Unity.</em>.
-                    Available at: https://docs.unity3d.com/ScriptReference/Component.GetComponent.html
-                </p>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/Selected-state4.png"
+              alt="Private bool"
+              class="code-image"
+            />
+          </div>
+          <div class="image-container section">
+            <img
+              src="../Images2/Selected-state4.5.png"
+              alt="Selection State"
+              class="code-image"
+            />
+          </div>
 
+          <p class="reference section">
+            BillWagner (2022).<em>bool type - C# reference - C#.</em>. Available
+            at:
+            https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool
+          </p>
+        </div>
 
-            </div>
+        <div class="video-wrapper">
+          <video class="phone-video" autoplay muted loop playsinline>
+            <source src="../Media/SetSelectedState.mp4" type="video/mp4" />
+          </video>
 
-
-            <!-- SUBSECTION 3 -->
-            <div class="subsection section">
-
-                <h3>Adding Null</h3>
-
-                <p>
-                    While developing this aspect of the project I ran into some issues which prompted me to add some
-                    null checks. In the event that the script cannot locate a reference, this prevents getting null
-                    reference errors at runtime.
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Selected-state3.png" alt="Null Reference" class="code-image">
-                </div>
-
-                <p class="reference section">
-                    Technologies, U. (n.d.) <em>Null references, Unity.</em>.
-                    Available at: https://docs.unity3d.com/6000.1/Documentation/Manual/null-reference-exception.html
-                </p>
-            </div>
-
-            <!-- SUBSECTION 4 -->
-            <div class="subsection section">
-
-                <h3>Toggling Selection State</h3>
-
-                <p>
-                    The previous script used <code>SetSelected()</code> and <code>SetUnselected()</code>. After some
-                    research I learnt then
-                    introducing a Toggle event would solve the issue I had earlier with the object not retaining its
-                    altered material until tapped again. I researched Boolean state management. To summarise my
-                    understanding, a boolean stores the current state where <code>‘= False’</code> (in this instance)
-                    means the
-                    object is unselected and <code>‘= True’</code> means the object is selected. When the interaction
-                    event happens
-                    this variable switches, and the material of the object is switched accordingly. This in turn creates
-                    the toggling effect. This also means the object can switch between the two states using just one
-                    interactable event (Select Entered).
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Selected-state4.png" alt="Private bool" class="code-image">
-                </div>
-                <div class="image-container section">
-                    <img src="../Images2/Selected-state4.5.png" alt="Selection State" class="code-image">
-                </div>
-
-                <p class="reference section">
-                    BillWagner (2022).<em>bool type - C# reference - C#.</em>.
-                    Available at: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool
-                </p>
-            </div>
-
-            <div class="video-placeholder section">
-                Mobile Screen Recording of Interactable Box Prefab Placeholder
-            </div>
-
+          <p class="video-caption">
+            Screen Recording of Toggling Selected State On and Off:
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="section-major alt">
+      <div class="major-inner">
+        <div class="section-label">03</div>
 
-        <div class="major-inner">
-
-            <div class="section-label">03</div>
-
-            <div class="major-header section">
-                <h2>Prefabs</h2>
-                <p class="section-intro">
-                    This section details the process of importing new Assets into Unity including custom materials, 3D
-                    models and sprite sheet animations.
-                </p>
-                <div class="accent-line section"></div>
-            </div>
-
-            <!-- SUBSECTION 1 -->
-            <div class="subsection section">
-                <h3>Interactive Text Boxes</h3>
-
-                <p>
-                    Once I'd got the interactable object functioning, I decided I would use this to display the
-                    interpretation of the card's meaning, starting with a one-word description and on touch interaction
-                    changing to an extended interpretation of the card. I manually adjusted the sizing of the cube to
-                    appear thin and rectangular, like a text box. I then imported PNGs of the card interpretation
-                    designs that I had created in photoshop and created two new materials, assigning the png images to
-                    them.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images1/CardMeaning.png" alt="Card Interpretation Design">
-                    <p class="image-caption">
-                        Image File of the Card Interpretation Design.
-                    </p>
-                </div>
-                <div class="image-container unity-image section">
-                    <img src="../Images2/Material1.png" alt="New material created from image import">
-                    <p class="image-caption">
-                        Imported Image Assigned to a New Material
-                    </p>
-                </div>
-
-                <p>
-                    In the inspector of the images I changed the texture type to support transparent images. The text
-                    boxes I designed have curved corners and a semi transparent body so it was important to ensure that
-                    transparency was supported. After this I substituted the original materials on the interactable
-                    object with the new ones I had created and from there, had functional, interactive text boxes.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/Material2.png" alt="New material in the inspector">
-                    <p class="image-caption">
-                        New Material Assigned to the SetSelectedState Component in the Interactable Objects Inspector.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- SUBSECTION 2 -->
-            <div class="subsection section">
-                <h3>Animated 3D objects</h3>
-
-                <p>
-                    At this stage I was ready to start importing 3D objects. I ultimately decided that I would look for
-                    assets online from the Unity asset store and Sketchfab. Sketchfab in particular had a lot of free
-                    animated 3D models which worked well for my project. I have done my best to reference all online
-                    assets at the bottom of this page.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/fox-model.png" alt="3D model of a fox">
-                    <p class="image-caption">
-                        3D animated Fox Model Asset Downloaded From Sketchfab.
-                    </p>
-                </div>
-
-                <p>
-                    I had to install a unity extension that supported GLB imports which I did through a Github link,
-                    referenced below. This effectively just increased the range of file types, and by extension, assets
-                    that I was able to use for this project.
-                </p>
-
-                <p class="reference section">
-                    GitHub. (2025).<em>Build software better, together</em>.
-                    Available at: https://github.com/KhronosGroup/UnityGLTF
-                </p>
-            </div>
-
-            <!-- SUBSECTION 3 -->
-            <div class="subsection section">
-                <h3>Animtation Controllers</h3>
-
-                <p>
-                    When it came to using animated imported assets, I had to learn how to create and implement animation
-                    controllers within unity. From the plus icon in the project menu, you add an animation controller;
-                    open it, attach the animation associated with the chosen model and then add the controller to the
-                    model prefabs animator component in the inspector.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/animation-controller.png" alt="Animation controller in unity">
-                    <p class="image-caption">
-                        Screenshot of the Animation Controller in Unity.
-                    </p>
-                </div>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/animator-component.png" alt="animator component in unity">
-                    <p class="image-caption">
-                        Screenshot of the Animator Component Assigned to the Model Prefab in the Inspector.
-                    </p>
-                </div>
-            </div>
-
-            <!-- SUBSECTION 4 -->
-            <div class="subsection section">
-                <h3>Sprite Sheet Effects</h3>
-
-                <p>
-                    For this project, I used some pre-made sprite sheet animations from the Unity asset store. These are
-                    sequences of images (sprites) that play in order to create a visual effect like sparks, explosions
-                    or magic effects. I imported these assets into Unity and began by attaching them to an object I
-                    called Tracked Image Content. This object parents all the other prefabs that spawn on the card and
-                    is the object assigned to the AR tracked image manager component on the XR origin.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/spritesheet.png" alt="Sprite sheet animtion in unity">
-                    <p class="image-caption">
-                        Screenshot from Unity's Scene Window of a Whirlwind Sprite Sheet Animation
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- SUBSECTION 5 -->
-            <div class="subsection section">
-                <h3>Sound Effects</h3>
-
-                <p>
-                    One of the sprite sheet animations that I imported came with a looping ‘magical’ audio effect
-                    attached in the inspector using the Audio Source component. I decided that I liked this effect so I
-                    recreated the structure of this component and assigned the audio to the prefab that spawns on the
-                    tracked image.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/audio-source.jpg" alt="audio source">
-                    <p class="image-caption">
-                        Screenshot of the Audio Source Component in the Prefab Inspector.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- SUBSECTION 6 -->
-            <div class="subsection section">
-                <h3>File Structure</h3>
-
-                <p>
-                    After I’d created the Tracked Image Content parent object, I ended up creating a second empty parent
-                    object called visuals for reasons that are apparent in the next step.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/file-structure.png" alt="File Structure">
-                    <p class="image-caption">
-                        Diagram of Unity File Structure Hierarchy
-                    </p>
-                </div>
-
-            </div>
+        <div class="major-header section">
+          <h2>Prefabs</h2>
+          <p class="section-intro">
+            This section details the process of importing new Assets into Unity
+            including custom materials, 3D models and sprite sheet animations.
+          </p>
+          <div class="accent-line section"></div>
         </div>
+
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <h3>Interactive Text Boxes</h3>
+
+          <p>
+            Once I'd got the interactable object functioning, I decided I would
+            use this to display the interpretation of the card's meaning,
+            starting with a one-word description and on touch interaction
+            changing to an extended interpretation of the card. I manually
+            adjusted the sizing of the cube to appear thin and rectangular, like
+            a text box. I then imported PNGs of the card interpretation designs
+            that I had created in photoshop and created two new materials,
+            assigning the png images to them.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images1/CardMeaning.png"
+              alt="Card Interpretation Design"
+            />
+            <p class="image-caption">
+              Image File of the Card Interpretation Design.
+            </p>
+          </div>
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/Material1.png"
+              alt="New material created from image import"
+            />
+            <p class="image-caption">
+              Imported Image Assigned to a New Material
+            </p>
+          </div>
+
+          <p>
+            In the inspector of the images I changed the texture type to support
+            transparent images. The text boxes I designed have curved corners
+            and a semi transparent body so it was important to ensure that
+            transparency was supported. After this I substituted the original
+            materials on the interactable object with the new ones I had created
+            and from there, had functional, interactive text boxes.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/Material2.png"
+              alt="New material in the inspector"
+            />
+            <p class="image-caption">
+              New Material Assigned to the SetSelectedState Component in the
+              Interactable Objects Inspector.
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Animated 3D objects</h3>
+
+          <p>
+            At this stage I was ready to start importing 3D objects. I
+            ultimately decided that I would look for assets online from the
+            Unity asset store and Sketchfab. Sketchfab in particular had a lot
+            of free animated 3D models which worked well for my project. I have
+            done my best to reference all online assets at the bottom of this
+            page.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img src="../Images2/fox-model.png" alt="3D model of a fox" />
+            <p class="image-caption">
+              3D animated Fox Model Asset Downloaded From Sketchfab.
+            </p>
+          </div>
+
+          <p>
+            I had to install a unity extension that supported GLB imports which
+            I did through a Github link, referenced below. This effectively just
+            increased the range of file types, and by extension, assets that I
+            was able to use for this project.
+          </p>
+
+          <p class="reference section">
+            GitHub. (2025).<em>Build software better, together</em>. Available
+            at: https://github.com/KhronosGroup/UnityGLTF
+          </p>
+        </div>
+
+        <!-- SUBSECTION 3 -->
+        <div class="subsection section">
+          <h3>Animtation Controllers</h3>
+
+          <p>
+            When it came to using animated imported assets, I had to learn how
+            to create and implement animation controllers within unity. From the
+            plus icon in the project menu, you add an animation controller; open
+            it, attach the animation associated with the chosen model and then
+            add the controller to the model prefabs animator component in the
+            inspector.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/animation-controller.png"
+              alt="Animation controller in unity"
+            />
+            <p class="image-caption">
+              Screenshot of the Animation Controller in Unity.
+            </p>
+          </div>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/animator-component.png"
+              alt="animator component in unity"
+            />
+            <p class="image-caption">
+              Screenshot of the Animator Component Assigned to the Model Prefab
+              in the Inspector.
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBSECTION 4 -->
+        <div class="subsection section">
+          <h3>Particle System Prefabs</h3>
+
+          <p>
+            For this project, I used some pre-made Unity particle system
+            animations from the Unity asset store. These are sequences of
+            images/particles that play in order to create a visual effect like
+            sparks, explosions or magic effects. I imported these assets into
+            Unity and began by attaching them to an object I called Tracked
+            Image Content. This object parents all the other prefabs that spawn
+            on the card and is the object assigned to the AR tracked image
+            manager component on the XR origin.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img src="../Images2/spritesheet.png" alt=" animtion in unity" />
+            <p class="image-caption">
+              Screenshot from Unity's Scene Window of a Whirlwind Particle
+              System Animation
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBSECTION 5 -->
+        <div class="subsection section">
+          <h3>Sound Effects</h3>
+
+          <p>
+            One of the animations that I imported came with a looping ‘magical’
+            audio effect attached in the inspector using the Audio Source
+            component. I decided that I liked this effect so I recreated the
+            structure of this component and assigned the audio to the prefab
+            that spawns on the tracked image.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img src="../Images2/audio-source.jpg" alt="audio source" />
+            <p class="image-caption">
+              Screenshot of the Audio Source Component in the Prefab Inspector.
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBSECTION 6 -->
+        <div class="subsection section">
+          <h3>File Structure</h3>
+
+          <p>
+            After I’d created the Tracked Image Content parent object, I ended
+            up creating a second empty parent object called visuals for reasons
+            that are apparent in the next step.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img src="../Images2/file-structure.png" alt="File Structure" />
+            <p class="image-caption">
+              Diagram of Unity File Structure Hierarchy
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section-major grid">
+      <div class="major-inner">
+        <div class="section-label">04</div>
 
-        <div class="major-inner">
+        <div class="major-header section">
+          <h2><code>TrackedImageFX</code></h2>
 
-            <div class="section-label">04</div>
+          <p class="section-intro section">
+            I decided that I wanted to use the animations I had imported to
+            create an initial ‘spawn’ effect when the image is first detected or
+            removed as a sort of visual indicator. The following section
+            outlines the process of implementing this.
+          </p>
 
-            <div class="major-header section">
-                <h2><code>TrackedImageFX</code></h2>
+          <div class="accent-line section"></div>
+        </div>
 
-                <p class="section-intro section">
-                    I decided that I wanted to use the sprite sheet animations I had imported to create an initial
-                    ‘spawn’ effect when the image is first detected or removed as a sort of visual indicator. The
-                    following section outlines the process of implementing this.
-                </p>
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <h3>Referencing the ‘Visuals’ Parent Object:</h3>
 
-                <div class="accent-line section"></div>
-            </div>
+          <p>
+            I began by creating a C# script I called
+            <code>TrackedImageFX</code> which I assigned to the
+            TrackedImageContent object in the inspector.
+          </p>
 
+          <p>
+            Inside the TrackedImageContent object I then created the ‘Visuals’
+            empty game object. All prefabs that appear on the tracked images are
+            parented to this game object and in the new script this object is
+            referenced with:
+          </p>
 
-            <!-- SUBSECTION 1 -->
-            <div class="subsection section">
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/FX-1.png"
+              alt="Visuals Reference"
+              class="code-image"
+            />
+          </div>
+        </div>
 
-                <h3>Referencing the ‘Visuals’ Parent Object:</h3>
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Hiding Visuals Initially</h3>
 
-                <p>
-                    I began by creating a C# script I called <code>TrackedImageFX</code> which I assigned to the
-                    TrackedImageContent object in the inspector.
-                </p>
+          <p>
+            This script triggers the Visuals object and all children (models,
+            animations etc) depending on whether the image is currently being
+            tracked. The visuals are hidden initially, ensuring that nothing
+            spawns until the image has been detected:
+          </p>
 
-                <p>
-                    Inside the TrackedImageContent object I then created the ‘Visuals’ empty game object. All prefabs
-                    that appear on the tracked images are parented to this game object and in the new script this object
-                    is referenced with:
-                </p>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/FX-2.png"
+              alt="Hide Visuals"
+              class="code-image"
+            />
+          </div>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-1.png" alt="Visuals Reference" class="code-image">
-                </div>
+          <p class="reference section">
+            Technologies, U. (n.d.) <em>Deactivate gameobjects, Unity</em>.
+            Available at:
+            https://docs.unity3d.com/Manual/DeactivatingGameObjects.html
+          </p>
+        </div>
 
-            </div>
+        <!-- SUBSECTION 3 -->
+        <div class="subsection section">
+          <h3>Update() and Boolean Logic</h3>
 
+          <p>
+            In Unity the <code>Update()</code> method runs every frame. Within
+            this script, Its purpose is to monitor changes in the images
+            tracking state. I quickly learnt that if I simply implemented a
+            statement where if <code>'TrackingState = Tracking'</code>, trigger
+            visuals; this would cause the animation effect to keep playing while
+            tracking remains true. To combat this I introduced a Boolean
+            variable which stores the tracking state from the previous update.
+            Therefore, each frame the current tracking state is compared with
+            the stored state. This enables the script to determine if a change
+            has occurred which if it has, then the animation is triggered. This
+            boolean logic effectively creates a toggling system.
+          </p>
 
-            <!-- SUBSECTION 2 -->
-            <div class="subsection section">
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-bool1.jpg" class="code-image" />
+          </div>
 
-                <h3>Hiding Visuals Initially</h3>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-bool2.jpg" class="code-image" />
+          </div>
 
-                <p>
-                    This script triggers the Visuals object and all children (models, animations etc) depending on
-                    whether the image is currently being tracked. The visuals are hidden initially, ensuring that
-                    nothing spawns until the image has been detected:
-                </p>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-bool3.jpg" class="code-image" />
+          </div>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-2.png" alt="Hide Visuals" class="code-image">
-                </div>
+          <p class="reference section">
+            Enum trackingstate: Ar Subsystems: 3.0.0 (n.d.)
+            <em>AR Subsystems | 3.0.0</em>. Available at:
+            https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/api/UnityEngine.XR.ARSubsystems.TrackingState.html
+          </p>
+        </div>
 
-                <p class="reference section">
-                    Technologies, U. (n.d.) <em>Deactivate gameobjects, Unity</em>.
-                    Available at: https://docs.unity3d.com/Manual/DeactivatingGameObjects.html
-                </p>
+        <!-- SUBSECTION 4 -->
+        <div class="subsection section">
+          <h3>Spawn/Despawn Animation</h3>
 
+          <p>
+            I opted for an explosive/water splash effect from the animation
+            assets I had imported. This was assigned to the inspector of
+            TrackedImageContent as ‘spawn/despawn effect prefab’:
+          </p>
 
-            </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-Serialize.jpg" class="code-image" />
+          </div>
 
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/FX-Serialize2.jpg"
+              alt="FX-Serialized Fields"
+            />
+            <p class="image-caption">
+              Spawn/Despawn Animation Fields in the TrackedImageContent
+              Inspector.
+            </p>
+          </div>
 
-            <!-- SUBSECTION 3 -->
-            <div class="subsection section">
+          <p>
+            When the image starts tracking, or was tracking but then stops, the
+            <code>PlaySpawn()</code> method is called which triggers the
+            animation associated with the Spawn Effect prefab at the same
+            position and rotation as the tracked image:
+          </p>
 
-                <h3>Update() and Boolean Logic</h3>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-Spawn.jpg" class="code-image" />
+          </div>
 
-                <p>
-                    In Unity the <code>Update()</code> method runs every frame. Within this script, Its purpose is to
-                    monitor changes
-                    in the images tracking state. I quickly learnt that if I simply implemented a statement where if
-                    <code>'TrackingState = Tracking'</code>, trigger visuals; this would cause the animation effect to
-                    keep playing
-                    while tracking remains true. To combat this I introduced a Boolean variable which stores the
-                    tracking state from the previous update. Therefore, each frame the current tracking state is
-                    compared with the stored state. This enables the script to determine if a change has occurred which
-                    if it has, then the animation is triggered. This boolean logic effectively creates a toggling
-                    system.
-                </p>
+          <p>
+            The same process occurs when the detected image becomes lost and the
+            PlayDespawn method is triggered:
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-bool1.jpg" class="code-image">
-                </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-Despawn.jpg" class="code-image" />
+          </div>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-bool2.jpg" class="code-image">
-                </div>
+          <p>
+            Once implemented, this script triggers an explosion effect when
+            other tracked image content appears/disappears on the marker.
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-bool3.jpg" class="code-image">
-                </div>
+          <p class="reference section">
+            Technologies, U. (n.d.)<em>Object.instantiate, Unity</em>. Available
+            at: https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+          </p>
 
-                <p class="reference section">
-                    Enum trackingstate: Ar Subsystems: 3.0.0 (n.d.) <em>AR Subsystems | 3.0.0</em>.
-                    Available at:
-                    https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/api/UnityEngine.XR.ARSubsystems.TrackingState.html
-                </p>
-            </div>
+          <p class="reference section">
+            Technologies, U. (n.d.)<em>Serializefield, Unity</em>. Available at:
+            https://docs.unity3d.com/ScriptReference/SerializeField.html
+          </p>
+        </div>
 
-            <!-- SUBSECTION 4 -->
-            <div class="subsection section">
+        <!-- SUBSECTION 5 -->
+        <div class="subsection section">
+          <h3>Sound Effect Integration</h3>
 
-                <h3>Spawn/Despawn Animation</h3>
+          <p>
+            Given that I had decided to go with an explosion effect, I thought
+            it fitting to find a sound effect to match this. I went to
+            FreeSound; a website where you can source free sound effects shared
+            by people. I downloaded a sound and imported it into Unity.
+          </p>
 
-                <p>
-                    I opted for an explosive/water splash effect from the spite sheet animation assets I had imported.
-                    This was assigned to the inspector of TrackedImageContent as ‘spawn/despawn effect prefab’:
-                </p>
+          <p>
+            I assigned the sound effect to the TrackedImageContent prefab using
+            the script in a similar manner:
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-Serialize.jpg" class="code-image">
-                </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-sound1.jpg" class="code-image" />
+          </div>
 
-                <div class="image-container unity-image section">
-                    <img src="../Images2/FX-Serialize2.jpg" alt="FX-Serialized Fields">
-                    <p class="image-caption">
-                        Spawn/Despawn Animation Fields in the TrackedImageContent Inspector.
-                    </p>
-                </div>
+          <div class="image-container unity-image section">
+            <img src="../Images2/FX-sound2.jpg" alt="FX-Serialized Fields" />
+            <p class="image-caption">
+              Audio Fields in the TrackedImageContent Inspector.
+            </p>
+          </div>
 
-                <p>
-                    When the image starts tracking, or was tracking but then stops, the <code>PlaySpawn()</code> method
-                    is called which
-                    triggers the animation associated with the Spawn Effect prefab at the same position and rotation as
-                    the tracked image:
-                </p>
+          <p>
+            When the spawn effect is triggered upon image detection, the script
+            triggers the audio effect using:
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-Spawn.jpg" class="code-image">
-                </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/FX-play.jpg" class="code-image" />
+          </div>
 
-                <p>
-                    The same process occurs when the detected image becomes lost and the PlayDespawn method is
-                    triggered:
-                </p>
+          <p>
+            I used<code>PlayOneShot()</code> because it plays the sound once,
+            immediately and does not require manual stopping. I employed the
+            same method to create this effect inside of
+            <code>PlayDespawn()</code>
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-Despawn.jpg" class="code-image">
-                </div>
+          <p class="reference section">
+            Unity Documentation. (2018).<em>AudioSource.PlayOneShot</em>.
+            Available at:
+            https://docs.unity3d.com/2018.1/Documentation/ScriptReference/AudioSource.PlayOneShot.html
+          </p>
+        </div>
 
-                <p>
-                    Once implemented, this script triggers an explosion effect when other tracked image content
-                    appears/disappears on the marker.
-                </p>
+        <div class="video-wrapper">
+          <video class="phone-video" autoplay muted loop playsinline>
+            <source src="../Media/TrackedImageContent.mp4" type="video/mp4" />
+          </video>
 
-                <p class="reference section">
-                    Technologies, U. (n.d.)<em>Object.instantiate, Unity</em>.
-                    Available at: https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
-                </p>
-
-                <p class="reference section">
-                    Technologies, U. (n.d.)<em>Serializefield, Unity</em>.
-                    Available at: https://docs.unity3d.com/ScriptReference/SerializeField.html
-                </p>
-            </div>
-
-
-            <!-- SUBSECTION 5 -->
-            <div class="subsection section">
-
-                <h3>Sound Effect Integration</h3>
-
-                <p>
-                    Given that I had decided to go with an explosion effect, I thought it fitting to find a sound effect
-                    to match this. I went to FreeSound; a website where you can source free sound effects shared by
-                    people. I downloaded a sound and imported it into Unity.
-                </p>
-
-                <p>
-                    I assigned the sound effect to the TrackedImageContent prefab using the script in a similar
-                    manner:
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-sound1.jpg" class="code-image">
-                </div>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/FX-sound2.jpg" alt="FX-Serialized Fields">
-                    <p class="image-caption">
-                        Audio Fields in the TrackedImageContent Inspector.
-                    </p>
-                </div>
-
-                <p>
-                    When the spawn effect is triggered upon image detection, the script triggers the audio effect using:
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/FX-play.jpg" class="code-image">
-                </div>
-
-                <p>
-                    I used<code>PlayOneShot()</code> because it plays the sound once, immediately and does not require
-                    manual
-                    stopping. I employed the same method to create this effect inside of <code>PlayDespawn()</code>
-
-                </p>
-
-                <p class="reference section">
-                    Unity Documentation. (2018).<em>AudioSource.PlayOneShot</em>.
-                    Available at:
-                    https://docs.unity3d.com/2018.1/Documentation/ScriptReference/AudioSource.PlayOneShot.html
-                </p>
-
-            </div>
-
-            <div class="video-placeholder section">
-                Mobile Screen Recording of Tracked Image Effects Placeholder
-            </div>
+          <p class="video-caption">
+            Screen Recording of Tracked Image Content Spawning/Despawning
+            Effects - Unfortunatly Audio was Not Captured in the Recording:
+          </p>
+        </div>
+      </div>
     </section>
-
 
     <section class="section-major alt">
+      <div class="major-inner">
+        <div class="section-label">05</div>
 
-        <div class="major-inner">
-
-            <div class="section-label">05</div>
-
-            <div class="major-header section">
-                <h2>Tracking Multiple Images</h2>
-                <p class="section-intro">
-                    The following section outlines how I expanded on my Unity project to introduce multiple image
-                    markers by first importing a new image into Unity and re-structuring the prefab hierarchy.
-                </p>
-                <div class="accent-line section"></div>
-            </div>
-
-            <!-- SUBSECTION 1 -->
-            <div class="subsection section">
-                <h3><code>'FoxWorld'</code></h3>
-
-                <p>
-                    To begin with, in order to engage certain groups of prefabs e.g. models and animations on individual
-                    cards I needed to parent them to specific game objects per card. I had started thinking of the
-                    content on the card as a little world, hence I created the world naming system.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/NewFileStructure.jpg" alt="File Structure">
-                    <p class="image-caption">
-                        Diagram of the New File Structure Hierarchy.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- SUBSECTION 2 -->
-            <div class="subsection section">
-                <h3>Prepping the Reference Image Library</h3>
-
-                <p>
-                    I imported a new image into Unity of the second card I hoped to track. I added this to the reference
-                    image library in the XR origin and gave it dimensions and a unique name.
-                </p>
-
-                <div class="image-container unity-image section">
-                    <img src="../Images2/Multi-card1.jpg" alt="Reference Image Library">
-                    <p class="image-caption">
-                        Screenshot of Unity - Reference Image Library.
-                    </p>
-                </div>
-            </div>
+        <div class="major-header section">
+          <h2>Tracking Multiple Images</h2>
+          <p class="section-intro">
+            The following section outlines how I expanded on my Unity project to
+            introduce multiple image markers by first importing a new image into
+            Unity and re-structuring the prefab hierarchy.
+          </p>
+          <div class="accent-line section"></div>
         </div>
-    </section>
 
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <h3><code>'FoxWorld'</code></h3>
+
+          <p>
+            To begin with, in order to engage certain groups of prefabs e.g.
+            models and animations on individual cards I needed to parent them to
+            specific game objects per card. I had started thinking of the
+            content on the card as a little world, hence I created the world
+            naming system.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img src="../Images2/NewFileStructure.jpg" alt="File Structure" />
+            <p class="image-caption">
+              Diagram of the New File Structure Hierarchy.
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Prepping the Reference Image Library</h3>
+
+          <p>
+            I imported a new image into Unity of the second card I hoped to
+            track. I added this to the reference image library in the XR origin
+            and gave it dimensions and a unique name.
+          </p>
+
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/Multi-card1.jpg"
+              alt="Reference Image Library"
+            />
+            <p class="image-caption">
+              Screenshot of Unity - Reference Image Library.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section-major grid">
+      <div class="major-inner">
+        <div class="section-label">06</div>
 
-        <div class="major-inner">
+        <div class="major-header section">
+          <h2><code>MultiCardController</code></h2>
 
-            <div class="section-label">06</div>
+          <p class="section-intro section">
+            Here I describe the methods I used in a new C# script called
+            <codd>MultiCardController</codd> which enables the AR camera to
+            recognise and track multiple images.
+          </p>
 
-            <div class="major-header section">
-                <h2><code>MultiCardController</code></h2>
+          <div class="accent-line section"></div>
+        </div>
 
-                <p class="section-intro section">
-                    Here I describe the methods I used in a new C# script called <codd>MultiCardController</codd> which
-                    enables the AR camera to recognise and track multiple images.
-                </p>
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <h3>Serializable Classes</h3>
 
-                <div class="accent-line section"></div>
-            </div>
+          <p>
+            I assigned the new MultiCardController script to the
+            TrackedImageContent game object. To configure the different tracked
+            images to specific game objects or ‘worlds’ I implemented a
+            serializable class in the script.
+          </p>
 
+          <p>
+            Marking a class with <code>[System.Serializable]</code> enables
+            Unity to display it as a field in the inspector.
+          </p>
 
-            <!-- SUBSECTION 1 -->
-            <div class="subsection section">
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img
+              src="../Images2/Multi-card2.jpg"
+              alt="Visuals Reference"
+              class="code-image"
+            />
+          </div>
 
-                <h3>Serializable Classes</h3>
+          <div class="image-container unity-image section">
+            <img
+              src="../Images2/Multi-card2.5.jpg"
+              alt="World Serialized Fields"
+            />
+            <p class="image-caption">
+              Serialized 'World' Fields in the TrackedImageContent Inspector.
+            </p>
+          </div>
 
-                <p>
-                    I assigned the new MultiCardController script to the TrackedImageContent game object. To configure
-                    the different tracked images to specific game objects or ‘worlds’ I implemented a serializable class
-                    in the script.
-                </p>
+          <p class="reference section">
+            Comp-3 Interactive (2020).
+            <em>Serializing Custom Classes [Unity Tutorial]</em>. Available at:
+            https://www.youtube.com/watch?v=5fhTXnos_go
+          </p>
+        </div>
 
-                <p>
-                    Marking a class with <code>[System.Serializable]</code> enables Unity to display it as a field in
-                    the inspector.
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Accessing the ARTrackedImage Component</h3>
 
-                </p>
+          <p>
+            The script needs to retrieve the ARTrackedImage component attached
+            to the Tracked Image Content object. The technique
+            <code>GetComponent<>()</code> retrieves this component at runtime.
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Multi-card2.jpg" alt="Visuals Reference" class="code-image">
-                </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Multi-card3.jpg" class="code-image" />
+          </div>
 
-                <div class="image-container unity-image section">
-                    <img src="../Images2/Multi-card2.5.jpg" alt="World Serialized Fields">
-                    <p class="image-caption">
-                        Serialized 'World' Fields in the TrackedImageContent Inspector.
-                    </p>
-                </div>
+          <p class="reference section">
+            Technologies, U. (n.d.) <em>Component.getcomponent, Unity</em>.
+            Available at:
+            https://docs.unity3d.com/ScriptReference/Component.GetComponent.html
+          </p>
+        </div>
 
-                <p class="reference section">
-                    Comp-3 Interactive (2020). <em>Serializing Custom Classes [Unity Tutorial]</em>.
-                    Available at: https://www.youtube.com/watch?v=5fhTXnos_go
-                </p>
+        <!-- SUBSECTION 3 -->
+        <div class="subsection section">
+          <h3>Identifying the Correct Game Object Based on Image Name</h3>
 
-            </div>
+          <p>
+            By using string comparison in C# The script is able to identify
+            which game object / ‘world’ should be active for each image by first
+            reading:
+          </p>
 
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Multi-card4.jpg" class="code-image" />
+          </div>
 
-            <!-- SUBSECTION 2 -->
-            <div class="subsection section">
+          <p>
+            And then comparing this against each entry field in the inspector:
+          </p>
 
-                <h3>Accessing the ARTrackedImage Component</h3>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Multi-card4.5.jpg" class="code-image" />
+          </div>
 
-                <p>
-                    The script needs to retrieve the ARTrackedImage component attached to the Tracked Image Content
-                    object. The technique <code>GetComponent<>()</code> retrieves this component at runtime.
-                </p>
+          <p class="reference section">
+            Dev Leader (2023).
+            <em>Beginner’s Guide For Comparing Strings in C#</em>. Available at:
+            https://www.youtube.com/watch?v=nFFKfbuOvQw
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Multi-card3.jpg" class="code-image">
-                </div>
+          <p class="reference section">
+            View (2017). <em>How to do For Each Loops in – Unity C#</em>.
+            Available at:
+            https://stuartspixelgames.com/2017/03/27/how-to-do-for-each-loops-in-unity-c/
+          </p>
+        </div>
 
-                <p class="reference section">
-                    Technologies, U. (n.d.) <em>Component.getcomponent, Unity</em>.
-                    Available at: https://docs.unity3d.com/ScriptReference/Component.GetComponent.html
-                </p>
+        <!-- SUBSECTION 4 -->
+        <div class="subsection section">
+          <h3>Enabling and Disabling Game Objects</h3>
 
+          <p>
+            Initially, all game objects are disabled, and corresponding game
+            objects assigned to images are stored as shown in the previous
+            section with <code>activeWorld = card.worldObject;</code>
+          </p>
 
-            </div>
+          <p>
+            If an image is then detected, and if I have assigned a game object
+            to it, the
+            <code>setActive()</code> method triggers the game object to spawn:
+          </p>
 
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Multi-card5.jpg" class="code-image" />
+          </div>
 
-            <!-- SUBSECTION 3 -->
-            <div class="subsection section">
+          <p class="reference section">
+            Technologies, U. (n.d.)<em>GameObject.SetActive, Unity</em>.
+            Available at:
+            https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html
+          </p>
+        </div>
 
-                <h3>Identifying the Correct Game Object Based on Image Name</h3>
+        <!-- SUBSECTION 5 -->
+        <div class="subsection section">
+          <h3>Tracking State</h3>
 
-                <p>
-                    By using string comparison in C# The script is able to identify which game object / ‘world’ should
-                    be active for each image by first reading:
-                </p>
+          <p>
+            Inside <code>Update()</code> the script continuously checks whether
+            the image is detected/lost using a method called
+            <code>TrackingState</code>. There are three possible tracking states
+            for AR Tracked Images; None, Limited and Tracking, where the AR SDK
+            reports that it is actively tracking the image. Using the
+            TrackingState property I am toggling game object visibility
+            depending on whether the image is being actively tracked. While
+            tracking is active the world object is enabled and if tracking is
+            lost i.e it is registered as limited or none, the world object is
+            disabled.
+          </p>
 
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Multi-card4.jpg" class="code-image">
-                </div>
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Multi-card6.jpg" class="code-image" />
+          </div>
 
-                <p>
-                    And then comparing this against each entry field in the inspector:
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Multi-card4.5.jpg" class="code-image">
-                </div>
-
-                <p class="reference section">
-                    Dev Leader (2023). <em>Beginner’s Guide For Comparing Strings in C#</em>.
-                    Available at:
-                    https://www.youtube.com/watch?v=nFFKfbuOvQw
-                </p>
-
-                <p class="reference section">
-                    View (2017). <em>How to do For Each Loops in – Unity C#</em>.
-                    Available at:
-                    https://stuartspixelgames.com/2017/03/27/how-to-do-for-each-loops-in-unity-c/
-                </p>
-            </div>
-
-            <!-- SUBSECTION 4 -->
-            <div class="subsection section">
-
-                <h3>Enabling and Disabling Game Objects</h3>
-
-                <p>
-                    Initially, all game objects are disabled, and corresponding game objects assigned to images are
-                    stored as shown in the previous section with <code>activeWorld = card.worldObject;</code>
-                </p>
-
-                <p>
-                    If an image is then detected, and if I have assigned a game object to it, the
-                    <code>setActive()</code> method
-                    triggers the game object to spawn:
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Multi-card5.jpg" class="code-image">
-                </div>
-
-                <p class="reference section">
-                    Technologies, U. (n.d.)<em>GameObject.SetActive, Unity</em>.
-                    Available at: https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html
-                </p>
-            </div>
-
-
-            <!-- SUBSECTION 5 -->
-            <div class="subsection section">
-
-                <h3>Tracking State</h3>
-
-                <p>
-                    Inside <code>Update()</code> the script continuously checks whether the image is detected/lost using
-                    a method
-                    called <code>TrackingState</code>. There are three possible tracking states for AR Tracked Images;
-                    None, Limited
-                    and Tracking, where the AR SDK reports that it is actively tracking the image. Using the
-                    TrackingState property I am toggling game object visibility depending on whether the image is being
-                    actively tracked. While tracking is active the world object is enabled and if tracking is lost i.e
-                    it is registered as limited or none, the world object is disabled.
-                </p>
-
-                <!-- Code Screenshot -->
-                <div class="image-container section">
-                    <img src="../Images2/Multi-card6.jpg" class="code-image">
-                </div>
-
-                <p class="reference section">
-                    Unity.cn. (2023).<em>AR Tracked Image Manager component | AR Foundation | 5.1.0-pre.8</em>.
-                    Available at:
-                    https://docs.unity.cn/Packages/com.unity.xr.arfoundation%405.1/manual/features/image-tracking.html
-                </p>
-
-            </div>
+          <p class="reference section">
+            Unity.cn. (2023).<em
+              >AR Tracked Image Manager component | AR Foundation |
+              5.1.0-pre.8</em
+            >. Available at:
+            https://docs.unity.cn/Packages/com.unity.xr.arfoundation%405.1/manual/features/image-tracking.html
+          </p>
+        </div>
+      </div>
     </section>
 
-
     <section class="section-major alt">
+      <div class="major-inner">
+        <div class="section-label">07</div>
 
-        <div class="major-inner">
+        <div class="major-header section">
+          <h2>Expansion</h2>
+          <p class="section-intro">
+            Once I’d implemented multi image tracking I used the rest of the
+            time I had available for this project to expand on the number of
+            functioning playing cards. Effectively I just repeated certain steps
+            in order to have more tracked images and unique prefabs assigned to
+            those images.
+          </p>
+          <div class="accent-line section"></div>
+        </div>
+      </div>
 
-            <div class="section-label">07</div>
+      <div class="video-wrapper">
+        <video class="phone-video" autoplay muted loop playsinline>
+          <source src="../Media/final-outcome.mp4" type="video/mp4" />
+        </video>
 
-            <div class="major-header section">
-                <h2>Expansion</h2>
-                <p class="section-intro">
-                    Once I’d implemented multi image tracking I used the rest of the time I had available for this
-                    project to expand on the number of functioning playing cards. Effectively I just repeated certain
-                    steps in order to have more tracked images and unique prefabs assigned to those images.
-                </p>
-                <div class="accent-line section"></div>
-            </div>
+        <p class="video-caption">
+          Screen Recording of Final Outcome - Unfortunatly Audio was Not
+          Captured in the Recording:
+        </p>
+      </div>
+    </section>
 
+    <section class="section-major grid">
+      <div class="major-inner">
+        <div class="section-label">08</div>
+
+        <div class="major-header section">
+          <h2><code>FreezeAnimationAtPoint</code></h2>
+
+          <p class="section-intro section">
+            A later addition I made to the project was a script which enabled me
+            to freeze the animation of a 3D model part way through. One of the
+            models I had imported into my project came as a GLB file. As they
+            are not as geared towards Unity as FBX files, It is not possible to
+            alter the animation of one of these file types. The file depicts a
+            flower slowly opening however, frustratingly the animation ends with
+            the model snapping back to its original state.
+          </p>
+
+          <div class="accent-line section"></div>
         </div>
 
+        <!-- SUBSECTION 1 -->
+        <div class="subsection section">
+          <p>
+            I researched this dilemma and it seemed there were two possible
+            solutions; import the file into Blender and edit it from there and
+            then re-export or, attach a script to the prefab that informs the
+            model at what point to freeze the animation. As I did not want to
+            risk facing further issues by editing the file in Blender I resolved
+            to go with the script solution. This section dissects that process
+            and the methods and resources used.
+          </p>
 
-        <div class="video-placeholder section">
-            Mobile Screen Recording of Final Outcome Placeholder
+          <div class="image-container unity-image section">
+            <img src="../Images2/FlowerModel.jpg" alt="Flower model" />
+            <p class="image-caption">Image of the 3D flower Model GLB File.</p>
+          </div>
         </div>
+
+        <!-- SUBSECTION 2 -->
+        <div class="subsection section">
+          <h3>Accessing the Animator Component</h3>
+
+          <p>
+            First the script needs to retrieve the animator component attached
+            to the game object. I used the method
+            <code>GetComponent&lt;&gt;()</code> as I have done in
+            <code>MultiCardController</code> script:
+          </p>
+
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Freeze1.jpg" class="code-image" />
+          </div>
+        </div>
+
+        <!-- SUBSECTION 3 -->
+        <div class="subsection section">
+          <h3>Monitoring the Current Animation State</h3>
+
+          <p>
+            The method <code>AnimatorStateInfo</code> fetches data from the
+            animator component that the script is accessing. This informs the
+            script about the animation's length and progress.
+          </p>
+
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Freeze2.jpg" class="code-image" />
+          </div>
+
+          <p class="reference section">
+            Technologies, U. (n.d.)
+            <em>AnimatorStateInfo.normalizedTime, Unity</em>. Available at:
+            https://docs.unity3d.com/ScriptReference/AnimatorStateInfo-normalizedTime.html
+          </p>
+        </div>
+
+        <!-- SUBSECTION 4 -->
+        <div class="subsection section">
+          <h3>Track Animation Progress</h3>
+
+          <p>
+            The script is tracking the animation's progress using
+            <code>NormalizeTime</code>. Normalized time is a progression ratio
+            where 0 is the start and 1 is the end. By using this method it meant
+            I could freeze the animation at a percentage e.g. 90% rather than
+            specify the exact time. This and the
+            <code>AnimatorStateInfo</code> are inside an
+            <code>update()</code> method so the script monitors these variables
+            every frame.
+          </p>
+
+          <p>
+            At the start of the document I declared the variable
+            <code>stopAtNormalizedTime</code> public so it would appear for
+            configuration in the inspector. I gave it the
+            <code>[range]</code> attribute for the values between 0 and 1 which
+            creates a slider interface in the inspector.
+          </p>
+
+          <!-- Code Screenshot -->
+          <div class="image-container section">
+            <img src="../Images2/Freeze3.jpg" class="code-image" />
+          </div>
+          <div class="image-container section">
+            <img src="../Images2/Freeze3.5.jpg" class="code-image" />
+          </div>
+
+          <div class="image-container unity-image section">
+            <img src="../Images2/FreezeInspector.jpg" />
+            <p class="image-caption">
+              Screenshot of the Component in Unity Inspector
+            </p>
+          </div>
+
+          <p class="reference section">
+            Unity Technologies (2016).<em>
+              Unity - Scripting API: RangeAttribute</em
+            >. Available at:
+            https://docs.unity3d.com/es/530/ScriptReference/RangeAttribute.html
+          </p>
+
+          <p class="reference section">
+            Technologies, U. (n.d.)<em>
+              AnimatorStateInfo.normalizedTime, Unity</em
+            >. Available at:
+            https://docs.unity3d.com/ScriptReference/AnimatorStateInfo-normalizedTime.html
+          </p>
+        </div>
+
+        <!-- SUBSECTION 5 -->
+        <div class="subsection section">
+          <h3>Freeze Animation</h3>
+
+          <p>
+            When the animation reaches the 90% mark (or 0.9), I use the method
+            of targeting animator.speed, setting it to 0 and subsequently
+            freezing the animation at this point. So to summarise, inside of the
+            update() method, the progress of the animation is monitored and once
+            it reaches the designated point,
+            <code>animator.speed = 0</code> stops it.
+          </p>
+
+          <p class="reference section">
+            Technologies, U. (n.d.)
+            <em>Animator.speed, Unity</em>. Available at:
+            https://docs.unity3d.com/ScriptReference/Animator-speed.html
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="sources-section">
+      <div class="sources-inner">
+        <h2 class="sources-title">Downloaded Assets</h2>
 
-        <div class="sources-inner">
-
-            <h2 class="sources-title">Downloaded Assets</h2>
-
-            <!-- SOUND -->
-            <div class="source-group">
-                <h3 class="source-subtitle">Sound Effect</h3>
-                <ul class="asset-list">
-                    <li>
-                        <strong>Cloud Poof</strong> by qubodup —
-                        <a href="https://freesound.org/s/714258/" target="_blank" rel="noopener">
-                            https://freesound.org/s/714258/
-                        </a>
-                        <span class="license">License: Attribution 4.0</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- MODELS -->
-            <div class="source-group">
-                <h3 class="source-subtitle">3D Models</h3>
-                <ul class="asset-list">
-
-                    <li><strong>Hand</strong> by Dirk.z —
-                        <a href="https://skfb.ly/6GIow" target="_blank">https://skfb.ly/6GIow</a>
-                        <span class="license">Creative Commons Attribution 4.0</span>
-                    </li>
-
-                    <li><strong>Golden Ring</strong> by FishyBusiness —
-                        <a href="https://skfb.ly/orPYo" target="_blank">https://skfb.ly/orPYo</a>
-                        <span class="license">Creative Commons Attribution 4.0</span>
-                    </li>
-
-                    <li><strong>Book / Spellbook Low Poly</strong> by Abel099 —
-                        <a href="https://skfb.ly/p8vYr" target="_blank">https://skfb.ly/p8vYr</a>
-                        <span class="license">Creative Commons Attribution 4.0</span>
-                    </li>
-
-                    <!-- Continue same structure for remaining models -->
-
-                </ul>
-            </div>
-
-            <!-- UNITY ASSETS -->
-            <div class="source-group">
-                <h3 class="source-subtitle">Unity Asset Store – VFX</h3>
-                <ul class="asset-list">
-
-                    <li>
-                        <strong>Cartoon FX Remaster Free</strong> —
-                        <a href="https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-remaster-free-109565"
-                            target="_blank">
-                            Unity Asset Store
-                        </a>
-                    </li>
-
-                    <li>
-                        <strong>Free Game VFX Collection (URP)</strong> —
-                        <a href="https://assetstore.unity.com/packages/vfx/particles/free-game-vfx-collection-urp-345212"
-                            target="_blank">
-                            Unity Asset Store
-                        </a>
-                    </li>
-
-                    <li>
-                        <strong>Fantasy Effects Pack</strong> —
-                        <a href="https://assetstore.unity.com/packages/vfx/particles/spells/fantasy-effects-pack-107068"
-                            target="_blank">
-                            Unity Asset Store
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
+        <!-- SOUND -->
+        <div class="source-group">
+          <h3 class="source-subtitle">Sound Effect</h3>
+          <ul class="asset-list">
+            <li>
+              <strong>Cloud Poof</strong> by qubodup —
+              <a
+                href="https://freesound.org/s/714258/"
+                target="_blank"
+                rel="noopener"
+              >
+                https://freesound.org/s/714258/
+              </a>
+              <span class="license">License: Attribution 4.0</span>
+            </li>
+          </ul>
         </div>
 
+        <!-- MODELS -->
+        <div class="source-group">
+          <h3 class="source-subtitle">3D Models</h3>
+          <ul class="asset-list">
+            <li>
+              <strong>Hand</strong> by Dirk.z —
+              <a href="https://skfb.ly/6GIow" target="_blank"
+                >https://skfb.ly/6GIow</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Golden Ring</strong> by FishyBusiness —
+              <a href="https://skfb.ly/orPYo" target="_blank"
+                >https://skfb.ly/orPYo</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Book / Spellbook Low Poly</strong> by Abel099 —
+              <a href="https://skfb.ly/p8vYr" target="_blank"
+                >https://skfb.ly/p8vYr</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Flower petals opening low poly animation</strong> by AnaG
+              —
+              <a href="https://skfb.ly/6WNRp" target="_blank"
+                >https://skfb.ly/6WNRp</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Cigüeña blanca, animada, low poly</strong> by @x_y_es —
+              <a href="https://skfb.ly/o6y6J" target="_blank"
+                >https://skfb.ly/o6y6J</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Sealife</strong> by patrakeevasveta —
+              <a href="https://skfb.ly/6Txtw" target="_blank"
+                >https://skfb.ly/6Txtw</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Small House</strong> by unknownhell —
+              <a href="https://skfb.ly/prnz7" target="_blank"
+                >https://skfb.ly/prnz7</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Filou the Cat / Filou le Chat</strong> by Dylan.Fournier —
+              <a href="https://skfb.ly/6WWxY" target="_blank"
+                >https://skfb.ly/6WWxY</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Random Round Table ( Updated )</strong> by Rofnay —
+              <a href="https://skfb.ly/o7UsB" target="_blank"
+                >https://skfb.ly/o7UsB</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <li>
+              <strong>Low poly fox by PixelMannen (Animated)</strong> by
+              tomkranis —
+              <a href="https://skfb.ly/P9nN" target="_blank"
+                >https://skfb.ly/P9nN</a
+              >
+              <span class="license">Creative Commons Attribution 4.0</span>
+            </li>
+
+            <!-- Continue same structure for remaining models -->
+          </ul>
+        </div>
+
+        <!-- UNITY ASSETS -->
+        <div class="source-group">
+          <h3 class="source-subtitle">Unity Asset Store – VFX</h3>
+          <ul class="asset-list">
+            <li>
+              <strong>Cartoon FX Remaster Free</strong> —
+              <a
+                href="https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-remaster-free-109565"
+                target="_blank"
+              >
+                Unity Asset Store
+              </a>
+            </li>
+
+            <li>
+              <strong>Free Game VFX Collection (URP)</strong> —
+              <a
+                href="https://assetstore.unity.com/packages/vfx/particles/free-game-vfx-collection-urp-345212"
+                target="_blank"
+              >
+                Unity Asset Store
+              </a>
+            </li>
+
+            <li>
+              <strong>Fantasy Effects Pack</strong> —
+              <a
+                href="https://assetstore.unity.com/packages/vfx/particles/spells/fantasy-effects-pack-107068"
+                target="_blank"
+              >
+                Unity Asset Store
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
     <script src="../js/video-audio.js"></script>
 
-
-
-
-
-    <!-- place text in code style: <code>ARTrackedImageManager</code> -->
     <script src="../js/intersectionObserver.js"></script>
-</body>
+  </body>
+</html>
