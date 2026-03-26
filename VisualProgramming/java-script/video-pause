@@ -1,0 +1,20 @@
+<script>
+  const video = document.querySelector(".header-video");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    },
+    {
+      threshold: 0.3, // play when ~30% visible
+    },
+  );
+
+  observer.observe(video);
+</script>
