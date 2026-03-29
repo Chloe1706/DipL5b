@@ -14,7 +14,7 @@
     <!-- main html stylesheet -->
     <link rel="stylesheet" href="../css/stylesheet.css" />
     <link rel="stylesheet" href="../css/Intersection.css" />
-
+   
     <!-- navigation bar  -->
     <link
       rel="stylesheet"
@@ -22,6 +22,9 @@
       href="../../AlgorithmicArt/CSS/nav-bar.css"
     />
     <script src="../../AlgorithmicArt/JavaScript/nav.js" defer></script>
+
+    <!-- pause video when not visable for better performance -->
+    <script src="../java-script/video-pause" defer></script>
   </head>
 
   <body>
@@ -48,36 +51,135 @@
       </ul>
     </nav>
 
-    <header class="master-header first-header">
-      <video class="header-video" autoplay muted loop playsinline>
-        <source src="../images:media/TUNDRA-vid.mp4" type="video/mp4" />
-      </video>
-      <div class="overlay">
-        <div class="header-content">
-          <h1>Exploratory</h1>
-          <h2>Research</h2>
-        </div>
+   
+
+<div class="main-body">
+  
+  <section class="hero">
+    <div>
+      <h2>The Architecture<br>of Silence</h2>
+      <p class="hero-text">How negative space shapes modern design philosophy and influences contemporary creative practice</p>
+    </div>
+    <div class="hero-meta">
+      <p>By Eleanor Chen</p>
+      <p>Photography by Marcus Webb</p>
+    </div>
+  </section>
+
+
+  
+
+  <section class="featured">
+ <header>
+
+  <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+  <div class="overlay"></div>
+
+  <!-- The HTML5 video element that will create the background video on the header -->
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="../images:media/TUNDRA-vid.mp4" type="video/mp4">
+  </video>
+
+  <!-- The header content -->
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Video Header</h1>
+        <p class="lead mb-0">Using HTML5 Video and Bootstrap</p>
       </div>
-    </header>
+    </div>
+  </div>
+</header>
+    <p class="caption">Figure 01 — Spatial composition study, 2025</p>
+  </section>
 
-    <!-- Second header with the same image, no overlay -->
-    <header class="master-header second-header">
-      <video class="header-video" autoplay muted loop playsinline>
-        <source src="../images:media/TUNDRA-vid.mp4" type="video/mp4" />
-      </video>
+  <section class="body-content">
+    <div class="section-label">Introduction</div>
+    <div class="body-text">
+      <p>In the pursuit of visual clarity, what we choose to omit becomes as crucial as what we include. This fundamental principle guides contemporary design thinking.</p>
+      <p>The intentional use of empty space - what designers call negative space or white space—creates rhythm, hierarchy, and breathing room within compositions. It allows elements to exist without competing for attention, establishing a visual language that speaks through restraint rather than abundance.</p>
+      <p>Throughout history, masters of various disciplines have understood this principle. Japanese aesthetics celebrate ma, the meaningful void. Minimalist composers explore silence as counterpoint to sound. Architects design with light and air as tangible materials.</p>
+    </div>
+    <aside class="sidebar">
+      <h3>Key Concepts</h3>
+      <ul>
+        <li>• Negative space as active element</li>
+        <li>• Visual hierarchy through spacing</li>
+        <li>• Rhythm and pacing in layout</li>
+        <li>• Material reduction strategies</li>
+      </ul>
+    </aside>
+  </section>
 
-      <div class="header-overlay"></div>
+  <section class="quote-section">
+    <blockquote>
+      "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."
+    </blockquote>
+    <p class="quote-attribution">— Antoine de Saint-Exupéry</p>
+  </section>
 
-      <div class="header-content">
-        <div class="header-left">
-          <h1>'The Day We Left Field'</h1>
-          <p class="header-subtitle">2018 - 2022 (TUNDRA)</p>
-        </div>
+  <section class="two-column">
+    <div class="section-label">Practice</div>
+    <div class="columns">
+      <div class="column-text">
+        <p>Implementing these principles requires discipline and confidence. The designer must resist the urge to fill every available space, trusting that emptiness serves a purpose beyond mere aesthetics.</p>
+        <p>Consider the page spread: generous margins frame the content, line spacing allows text to breathe, paragraph breaks create natural pauses. Each decision about spacing influences how readers engage with information.</p>
       </div>
+      <div class="column-text">
+        <p>Digital interfaces present unique challenges. Screen real estate feels precious, stakeholders request more features, analytics drive density. Yet the most successful platforms maintain spatial generosity.</p>
+        <p>The lesson remains consistent across media: clarity emerges from selective focus, enhanced by the strategic use of nothing at all.</p>
+      </div>
+    </div>
+  </section>
 
-      <p class="bg-caption">
-        Recording from The Day We Left Field’ audio-visual installation
-      </p>
-    </header>
+  <section class="image-grid">
+    <div class="grid-image">
+      <img src="https://assets.codepen.io/406785/augustine-wong-oebTM5wHTfw-unsplash.jpg" alt="Grid image 1">
+    </div>
+    <div class="grid-image">
+      <img src="https://assets.codepen.io/406785/h-co-3oOR7B2inwc-unsplash.jpg" alt="Grid image 2">
+    </div>
+    <div class="grid-image">
+      <img src="https://assets.codepen.io/406785/bharath-kumar-rqIyJozwdTc-unsplash.jpg" alt="Grid image 3">
+    </div>
+  </section>
+
+  <section class="body-content case-study">
+  <div class="section-label">Case Study 01</div>
+
+  <div class="body-text">
+    <h3 class="section-heading">Embodied Light Environments</h3>
+
+    <p>First paragraph introduces the project clearly and confidently...</p>
+
+    <p>Expand into process, TouchDesigner logic, spatial interaction...</p>
+
+    <div class="pull-quote">
+      <blockquote>
+        The system responds not to presence, but to proximity and hesitation.
+      </blockquote>
+    </div>
+
+    <p>Continue deeper analysis — audience interaction, timing, immersion...</p>
+    <p>Close with reflection on effectiveness.</p>
+  </div>
+
+</section>
+
+<section class="full-width-image">
+  <img src="your-image.jpg" alt="Immersive installation detail">
+  <p class="caption">Figure 02 — Interactive light behaviour</p>
+</section>
+
+
+
+
+  <footer>
+    <p>Continue reading in Issue 05</p>
+    <p>thequarterly.com</p>
+  </footer>
+</div>
+</div>
+
   </body>
 </html>

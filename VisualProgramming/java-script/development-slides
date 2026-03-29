@@ -1,0 +1,183 @@
+// Helpers
+const select = (e) => document.querySelector(e);
+const selectAll = (e) => document.querySelectorAll(e);
+
+const stage = select(".stage");
+const slides = selectAll(".slide");
+const links = selectAll(".slide__scroll-link");
+
+let slideID = 0;
+
+/* ===============================
+   HEADER ANIMATION
+================================ */
+
+function initHeader() {
+  const logo = select(".logo");
+  const navRects = selectAll(".nav-btn__svg rect");
+  const navBtn = select(".nav-btn");
+
+  // intro animation
+  setTimeout(() => {
+    logo.style.transform = "translateY(0)";
+    logo.style.opacity = "1";
+  }, 200);
+
+  navRects.forEach((rect, i) => {
+    setTimeout(
+      () => {
+        rect.style.transform = "scaleX(1)";
+      },
+      400 + i * 100,
+    );
+  });
+
+  // hover
+  navBtn.addEventListener("mouseover", () => {
+    selectAll(".nav-rect").forEach((el) => {
+      el.style.transform = "scaleX(1)";
+    });
+  });
+
+  navBtn.addEventListener("mouseout", () => {
+    selectAll(".nav-rect").forEach((el) => {
+      el.style.transform = "scaleX(0.8)";
+    });
+  });
+}
+
+/* ===============================
+   INTRO ANIMATION
+================================ */
+
+function initIntro() {
+  const title = select(".intro__title");
+  const txt = select(".intro__txt");
+  const img1 = select(".intro__img--1");
+  const img2 = select(".intro__img--2");
+
+  setTimeout(() => {
+    title.classList.add("animate-in");
+  }, 500);
+
+  setTimeout(() => {
+    txt.classList.add("animate-in");
+  }, 800);
+
+  setTimeout(() => {
+    img1.classList.add("animate-in");
+    img2.classList.add("animate-in");
+  }, 1000);
+}
+
+/* ===============================
+   SCROLL LINKS
+================================ */
+
+function initLinks() {
+  links.forEach((link, index) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const target = document.querySelector(`#slide-${index + 2}`);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+
+      slideID++;
+    });
+  });
+
+  const top = select(".footer__link-top");
+
+  top.addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollTop();
+  });
+}
+
+/* ===============================
+   SCROLL ANIMATIONS
+================================ */
+
+function initSlides() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  slides.forEach((slide) => observer.observe(slide));
+}
+
+/* ===============================
+   SIMPLE PARALLAX
+================================ */
+
+function initParallax() {
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    slides.forEach((slide) => {
+      const images = slide.querySelectorAll(".col__image-wrap");
+
+      images.forEach((img) => {
+        const speed = 0.2;
+        img.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    });
+  });
+}
+
+/* ===============================
+   SCROLL HELPERS
+================================ */
+
+function scrollTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+/* ===============================
+   KEYBOARD NAV
+================================ */
+
+function initKeys() {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") {
+      slideID++;
+      const target = document.querySelector(`#slide-${slideID}`);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (e.key === "ArrowUp") {
+      slideID = 0;
+      scrollTop();
+    }
+  });
+}
+
+/* ===============================
+   INIT
+================================ */
+
+function init() {
+  stage.style.visibility = "visible";
+  stage.style.opacity = "1";
+
+  initHeader();
+  initIntro();
+  initLinks();
+  initSlides();
+  initParallax();
+  initKeys();
+}
+
+window.onload = init;
