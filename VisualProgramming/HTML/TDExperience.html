@@ -1,117 +1,333 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TD Experience</title>
 
-    <!-- Google Font: Cormorant Garamond -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TD Experience</title>
 
-    <!-- main html stylesheet -->
-    <link rel="stylesheet" href="../css/stylesheet.css" />
+  <!-- Google Font: Cormorant Garamond -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet" />
 
-    <!-- navigation bar  -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../../AlgorithmicArt/CSS/nav-bar.css"
-    />
-    <script src="../../AlgorithmicArt/JavaScript/nav.js" defer></script>
-  </head>
+  <!-- main html stylesheet -->
+  <link rel="stylesheet" href="../css/stylesheet.css" />
+  <link rel="stylesheet" href="../CSS/final.css" />
+  <link rel="stylesheet" href="../CSS/development.css" />
 
-  <body>
-    <!-- NAVIGATION BAR -->
-    <nav class="navbar">
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
 
-      <ul class="nav-links">
-        <!-- link back to landing page -->
-        <li class="back-link">
-          <a href="../../index.html">← Back to Index</a>
-        </li>
-      </ul>
+  <!-- navigation bar  -->
+  <link rel="stylesheet" type="text/css" href="../../AlgorithmicArt/CSS/nav-bar.css" />
+  <script src="../../AlgorithmicArt/JavaScript/nav.js" defer></script>
+  <script src="../java-script/navHighlight.js" defer></script>
+  <script src="../java-script/intersectionObserver.js" defer></script>
+  <script src="../java-script/lightbox.js" defer></script>
 
-      <!-- main links on project -->
-      <ul class="nav-links main-links">
-        <li><a href="./research.html">Exploratory Research</a></li>
-        <li><a href="./development.html">Development</a></li>
-        <li><a href="./TDExperience.html">TD Experience</a></li>
-      </ul>
-    </nav>
+  <!-- Video Play -->
+  <script src="../java-script/hoverPlay.js" defer></script>
+</head>
 
-    <section id="section-1" class="section">
-      <div
-        class="parallax-header"
-        style="background-image: url(&quot;./Images1/Piet-Mondrian.jpeg&quot;)"
-      >
-        <div class="header-overlay">
-          <div class="text-container">
-            <h1 class="title">
-              <span class="main">Piet Mondrian</span>
-              <span class="accent">Metaphysical Grid</span>
-            </h1>
-          </div>
-        </div>
+<body>
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-        <span class="header-credit"
-          >Piet Mondrian in his studio, 1934 © Estate of Albert Gallatin · Photo
-          © Albert Eugene</span
-        >
+    <ul class="nav-links">
+      <!-- link back to landing page -->
+      <li class="back-link">
+        <a href="../../index.html">← Back to Index</a>
+      </li>
+    </ul>
+
+    <!-- main links on project -->
+    <ul class="nav-links main-links">
+      <li><a href="./research.html">Exploratory Research</a></li>
+      <li><a href="./development.html">Development</a></li>
+      <li><a href="./TDExperience.html">TD Experience</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-body">
+
+
+    <section class="hero">
+      <div>
+        <h2>Visual Programming:<br>Final Outcome</h2>
+        <p class="hero-text">Outlining the steps to create a custom interactive experience in Touch Designer.</p>
       </div>
-      <div class="content">
-        <div class="text-block">
-          <p>
-            De Stijl was a Dutch art and design movement founded in 1917 which
-            subscribed to a school of thinking by which artists and makers aimed
-            to emphasise harmony and universality of colours and shapes.
-            Principly, it focused on simplifying art to its most basic elements;
-            primarily featuring geometric shapes and lines, and primary colours.
-            This abstraction by means of reduction and simplification
-            highlighted the relationships between form and colour.
-          </p>
-
-          <p>
-            Piet Mondrian was one of the central figures of the De Stijl
-            movement, through which he expanded on his manifesto:
-            ‘Neo-plasticism’; a theoretical framework which rejects
-            representation in art, in favour of simplistic colors and lines to
-            express visual harmony. This ideology was echoed in Rosaling
-            Krauss’s 1979 essay: ‘Grids’. Without tangenting too much, it will
-            become important to clarify at this stage that Mondrian’s grid was
-            rooted in a metaphysical principle informed by Theosophy,
-            (particularly its doctrines surrounding ideas of pure harmony and
-            search of spiritual evolution). Mondrian's grid was a means to
-            physically reconcile these ideas through his art.
-          </p>
-        </div>
-        <div class="image-block">
-          <figure class="artwork">
-            <img src="./Images1/chair.jpg" alt="Modernist grid artwork" />
-            <figcaption class="artwork-credit">
-              Gerrit Rietveld, <em>Red Blue Chair</em>, Painted wood, 1918-23. ©
-              2026 Artists Rights Society (ARS), New York / Beeldrecht,
-              Amsterdam
-            </figcaption>
-          </figure>
-        </div>
+      <div class="hero-meta">
+        <p>DipL5b</p>
+        <p>Visual Programming</p>
       </div>
     </section>
 
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/7pteRGWUX_A"
-        title="YouTube video player"
-        allowfullscreen
-      >
-      </iframe>
+
+    <div class="layout">
+
+      <div class="content">
+
+        <main>
+
+          <section id="intro">
+            <p>
+              Coinciding with this project, I was borrowing a Boss RC 505-mk2 Loop station from a friend. This is a
+              device which can record and loop vocals or instruments via an input in order to build up a musical track.
+              By connecting the device to my computer via a cable, I am able to bring the live audio data into touch
+              designer and through CHOP operators, can use this to drive real-time, interactive visuals.
+            </p>
+
+          </section>
+
+          <section id="section1">
+            <h2>1. Audio Analysis and Beat Isolation of Live Audio Input </h2>
+            <p>
+              Following on from the Touch Designer lessons on the VLE, in particular the audio analysis lesson, I
+              decided to look into methods by which I can isolate the audio data from a beat. This is beneficial for two
+              reasons. Firstly, as I am doing live vocal looping, procedurally I would begin by beat boxing as this
+              forms the tempo for the vocals that follow. Secondly, In doing this, the transformations on the synced
+              visuals are sharper and more accurate compared to using unfiltered audio data.
+
+            </p>
+
+            <p>
+              I found a tutorial on youtube (referenced below) which demonstrates how to make a kick and snare detection
+              using CHOPs in Touch Designer. I more or less followed the tutorial exactly with the exception of
+              substituting the Audio File In CHOP with Audio Devise In (the loop station) and tweaking certain
+              parameters on the operators within the network to make them slightly more sensitive, so they can pick up
+              on the noises I am able to make with my mouth (less percussive and distinct than a real drum beat).
+
+            </p>
+
+            <p>
+              This process enabled me to familiarise myself with the Trigger CHOP which rationalises the detection of a
+              beat as a one and the absence of a beat as a zero (like a binary representation of data). This means that
+              each beat translates to the same data and sustains the same length of time, creating more consistent
+              changes when used as a reference to alter visuals.
+
+            </p>
+
+            <div class="media placeholder">
+              <img src="../image:media3/Beat-detection.jpg" alt="Beat Detection network screenshot" class="zoomable">
+            </div>
+
+            <p>
+              I repeated the same process to also create a snare detection network, altering the parameters in the Limit
+              CHOP so that it detects the more frequent snare-like sound I was using in this project.
+
+            </p>
+
+            <div class="media placeholder">
+              <video class="hover-video" loop playsinline preload="auto">
+                <source src="../image:media3/Network.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <p class="reference">
+              bileam tschepe (elekktronaut) (2020). Beat Detection – TouchDesigner Tips, Tricks and FAQs 6. [online]
+              YouTube. Available at: https://www.youtube.com/watch?v=gUELH_B2wsE [Accessed 25 March. 2026].
+            </p>
+          </section>
+
+          <section id="section2">
+            <h2>2. Audio Reactive Stars</h2>
+            <p>
+              While learning more about Touch Designer and following various online tutorials, I found one which
+              demonstrated how to create a TOP instancing network with the point transform operator to make particles
+              move towards the camera.
+            </p>
+
+            <p>
+              I followed this tutorial (referenced below) but used the data from the previously mentioned Snare
+              detection network as a reference for the Z translate field on the Point Transform operator. Crucially,
+              after the snare detection network that I had already created, I implemented a Math CHOP with the
+              multiplier increased to 30 and the range changed to 1 and 2. The multiplier makes the movement triggered
+              by the audio data noticeable and the range makes it so that the particles are consistently moving forward
+              but they jump forward more when the beat is detected and initialises the trigger.
+            </p>
+
+            <div class="media placeholder">
+              <img src="../image:media3/Stars.jpg" alt="Audio-Reactive Stars network screenshot" class="zoomable">
+            </div>
+
+            <p class="reference">Acrylicode (2023). Audio reactive Galaxy tutorial. [online] YouTube. Available at:
+              https://www.youtube.com/watch?v=J7s7aK2M3mw [Accessed 25 March. 2026].</p>
+          </section>
+
+          <section id="section3">
+            <h2>3. Audio Reactive Moon</h2>
+            <p>
+              After making the audio reactive particles or ‘stars’, I decided to render a moon-textured sphere TOP with
+              references to the kick detection data to control its scale and rotation.
+            </p>
+
+            <div class="media placeholder">
+              <img src="../image:media3/moon.jpg" alt="Audio-Reactive Moon network screenshot" class="zoomable">
+            </div>
+
+            <p>
+              This was adapted from the same tutorial that I followed to create the audio reactive stars, however
+              changed the SOP to resemble a moon and altered the Math operators as well as the parameters that the
+              references effect.
+            </p>
+
+            <div class="media placeholder">
+              <video class="hover-video" loop playsinline preload="auto">
+                <source src="../image:media3/moon+stars.mp4" type="video/mp4">
+              </video>
+            </div>
+          </section>
+
+          <section id="section4">
+            <h2>4. Syncing Video Playback with Audio</h2>
+            <p>
+              I was curious about syncing video playback speed with audio references. Once I’d created the Kick/Snare
+              detection network, I wanted to use them to add quick pulses to a video's playback.
+            </p>
+
+            <p>
+              This was fairly simple to implement. I sourced a video online that I thought would work well for this
+              purpose. I pasted the Snare detection network into the project and added a series of CHOPs.
+            </p>
+
+            <p>
+              On a Movie File In TOP there is an option in the ‘Play’ parameters window to turn on cue points. Once
+              enabled, this opens a parameter field where a reference can be embedded to sync a video's playback with
+              something like audio data. After the snare detection network, I used a Math CHOP and converted the range
+              from 0 and 1 to 1 and 10. I also used a Lag Chop, setting the lag to 0 and 0.2. The result is that the
+              video plays at normal speed but when a beat is detected, it jumps forward with a sharp attack but more
+              gradual release.
+            </p>
+
+            <div class="media placeholder">
+              <img src="../image:media3/flowers.jpg" alt="Video Playback that is synced with audio - network screenshot"
+                class="zoomable">
+            </div>
+          </section>
+
+          <section id="section5">
+            <h2>5. Using Transform Operators to Create Kaleidoscopic Visuals</h2>
+            <p>
+              At this point I had decided that I wanted to add these different visuals into a switch network. The plan
+              was to record live vocal looping and switch between the different audio reactive visuals as a means of
+              demonstrating the project.
+              For this reason, I wanted to create a third visual that combined aspects of both for continuity.
+            </p>
+
+            <p>
+              I pasted the Audio Reactive Video Playback network into a new project and added a series of Mirror
+              transform operators with incremental rotation values to create a kaleidoscope-like effect. I then took the
+              instancing audio reactive stars network and added this to the same project, combining them using a
+              composite TOP and finally adding a Bloom TOP for a bit of a glow.
+            </p>
+
+            <div class="media placeholder">
+              <img src="../image:media3/flowers+stars.jpg" alt="Flower Kaleidoscope network screenshot"
+                class="zoomable">
+            </div>
+
+            <p>
+              The result is some flowery kaleidoscopic imagery overlaid onto the same audio reactive stars from earlier.
+            </p>
+
+            <div class="media placeholder">
+              <video class="hover-video" loop playsinline preload="auto">
+                <source src="../image:media3/Stars+flowers.mp4" type="video/mp4">
+              </video>
+            </div>
+          </section>
+
+          <section id="section6">
+            <h2>6. Switch System</h2>
+            <p>
+              During a workshop, course leader, Jamie demonstrated to me how to create a switch network where by using a
+              Switch TOP, Keyboard In, Rename and Constant CHOP and a CHOP Execute DAT with the script:
+              op('constant1').par.value0 =
+              int(channel.name), it is possible to create a network where I can switch between different visual outputs
+              using keys.
+            </p>
+
+            <p>
+              This was crucial for my final project as my plan remained to be that I would film live vocal looping while
+              showing the audio reactive visuals and I needed a quick and easy way to switch between channels.
+            </p>
+
+            <p>
+              Additionally, at this stage I replaced all of the Audio Device In operators in each network with an ‘In’
+              CHOP. This adds an input to the right of each collapsed network and there I could connect a single audio
+              device in CHOP to all three networks.
+            </p>
+
+            <div class="media placeholder">
+              <img src="../image:media3/switch.jpg" alt="Switch network screenshot" class="zoomable">
+            </div>
+          </section>
+
+          <section id="section7">
+            <h2>7. Final Video</h2>
+            <p>
+              Once I had finished creating all of my visuals, I connected my computer to a projector via screen
+              mirroring. I filmed myself making music with the loop station and had my laptop nearby to switch between
+              channels. As I did this, I was simultaneously recording the audio in Garage Band.
+            </p>
+
+            <p>
+              When I came to edit the footage, I synced the audio and incorporated screen recordings from Touch Designer
+              as B-roll.
+            </p>
+
+            <p>
+              Frustratingly, there is a slight delay between live music registering in Touch Designer. Likewise, screen
+              mirroring can also introduce a slight delay. If I were to attempt this live, there may be a noticeable
+              delay in the visuals. To combat this, I would probably design the work to be more forgiving of delays and
+              opt for using a wired connection. Owing to this there are points where you can notice that my mouth is not
+              in-sync with the vocals as I chose to match the recorded audio to the projections. Given that Touch
+              Designer has an Ableton Live plugin (TD Ableton), I’m considering whether it would be worth trying this in
+              the future to see if it reduces latency.
+            </p>
+
+            <p>
+              All that being said, I was quite pleased by the end result and am eager to continue experimenting with
+              Touch Designer.
+            </p>
+
+            <div class="media video">
+              <iframe src="https://www.youtube.com/embed/7pteRGWUX_A" title="Project Demo" frameborder="0"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </section>
+
+        </main>
+
+      </div>
+
+      <aside class="sidebar">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#section1">Beat Isolation</a></li>
+          <li><a href="#section2">Audio Reactive Stars</a></li>
+          <li><a href="#section3">Audio Reactive Moon</a></li>
+          <li><a href="#section4">Video Playback</a></li>
+          <li><a href="#section5">Kaleidoscopic Visuals</a></li>
+          <li><a href="#section6">Switch System</a></li>
+          <li><a href="#section7">Final Video</a></li>
+        </ul>
+      </aside>
+
     </div>
-  </body>
+
+  </div>
+
+  <div id="lightbox">
+    <img id="lightbox-img" src="" alt="Expanded view" />
+  </div>
+
+</body>
+
 </html>

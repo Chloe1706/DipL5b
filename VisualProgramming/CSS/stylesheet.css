@@ -101,17 +101,19 @@ MAIN BODY
   padding-bottom: 3rem;
   padding-left: 3rem;
   padding-right: 3rem;
-  border-bottom: 2px solid var(--border);
+  /* border-bottom: 2px solid var(--border); */
 }
 
-.hero h2 {
+.hero h2,
+.main-body .hero h2 {
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
   color: var(--primary);
-  /* Add subtle gradient for visual interest */
+  border-left: none;
+  padding-left: 0;
   background: linear-gradient(135deg, var(--primary) 0%, #2a2a2a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -150,7 +152,8 @@ MAIN BODY
 }
 
 .featured {
-  margin-bottom: 6rem;
+  margin-bottom: 0;
+  padding-bottom: 4rem;
 }
 
 
@@ -486,6 +489,10 @@ blockquote::before {
 
 .body-content.case-study.inverted .section-heading {
   color: var(--accent);
+}
+
+.featured.inverted {
+  background: var(--primary);
 }
 
 /* ------------------
@@ -1123,4 +1130,74 @@ button {
   background: #dcdcd5;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
+}
+
+/* ===== SOURCES SECTION ===== */
+
+.body-content.sources {
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+.body-content.sources .body-text {
+  grid-column: 2 / -1;
+}
+
+.sources-heading {
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted) !important;
+  margin-bottom: 1.5rem;
+}
+
+.source-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.source-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: calc(var(--source-index, 0) * 0.1s);
+}
+
+.source-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.source-item em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.source-link {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.source-link:hover {
+  color: var(--secondary);
+}
+
+.source-item.source-in-view {
+  opacity: 1;
+  transform: translateY(0);
 }

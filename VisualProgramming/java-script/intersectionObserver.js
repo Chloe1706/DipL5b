@@ -183,11 +183,10 @@ const observerOptions = {
 
 // Create observer for body content sections
 const bodyContentObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-        } else {
-            entry.target.classList.remove('in-view');
+            bodyContentObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
@@ -204,8 +203,7 @@ const quoteObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('quote-in-view');
-        } else {
-            entry.target.classList.remove('quote-in-view');
+            quoteObserver.unobserve(entry.target);
         }
     });
 }, {
@@ -219,11 +217,10 @@ if (quoteSection) {
 
 // ===== TIER 2: IMAGE CARD CASCADE SETUP =====
 const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('card-in-view');
-        } else {
-            entry.target.classList.remove('card-in-view');
+            cardObserver.unobserve(entry.target);
         }
     });
 }, {
@@ -243,8 +240,7 @@ const columnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('column-in-view');
-        } else {
-            entry.target.classList.remove('column-in-view');
+            columnObserver.unobserve(entry.target);
         }
     });
 }, {
@@ -258,18 +254,47 @@ columnTexts.forEach((column, index) => {
     columnObserver.observe(column);
 });
 
-// ===== TRANSITION WRAPPER FADE-IN SETUP =====
-console.log('Setting up transition observer, wrapper element:', wrapper);
+// ===== FEATURED VIDEO PLAY/PAUSE ON VISIBILITY =====
+const featuredVideoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.play();
+        } else {
+            entry.target.pause();
+        }
+    });
+}, {
+    threshold: 0.1
+});
 
+document.querySelectorAll('.featured video').forEach((video) => {
+    featuredVideoObserver.observe(video);
+});
+
+// ===== TIER 2: SOURCE ITEM STAGGER SETUP =====
+const sourceItems = document.querySelectorAll('.source-item');
+
+const sourceObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('source-in-view');
+            sourceObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -30px 0px'
+});
+
+sourceItems.forEach((item, index) => {
+    item.style.setProperty('--source-index', index);
+    sourceObserver.observe(item);
+});
+
+// ===== TRANSITION WRAPPER FADE-IN SETUP =====
 const transitionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log('Transition observer fired:', {
-            isIntersecting: entry.isIntersecting,
-            target: entry.target,
-            boundingRect: entry.boundingClientRect
-        });
         if (entry.isIntersecting) {
-            console.log('✅ Adding in-view class to transition wrapper');
             entry.target.classList.add('in-view');
         } else {
             entry.target.classList.remove('in-view');
@@ -281,10 +306,7 @@ const transitionObserver = new IntersectionObserver((entries) => {
 });
 
 if (wrapper) {
-    console.log('📍 Observing transition wrapper');
     transitionObserver.observe(wrapper);
-} else {
-    console.error('❌ Wrapper element not found! Cannot observe transition.');
 }
 
 // ===== MAIN UPDATE FUNCTION =====
@@ -349,20 +371,38 @@ function updateTransition() {
 }
 
 // ===== OPTIMIZED SCROLL HANDLER =====
-let ticking = false;
+if (isReady) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateTransition();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            updateTransition();
-            ticking = false;
-        });
-        ticking = true;
-    }
+    updateTransition();
+}
+
+// ===== SECTION CHILDREN STAGGER =====
+const sectionChildObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            sectionChildObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('main section').forEach((section) => {
+    const children = section.querySelectorAll(':scope > h2, :scope > h3, :scope > p, :scope > .media');
+    children.forEach((el, index) => {
+        el.style.setProperty('--item-index', index);
+        sectionChildObserver.observe(el);
+    });
 });
-
-// Initialize on load
-updateTransition();
 
 
 
