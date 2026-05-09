@@ -88,6 +88,7 @@
 ------------------ */
 @media (max-width: 1400px) {
     .navbar {
+        flex-wrap: wrap;
         justify-content: space-between;
     }
 
@@ -96,20 +97,21 @@
     }
 
     .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-
+        width: 100%;
         flex-direction: column;
         gap: 0;
 
         background: white;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: none;
 
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+    }
+
+    .nav-links.is-open {
+        max-height: 500px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .nav-links li {
@@ -119,9 +121,5 @@
     .nav-links a {
         display: block;
         padding: 1rem 2rem;
-    }
-
-    .nav-links.is-open {
-        max-height: 500px;
     }
 }

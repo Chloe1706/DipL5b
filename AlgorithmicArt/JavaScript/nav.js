@@ -2,9 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector(".nav-toggle");
-    const links = document.querySelector(".nav-links");
+    const links = document.querySelectorAll(".nav-links");
 
     toggle.addEventListener("click", () => {
-        links.classList.toggle("is-open");
+        links.forEach(list => list.classList.toggle("is-open"));
     });
 });
