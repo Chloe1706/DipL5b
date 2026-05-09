@@ -12,9 +12,10 @@
 
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #f8f8f8;
-    color: #111;
+    background: #0c0c0c;
+    color: #f0f0f0;
     line-height: 1.5;
+    min-height: 100vh;
 }
 
 /* -------------------- */
@@ -22,128 +23,206 @@ body {
 /* -------------------- */
 
 header {
-    text-align: center;
-    padding: 80px 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 64px 40px 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 12px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    font-weight: 500;
-    letter-spacing: -1px;
+    font-size: clamp(2.8rem, 5vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    color: #f0f0f0;
 }
 
-header p {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #666;
+.header-sub {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+    padding-bottom: 8px;
 }
 
 /* -------------------- */
-/*    BANNER LAYOUT     */
+/*    BENTO GRID        */
 /* -------------------- */
 
 .banner-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 100px auto;
-    /* centers container */
-    padding: 0 20px;
+    max-width: 1400px;
+    margin: 20px auto 80px;
+    padding: 20px 40px 40px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    /* spacing between banners */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 420px 360px 260px;
+    gap: 8px;
 }
+
+.banner:nth-child(1) { grid-column: 1 / 9; }
+.banner:nth-child(2) { grid-column: 9 / 13; }
+.banner:nth-child(3) { grid-column: 1 / 5; }
+.banner:nth-child(4) { grid-column: 5 / 13; }
+.banner:nth-child(5) { grid-column: 1 / 9; }
+.banner:nth-child(6) { grid-column: 9 / 13; }
 
 /* -------------------- */
 /*       BANNERS        */
 /* -------------------- */
 
-.banner {
-    position: relative;
-    width: 100%;
-    height: 320px;
-
-    overflow: hidden;
-    cursor: pointer;
-
-    border-radius: 4px;
-    transition: transform 0.4s ease;
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Image */
+.banner {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 6px;
+    background: #111;
+
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease forwards;
+}
+
+.banner:nth-child(1) { animation-delay: 0.05s; }
+.banner:nth-child(2) { animation-delay: 0.15s; }
+.banner:nth-child(3) { animation-delay: 0.25s; }
+.banner:nth-child(4) { animation-delay: 0.35s; }
+.banner:nth-child(5) { animation-delay: 0.45s; }
+.banner:nth-child(6) { animation-delay: 0.55s; }
+
 .banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: brightness(0.6);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.5s ease;
 }
 
-/* Title (bottom left minimal style) */
+/* Project number — top right */
+.banner-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.35);
+    z-index: 3;
+    font-weight: 400;
+}
+
+/* Bottom gradient + title */
 .banner-text {
     position: absolute;
-    bottom: 25px;
-    left: 25px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 80px 24px 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
 
-    color: white;
-    font-size: 1.6rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
 
     z-index: 2;
-    transition: opacity 0.4s ease;
 }
 
-/* View Indicator (centered, hidden initially) */
-.banner::after {
-    content: "View Project →";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    color: white;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-
+/* Arrow that slides in on hover */
+.banner-text::after {
+    content: "→";
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0;
     opacity: 0;
-    transition: opacity 0.4s ease;
-
-    z-index: 2;
+    transform: translateX(-8px);
+    transition: opacity 0.3s ease 0.05s, transform 0.35s ease 0.05s;
 }
 
 /* -------------------- */
-/*      HOVER STATE     */
+/*    HOVER STATE       */
 /* -------------------- */
 
 .banner:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.45);
+    transform: scale(1.06);
+    filter: brightness(0.35);
 }
 
-.banner:hover::after {
+.banner:hover .banner-text::after {
     opacity: 1;
+    transform: translateX(0);
 }
 
-.banner:hover {
-    transform: translateY(-4px);
+/* Subtle outline on hover */
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    transition: border-color 0.35s ease;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.banner:hover::before {
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* -------------------- */
 /*     RESPONSIVE       */
 /* -------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 48px 24px 36px;
+    }
+
+    .banner-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 24px 40px;
+        margin-top: 0;
+    }
+
     .banner {
         height: 220px;
     }
 
-    header {
-        padding: 60px 20px 30px;
-    }
+    .banner:nth-child(1) { height: 280px; }
 
-    header h1 {
-        font-size: 2rem;
+    .header-sub {
+        padding-bottom: 0;
     }
 }
