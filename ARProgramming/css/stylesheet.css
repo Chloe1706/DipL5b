@@ -31,6 +31,31 @@ body::before {
             rgba(0, 0, 0, 0.09) 100%);
 }
 
+/* ===============================
+   HERO BACKGROUND + OVERLAY
+================================= */
+
+.main-body {
+    position: relative;
+    background-image: url('../Images1/BucketMan.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.main-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.main-body .hero {
+    position: relative;
+    z-index: 1;
+}
+
 /* Common header styles */
 .master-header {
     width: 100%;
@@ -218,7 +243,14 @@ body::before {
 
 /* Video */
 .second-header .phone-video {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     width: 320px;
+    min-width: unset;
+    min-height: unset;
+    height: auto;
     aspect-ratio: 9 / 16;
     object-fit: cover;
     border-radius: 28px;
@@ -334,7 +366,14 @@ body::before {
 
 /* Video */
 .third-header .phone-video {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     width: 320px;
+    min-width: unset;
+    min-height: unset;
+    height: auto;
     aspect-ratio: 9 / 16;
     object-fit: cover;
     border-radius: 28px;

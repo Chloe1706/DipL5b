@@ -12,6 +12,24 @@ body {
 }
 
 /* ===============================
+   HERO GAP OVERRIDES
+================================= */
+
+.main-body {
+  padding-bottom: 0;
+}
+
+.hero {
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.main-body + .section-major {
+  padding-top: 4rem;
+}
+
+/* ===============================
    MASTER HEADER
 ================================= */
 .master-header {
