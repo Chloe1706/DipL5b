@@ -1038,8 +1038,8 @@ button {
 
 .image-card {
   opacity: 0;
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  transition-delay: calc(var(--card-index, 0) * 0.2s);
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+  transition-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
 .image-card:nth-child(odd) {

@@ -213,3 +213,64 @@ main section > .media.in-view {
     font-weight: 300;
     color: var(--secondary);
 }
+/* --- Hover-to-play video wrapper --- */
+.hover-video-wrap {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.hover-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hover-video-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hover-play-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hover-play-icon::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.55rem 0 0.55rem 0.95rem;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+    margin-left: 0.2rem;
+}
+
+.hover-video-hint span {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+.hover-video-wrap:hover .hover-video-overlay {
+    opacity: 0;
+}
