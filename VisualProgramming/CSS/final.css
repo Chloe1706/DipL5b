@@ -70,3 +70,38 @@ main h2 {
     border: none;
     border-radius: 6px;
 }
+
+/* ------------------
+   Responsive
+------------------ */
+@media (max-width: 768px) {
+    header {
+        padding: 40px 16px;
+    }
+
+    main {
+        padding: 30px 16px;
+    }
+
+    .media {
+        padding: 20px 0;
+    }
+
+    section {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 30px 12px;
+    }
+
+    main {
+        padding: 20px 12px;
+    }
+
+    .media {
+        padding: 16px 0;
+    }
+}

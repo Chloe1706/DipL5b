@@ -687,6 +687,19 @@ body::before {
    Responsive
 ------------------ */
 
+/* Disable fixed backgrounds on touch devices (iOS Safari fix) */
+@media (max-width: 1024px) {
+    .main-body {
+        background-attachment: scroll;
+    }
+
+    .first-header,
+    .second-header,
+    .third-header {
+        background-attachment: scroll;
+    }
+}
+
 /* ==========================================
    SECOND HEADER — MOBILE FIX (STACK PROPERLY)
 ========================================== */
@@ -808,5 +821,50 @@ body::before {
     .third-header .header-subtitle {
         font-size: 1rem;
         color: #E6E27E;
+    }
+}
+
+@media (max-width: 600px) {
+    .first-header h1,
+    .first-header h2 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .first-header .header-content {
+        margin-top: 15vh;
+    }
+
+    .second-header,
+    .third-header {
+        padding: 4rem 1rem;
+    }
+
+    .second-header h1,
+    .third-header h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+
+    .second-header .header-content,
+    .third-header .header-content {
+        padding: 0 1rem;
+    }
+
+    .content {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .second-header,
+    .third-header {
+        padding: 3rem 0.75rem;
+    }
+
+    .content {
+        padding: 2.5rem 1rem;
+    }
+
+    .references {
+        padding-left: 1rem;
     }
 }

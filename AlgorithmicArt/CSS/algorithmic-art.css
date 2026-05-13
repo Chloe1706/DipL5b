@@ -19,7 +19,7 @@
 }
 
 h1 {
-    font-size: 8rem;
+    font-size: clamp(2.5rem, 8vw, 8rem);
     margin-bottom: 2.5rem;
     line-height: 0.95;
 }

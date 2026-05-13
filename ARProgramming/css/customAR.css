@@ -343,6 +343,7 @@ body {
 .video-wrapper {
   position: relative;
   width: 280px;
+  max-width: 100%;
   margin: 3rem auto; /* centers the whole block */
 }
 
@@ -506,4 +507,62 @@ body {
 .sources-section a:hover {
   background-size: 100% 1em;
   opacity: 0.9;
+}
+
+/* ------------------
+   Responsive
+------------------ */
+@media (max-width: 768px) {
+    .master-header {
+        height: 70vh;
+        min-height: 400px;
+    }
+
+    .header-content {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .major-inner {
+        padding: 0 1.5rem;
+    }
+
+    .section-major {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 600px) {
+    /* On narrow screens, show video caption below the video */
+    .video-wrapper {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .video-caption {
+        position: static;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: inherit;
+    }
+
+    .major-inner {
+        padding: 0 1rem;
+    }
+
+    .sources-section {
+        padding: 4rem 1rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .section-major {
+        padding: 3rem 0;
+    }
+
+    .subsection {
+        margin-bottom: 3rem;
+    }
 }

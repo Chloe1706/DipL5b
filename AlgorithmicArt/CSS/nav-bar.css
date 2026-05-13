@@ -86,7 +86,7 @@
 /* ------------------
    Responsive
 ------------------ */
-@media (max-width: 1400px) {
+@media (max-width: 1024px) {
     .navbar {
         flex-wrap: wrap;
         justify-content: space-between;

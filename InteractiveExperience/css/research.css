@@ -959,7 +959,73 @@ section {
         font-size: clamp(1.75rem, 5vw, 3rem);
     }
 
+    .parallax-header {
+        background-attachment: scroll;
+    }
+
+    .case-header {
+        background-attachment: scroll;
+        height: auto;
+        min-height: 60vh;
+    }
+
+    #section1 .media img,
+    #section1 .media video,
+    #section1 .media .hover-video-wrap {
+        max-width: 80%;
+    }
+
     .timeline-section-label {
         margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .parallax-split {
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+
+    .parallax-split-right img {
+        width: 160px;
+        height: 215px;
+    }
+
+    .case-header .header-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .case-header .header-right img,
+    .case-header .header-right video {
+        width: 160px;
+        height: 215px;
+    }
+
+    .title .main {
+        font-size: clamp(2.5rem, 9vw, 5rem);
+    }
+
+    .title .accent {
+        font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+    }
+
+    #section1 .media img,
+    #section1 .media video,
+    #section1 .media .hover-video-wrap {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 414px) {
+    .parallax-header .text-container {
+        padding: 0 4%;
+    }
+
+    .parallax-split {
+        padding: 0 0.75rem;
+    }
+
+    .tl-container {
+        padding: 2rem 1rem 4rem;
     }
 }

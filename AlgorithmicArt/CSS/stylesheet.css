@@ -465,8 +465,9 @@ typing headers
 .quote-overlay {
     background-color: rgba(0, 71, 171, 0.4);
     padding: 1.5rem 2rem;
-    width: 30rem;
-    height: 30rem;
+    width: min(30rem, 90vw);
+    min-height: 16rem;
+    height: auto;
     box-sizing: border-box;
 }
 
@@ -552,8 +553,62 @@ typing headers
         grid-template-columns: 1fr;
     }
 
-    .parallax-header {
+    .parallax-header,
+    .parallax-headerMV {
         background-attachment: scroll;
+    }
+
+    .quote-hero {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-container {
+        padding: 15% 5% 0 5%;
+    }
+
+    .title-container {
+        width: 90vw;
+        min-height: 50vh;
+        height: auto;
+    }
+
+    .header-content {
+        padding-left: 5vw;
+    }
+
+    .quote-author {
+        margin-top: 3rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-container {
+        padding: 20% 4% 0 4%;
+    }
+
+    .title-container {
+        width: 95vw;
+    }
+
+    .pixel-hero,
+    .pixel-yellow,
+    .blue-background {
+        padding-left: 4vw;
+    }
+
+    .quote-overlay {
+        width: min(28rem, 95vw);
+        padding: 1.25rem 1.25rem;
+    }
+
+    .quote-author {
+        margin-top: 2rem;
     }
 }
 
