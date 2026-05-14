@@ -65,8 +65,7 @@
     <section class="hero">
       <div>
         <h2>Interactive Experience:<br>Development</h2>
-        <p class="hero-text">Step-by-step documentation of the build process — from initial setup through to the
-          final interactive installation.</p>
+        <p class="hero-text">Step-by-step documentation of the development process.</p>
       </div>
       <div class="hero-meta">
         <p>DipL5b</p>
@@ -93,125 +92,211 @@
         <div class="content">
           <main>
 
+            <div class="media" style="text-align: center; margin-bottom: 2rem;">
+              <video class="hover-video" muted loop playsinline preload="auto" style="max-width: 100%;">
+                <source src="../Images-media/Sequence-01.mp4" type="video/mp4">
+              </video>
+              <p class="caption">Concept sketch video</p>
+            </div>
+
             <section id="step1">
-              <h2>1. MediaPipe Setup</h2>
-              <p>Installing and configuring the MediaPipe plugin for TouchDesigner. This involved downloading the
-                plugin from the repository, placing the necessary files in the correct TouchDesigner directory, and
-                verifying the install by running the example networks provided.</p>
+              <h2>1. Setup</h2>
+              <p>Early into the project I consulted Hannah and Bevis in the Creative Tech Lab to learn more about how I
+                could approach my concept from a technical standpoint. They were able to give me an indication of the
+                hardware and set up I would need to make my concept possible. I was then able to further refine my
+                concept with these parameters in mind. </p>
 
-              <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="MediaPipe plugin install" class="zoomable" />
-                <p class="caption">MediaPipe plugin directory structure</p>
+              <div class="media" style="text-align: center;">
+                <img src="../images-media2/SetupSketch.jpg" alt="MediaPipe plugin install" class="zoomable"
+                  style="max-width: 50%; display: block; margin: 0 auto;" />
+                <p class="caption">Setup diagram</p>
               </div>
 
-              <p>The plugin provides a CHOP component that outputs landmark data for detected hands — 21 keypoints
-                per hand, each with x, y, z coordinates.</p>
+              <p>After discussing it with staff in the CTL, I drew out this rough diagram as a reminder of
+                the equipment and placement for when I come to set up the work. </p>
 
-              <div class="media">
-                <video class="hover-video" muted loop playsinline preload="auto">
-                  <source src="../Images-media/placeholder.mp4" type="video/mp4">
-                </video>
-                <p class="caption">MediaPipe hand tracking CHOP output in TouchDesigner</p>
-              </div>
+
             </section>
 
 
             <section id="step2">
-              <h2>2. Hand Tracking Data</h2>
-              <p>Exploring which landmark channels are most useful for driving interaction. Index fingertip (landmark
-                8) and wrist (landmark 0) proved the most stable for mapping to output values.</p>
+              <h2>2. Touch Designer: Hand Tracking</h2>
+
+              <p>While experimenting with the Media Pipe Plugin in Touch Designer I followed a tutorial by Torin
+                Blakensmith which demonstrated how to turn the user's finger into a paintbrush and leave a
+                watercolour-like trail when moving their hand. This method utilised a feedback operator from the Touch
+                Designer palette as well as several texture and channel operators.
+              </p>
 
               <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="CHOP channel view" class="zoomable" />
-                <p class="caption">CHOP channel view — landmark 8 x/y channels selected</p>
+                <video class="hover-video" muted loop playsinline preload="auto">
+                  <source src="../images-media2/watercolour.mp4" type="video/mp4">
+                </video>
+                <p class="caption">Torin Blankensmith (2025). Watercolor Hand Tracking Brush in TouchDesigner Tutorial.
+                  [online] YouTube. Available at: https://www.youtube.com/watch?v=IATX3biLoZg
+                </p>
               </div>
 
-              <p>Data was smoothed using a Lag CHOP to reduce jitter before being passed downstream. A Math CHOP
-                remapped the raw 0–1 range to a more useful output scale.</p>
+              <p>After doing this, I realised I could make some alterations so that this would work for my concept:
+              </p>
 
               <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="Network screenshot" class="zoomable" />
-                <p class="caption">TouchDesigner network — data smoothing chain</p>
+                <img src="../Images-media2/HandTracking.jpg" alt="Network screenshot" class="zoomable" />
+                <p class="caption">Touch Designer Network Screenshot</p>
               </div>
+
+              <p>First, I used select channel operators to track the X, Y and Z position of all five fingertips of hand
+                1 (the first hand that is recognised by the media pipe plugin).The X and Y position control the position
+                of the colour. I used the Z position to ensure that the handtracking was only registered from a
+                specified distance. This is to prevent there from being any colour visible when the work is not in use.
+              </p>
+
+              <p>I chose to track the five finger tips as I figured that the most intuitive way to engage with the work
+                would be to wave your hand, palm down, over the tulips. A USB camera would be positioned adjacent to the
+                user, transmitting the data into Touch Designer. Bearing this in mind, the tips of all five fingers
+                seemed the best point to use as a reference. </p>
+
+              <div class="media" style="text-align: center;">
+                <img src="../images-media2/fingertips.jpg" alt="MediaPipe plugin install" class="zoomable"
+                  style="max-width: 50%; display: block; margin: 0 auto;" />
+                <p class="caption">Sketch illustrating this. </p>
+              </div>
+
             </section>
 
 
             <section id="step3">
-              <h2>3. MIDI Output</h2>
-              <p>Converting the processed hand position data to MIDI control change messages using the MIDI Out CHOP.
-                This required mapping the smoothed x/y channel values to CC numbers 1 and 2 on channel 1.</p>
+              <h2>3. Touch Designer: Changing Colours</h2>
 
-              <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="MIDI Out CHOP settings" class="zoomable" />
-                <p class="caption">MIDI Out CHOP — CC mapping settings</p>
-              </div>
+              <p>In the original water colour hand tracking project, the colour is predetermined by combining the circle
+                top with high feedback (the paint) and an image or noise texture operator in a Multiply TOP.
+              </p>
 
-              <p>IAC Driver (Mac) was used as a virtual MIDI bus so TouchDesigner could send MIDI internally to
-                Ableton without additional hardware.</p>
+              <p>I wanted to make it so the user could control the colour of the tulips, referencing tulip breeders.
+                Initially I tried making it so the X, Y and Z positions of the user's second hand were linked to the R G
+                and B values of the circle's colour. This worked to an extent but had a few issues. Firstly, I wanted to
+                avoid colours like green and grey as these did not accurately represent the colours of tulips and didn’t
+                look particularly good. Additionally, I did not feel that using both hands in this manner was very
+                intuitive. This led me to try a different approach.
+              </p>
 
-              <div class="media">
-                <video class="hover-video" muted loop playsinline preload="auto">
-                  <source src="../Images-media/placeholder.mp4" type="video/mp4">
+              <div class="media" style="text-align: center;">
+                <video class="hover-video" muted loop playsinline preload="auto"
+                  style="max-width: 40%; display: block; margin: 0 auto;">
+                  <source src="../images-media2/secondhandcolour.mp4" type="video/mp4">
                 </video>
-                <p class="caption">Live MIDI output responding to hand position</p>
-              </div>
-            </section>
-
-
-            <section id="step4">
-              <h2>4. Ableton Integration</h2>
-              <p>Receiving the MIDI CC data in Ableton Live and mapping it to audio parameters — filter cutoff and
-                reverb send. Hand height (y axis) controls the filter; horizontal position (x axis) controls reverb
-                depth.</p>
-
-              <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="Ableton MIDI mapping" class="zoomable" />
-                <p class="caption">Ableton MIDI mapping view — CC1 and CC2 assigned</p>
+                <p class="caption">Recording of first iteration of colour control</p>
               </div>
 
-              <p>Testing the mapping with a looped audio clip confirmed a responsive, low-latency connection between
-                hand movement and sound output.</p>
-            </section>
+              <p>Media Pipe comes with a range of helper channels which track things like the distance between pinch
+                point (thumb and index finger tip). I eventually decided to use this to control the flower colour as the
+                motion of pinching your thumb and index finger together, to me, resembled the act of picking a flower.
+              </p>
 
-
-            <section id="step5">
-              <h2>5. Visual Feedback</h2>
-              <p>Creating a visual layer in TouchDesigner that mirrors the hand interaction — particles and colour
-                values driven by the same landmark data feeding the MIDI output. This gives users immediate visual
-                confirmation that the system is tracking them.</p>
+              <p>In order to avoid unwanted colours I resolved to use a range of constant operators with different
+                bright colours and fed these into the input of a switch operator. The colours are cycled through by
+                first using a series of channel operators to register when thumb and index finger tip touch by defining
+                the minimum distance between the fingers and triggering a change when this distance is registered. I fed
+                this into the input of a count CHOP clamped and a maximum of 4; this is the reference CHOP for the
+                Switch index parameter. By using this data as a reference for the switch index, each time the user makes
+                a pinching motion with their fingers, they switch between the five colours.
+              </p>
 
               <div class="media">
-                <video class="hover-video" muted loop playsinline preload="auto">
-                  <source src="../Images-media/placeholder.mp4" type="video/mp4">
-                </video>
-                <p class="caption">Visual feedback — particles responding to hand tracking</p>
+                <img src="../Images-media2/switch.jpg" alt="Network screenshot" class="zoomable" />
+                <p class="caption">Touch Designer Network Screenshot</p>
               </div>
 
-              <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="Visual network" class="zoomable" />
-                <p class="caption">TouchDesigner visual output network</p>
-              </div>
-            </section>
-
-
-            <section id="step6">
-              <h2>6. Final Build</h2>
-              <p>Combining the hand tracking, MIDI output and visual feedback into a single TouchDesigner project
-                file. The final setup uses a laptop camera for tracking, outputs audio via Ableton, and projects
-                visuals onto the tulip installation using a short-throw projector.</p>
+              <p>I overlaid the visuals from the Switch operator underneath a green vertical ramp TOP which ultimately
+                created the appearance for a green stem and colour changing flower petals. </p>
 
               <div class="media">
-                <img src="../Images-media/placeholder.jpg" alt="Final setup" class="zoomable" />
-                <p class="caption">Final hardware and software setup</p>
+                <img src="../Images-media2/switchAndRamp.jpg" alt="Network screenshot" class="zoomable" />
+                <p class="caption">Touch Designer Network Screenshot</p>
               </div>
 
               <div class="media">
                 <video class="hover-video" muted loop playsinline preload="auto">
-                  <source src="../Images-media/placeholder.mp4" type="video/mp4">
+                  <source src="../images-media2/pinchColours.mp4" type="video/mp4">
                 </video>
-                <p class="caption">Full system test run</p>
+                <p class="caption">Recoding of touch designer responsive visuals
+                </p>
               </div>
-            </section>
+
+
+              <section id="step4">
+                <h2>4. 3D Sculpture</h2>
+                <p>Meanwhile, as I was working on the Touch Designer network for this project, I was getting a tulip
+                  prototype 3D printed by Stephen in the 3D Fabrication Workshop. For the purposes of saving time I
+                  sourced an open source STL file for a tulip model which I had printed:
+                </p>
+
+                <p class="caption">Printables.com. (2024). Beautiful Tulip With Stem - Best Valentine’s Day Gift.
+                  [online] Available at:
+                  https://www.printables.com/model/681635-beautiful-tulip-with-stem-best-valentines-day-gift </p>
+
+              </section>
+
+
+              <section id="step5">
+                <h2>5. Prototyping and User Testing</h2>
+                <p>Once I had a tulip and main network functioning in Touch Designer, I contacted the Creative Tech Lab
+                  so that I could set up a mock version of the final project. </p>
+
+                <div class="media" style="text-align: center;">
+                  <img src="../images-media2/Prototype1.jpg" alt="MediaPipe plugin install" class="zoomable"
+                    style="max-width: 50%; display: block; margin: 0 auto;" />
+                  <p class="caption">Photograph from the CTL</p>
+                </div>
+
+                <p>In order for the projected visuals to be aligned with the tulips models, I needed to use projection
+                  mapping. For this, I used the software MadMapper. At the end of the network in Touch Designer, I fed
+                  the final output into a Syphon Spout Out component. This is a component that can share the visuals in
+                  Touch Designer locally with other applications, including Madmapper.</p>
+
+                <p>I aligned the projectionion to the Tulip model using the mask feature in Madmapper:
+                </p>
+
+                <div class="media" style="text-align: center;">
+                  <img src="../images-media2/MadMapper.jpg" alt="MediaPipe plugin install" class="zoomable"
+                    style="max-width: 50%; display: block; margin: 0 auto;" />
+                  <p class="caption">Screenshot of mask in Madmapper</p>
+                </div>
+
+                <div class="media" style="text-align: center;">
+                  <video class="hover-video" muted loop playsinline preload="auto"
+                    style="max-width: 50%; display: block; margin: 0 auto;">
+                    <source src="../images-media2/PrototypeVid.mp4" type="video/mp4">
+                  </video>
+                  <p class="caption">Recording of prototype</p>
+                </div>
+
+                <p>Having had the opportunity to observe the concept more tangibly I was able to make a few
+                  observations. I realised that when I constructed the tulip model I stuck the leaf too high up so made
+                  a note to adjust this for future models. I also got to watch others engage with the work and this was
+                  particularly insightful. I observed that people had a tendency to move their hands quite quickly and
+                  this caused the hand tracking to stagnate slightly:</p>
+
+                <div class="media" style="text-align: center;">
+                  <video class="hover-video" muted loop playsinline preload="auto"
+                    style="max-width: 40%; display: block; margin: 0 auto;">
+                    <source src="../images-media2/Stagnate.mp4" type="video/mp4">
+                  </video>
+                  <p class="caption">Video demonstrating delayed hand tracking issue</p>
+                </div>
+
+                <div class="media">
+                  <img src="../Images-media/placeholder.jpg" alt="Final setup" class="zoomable" />
+                  <p class="caption">Final hardware and software setup</p>
+                </div>
+
+                <div class="media">
+                  <video class="hover-video" muted loop playsinline preload="auto">
+                    <source src="../Images-media/placeholder.mp4" type="video/mp4">
+                  </video>
+                  <p class="caption">Full system test run</p>
+                </div>
+              </section>
 
           </main>
         </div>
