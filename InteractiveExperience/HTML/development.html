@@ -55,7 +55,7 @@
     <ul class="nav-links main-links">
       <li><a href="./research.html">Research</a></li>
       <li><a href="./development.html">Development</a></li>
-      <li><a href="./experience.html">Experience</a></li>
+
     </ul>
   </nav>
 
@@ -92,10 +92,18 @@
         <div class="content">
           <main>
 
-            <div class="media" style="text-align: center; margin-bottom: 2rem;">
-              <video class="hover-video" muted loop playsinline preload="auto" style="max-width: 100%;">
-                <source src="../Images-media/Sequence-01.mp4" type="video/mp4">
-              </video>
+            <div class="media" style="margin-bottom: 2rem;">
+              <div class="hover-video-wrap">
+                <video class="hover-video" muted loop playsinline preload="auto">
+                  <source src="../Images-media/Sequence-01.mp4" type="video/mp4">
+                </video>
+                <div class="hover-video-overlay">
+                  <div class="hover-video-hint">
+                    <i class="fa-solid fa-play hover-play-icon"></i>
+                    <span>hover to play</span>
+                  </div>
+                </div>
+              </div>
               <p class="caption">Concept sketch video</p>
             </div>
 
@@ -129,9 +137,17 @@
               </p>
 
               <div class="media">
-                <video class="hover-video" muted loop playsinline preload="auto">
-                  <source src="../images-media2/watercolour.mp4" type="video/mp4">
-                </video>
+                <div class="hover-video-wrap">
+                  <video class="hover-video" muted loop playsinline preload="auto">
+                    <source src="../images-media2/watercolour.mp4" type="video/mp4">
+                  </video>
+                  <div class="hover-video-overlay">
+                    <div class="hover-video-hint">
+                      <div class="hover-play-icon"></div>
+                      <span>hover to play</span>
+                    </div>
+                  </div>
+                </div>
                 <p class="caption">Torin Blankensmith (2025). Watercolor Hand Tracking Brush in TouchDesigner Tutorial.
                   [online] YouTube. Available at: https://www.youtube.com/watch?v=IATX3biLoZg
                 </p>
@@ -180,11 +196,18 @@
                 intuitive. This led me to try a different approach.
               </p>
 
-              <div class="media" style="text-align: center;">
-                <video class="hover-video" muted loop playsinline preload="auto"
-                  style="max-width: 40%; display: block; margin: 0 auto;">
-                  <source src="../images-media2/secondhandcolour.mp4" type="video/mp4">
-                </video>
+              <div class="media">
+                <div class="hover-video-wrap">
+                  <video class="hover-video" muted loop playsinline preload="auto">
+                    <source src="../images-media2/secondhandcolour.mp4" type="video/mp4">
+                  </video>
+                  <div class="hover-video-overlay">
+                    <div class="hover-video-hint">
+                      <div class="hover-play-icon"></div>
+                      <span>hover to play</span>
+                    </div>
+                  </div>
+                </div>
                 <p class="caption">Recording of first iteration of colour control</p>
               </div>
 
@@ -216,11 +239,18 @@
               </div>
 
               <div class="media">
-                <video class="hover-video" muted loop playsinline preload="auto">
-                  <source src="../images-media2/pinchColours.mp4" type="video/mp4">
-                </video>
-                <p class="caption">Recoding of touch designer responsive visuals
-                </p>
+                <div class="hover-video-wrap">
+                  <video class="hover-video" muted loop playsinline preload="auto">
+                    <source src="../images-media2/pinchColours.mp4" type="video/mp4">
+                  </video>
+                  <div class="hover-video-overlay">
+                    <div class="hover-video-hint">
+                      <div class="hover-play-icon"></div>
+                      <span>hover to play</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="caption">Recoding of touch designer responsive visuals</p>
               </div>
 
 
@@ -263,11 +293,18 @@
                   <p class="caption">Screenshot of mask in Madmapper</p>
                 </div>
 
-                <div class="media" style="text-align: center;">
-                  <video class="hover-video" muted loop playsinline preload="auto"
-                    style="max-width: 50%; display: block; margin: 0 auto;">
-                    <source src="../images-media2/PrototypeVid.mp4" type="video/mp4">
-                  </video>
+                <div class="media">
+                  <div class="hover-video-wrap">
+                    <video class="hover-video" muted loop playsinline preload="auto">
+                      <source src="../images-media2/PrototypeVid.mp4" type="video/mp4">
+                    </video>
+                    <div class="hover-video-overlay">
+                      <div class="hover-video-hint">
+                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <span>hover to play</span>
+                      </div>
+                    </div>
+                  </div>
                   <p class="caption">Recording of prototype</p>
                 </div>
 
@@ -277,25 +314,189 @@
                   particularly insightful. I observed that people had a tendency to move their hands quite quickly and
                   this caused the hand tracking to stagnate slightly:</p>
 
-                <div class="media" style="text-align: center;">
-                  <video class="hover-video" muted loop playsinline preload="auto"
-                    style="max-width: 40%; display: block; margin: 0 auto;">
-                    <source src="../images-media2/Stagnate.mp4" type="video/mp4">
-                  </video>
+                <div class="media">
+                  <div class="hover-video-wrap">
+                    <video class="hover-video" muted loop playsinline preload="auto">
+                      <source src="../images-media2/Stagnate.mp4" type="video/mp4">
+                    </video>
+                    <div class="hover-video-overlay">
+                      <div class="hover-video-hint">
+                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <span>hover to play</span>
+                      </div>
+                    </div>
+                  </div>
                   <p class="caption">Video demonstrating delayed hand tracking issue</p>
                 </div>
 
+                <p>I found that implementing a Lag CHOP helped with this to an extent. However, if the user moves their
+                  hand really fast, there is still some delay. I deduced that this was being exacerbated by the feedback
+                  component. By using feedback, colours leave a soft trail before disappearing completely and
+                  artistically, I preferred this to the alternative. I resolved that I could either significantly reduce
+                  or remove altogether the feedback or provide written or visual instructions at the time of exhibiting
+                  the work so that people know to move their hand more gradually. As I did not want to lose the
+                  feedback, I began considering how I could design signage for the work that would not be too intrusive.
+                </p>
+
+                <p>At this point I was starting to consider more how I would exhibit the final work. Because I was
+                  projected onto the tulips, it was necessary for these to be white. For better cohesion, I decided that
+                  I would make everything else white to reference the ‘white cube’ contemporary art ideology and have a
+                  bigger contrast between active and inactive parts of the work.
+                </p>
+
                 <div class="media">
-                  <img src="../Images-media/placeholder.jpg" alt="Final setup" class="zoomable" />
-                  <p class="caption">Final hardware and software setup</p>
+                  <img src="../Images-media2/TulipPhoto.jpg" alt="Final setup" class="zoomable" />
+                  <p class="caption">Final sculpture constructed</p>
+                </div>
+
+                <p>When considering signage for the work, this all-white aesthetic led me to look into more minimalist
+                  points of reference, for instance Scandinavian and Japanese wayfinding and instructional graphics:
+                </p>
+
+                <div class="moodboard">
+                  <p class="moodboard-subtitle">Inspiration</p>
+                  <div class="moodboard-grid">
+                    <img src="../Images-media2/graphicinspo1.jpeg" alt="Moodboard image 1" class="zoomable" />
+                    <img src="../images-media2/graphicinspo2.jpeg" alt="Moodboard image 2" class="zoomable" />
+                    <img src="../images-media2/graphicinspo3.jpeg" alt="Moodboard image 3" class="zoomable" />
+                    <img src="../images-media2/graphicinspo4.jpeg" alt="Moodboard image 4" class="zoomable" />
+                    <img src="../Images-media2/graphicinspo5.jpeg" alt="Moodboard image 5" class="zoomable" />
+                  </div>
+                  <p class="caption">Info graphic reference images</p>
+                </div>
+
+                <div class="moodboard-design">
+                  <p class="moodboard-subtitle">Design</p>
+                  <div class="media" style="text-align: center;">
+                    <img src="../images-media2/Tulip Guide.jpg" alt="Design" class="zoomable"
+                      style="max-width: 45%; aspect-ratio: 2/3; object-fit: cover; display: block; margin: 0 auto;" />
+                    <p class="caption">Info Graphic for exhibting project</p>
+                  </div>
+                </div>
+
+                <p>I decided on the name “What We Made Grow” as the title for this work. It reflects the relationship
+                  between nature and human intervention; referencing back to the history of tulip hybridisation. The
+                  name felt equally suitable because the work depicts organic forms using contemporary mediums (software
+                  and 3D printing), highlighting the conflicting truths that something can be both organic, and manmade.
+                </p>
+              </section>
+
+              <section id="step6">
+                <h2>6. Sound</h2>
+                <p>As mentioned on the previous page, with the help of Zhou Zhou, I was able to transmit hand tracking
+                  data into the Ableton live and use it as a midi input to control sound parameters. I included this
+                  method in the network for this project. As an extension of the Tulip project, I can optionally include
+                  this element to add a further layer of interaction. However, given that I will be exhibiting this work
+                  at Gradfest and sharing the space with others, I will probably opt to not include the sound element on
+                  this occasion. This is because I am aiming for a fairly minimal and intuitive setup and the inclusion
+                  of headphones would work against this.
+                </p>
+
+              </section>
+
+
+              <section id="step7">
+                <h2>7. 2nd Hand Integration</h2>
+                <p>I originally planned for the work to be single user and use one hand. However, it occurred to me that
+                  multiple people may try to engage with the work at the same time or someone might be inclined to try
+                  using both hands. To prepare for this scenario, I ended up adding 2nd hand controls. I achieved this
+                  by collapsing the entire network down into a custom base component, duplicating it and substituting
+                  every instance of H1(hand 1) for H2(hand 2). This refers to the second hand recognised by Media Pipe.
+                </p>
+
+                <p>I fed both of these base components into an Over TOP, followed by the Syphon Spout Out TOP which
+                  transmits the visuals to Madmapper. I don’t plan to actively encourage multiple user or multiple hand
+                  engagement however, I feel better knowing that there is support for this engagement in place to
+                  prepare for the eventuality that people chose to try this. </p>
+
+                <div class="media">
+                  <img src="../Images-media2/FullNetwork.jpg" alt="Network screenshot" class="zoomable" />
+                  <p class="caption">Full Network, Touch Designer Network Screenshot</p>
                 </div>
 
                 <div class="media">
-                  <video class="hover-video" muted loop playsinline preload="auto">
-                    <source src="../Images-media/placeholder.mp4" type="video/mp4">
-                  </video>
-                  <p class="caption">Full system test run</p>
+                  <img src="../Images-media2/BaseNetwork.jpg" alt="Network screenshot" class="zoomable" />
+                  <p class="caption">Touch Designer Network Screenshot</p>
                 </div>
+
+                <div class="media">
+                  <div class="hover-video-wrap">
+                    <video class="hover-video" muted loop playsinline preload="auto">
+                      <source src="../images-media2/TwoHands.mp4" type="video/mp4">
+                    </video>
+                    <div class="hover-video-overlay">
+                      <div class="hover-video-hint">
+                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <span>hover to play</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="caption">2nd Hand Integration Recording</p>
+                </div>
+
+                <p>One of the limitations of Media Pipe hand tracking is it only tracks a maximum of two hands so I
+                  cannot expand on this any further. This is partly why I am choosing not to actively encourage multiple
+                  users/hands in the signage as this could create confusion where there are 3-4 hands in the frame,
+                  causing the tracking to rapidly switch between detected inputs, creating instability within the
+                  interaction and unintended visual behaviour. </p>
+
+
+              </section>
+
+
+              <section id="step8">
+                <h2>8. 2nd Iteration of Prototyping/Testing</h2>
+                <p>On the lead up to submission I had the opportunity to set up the piece for a second time in the
+                  Creative Tech Lab. By this point I had corrected the leaf placement and printed some more tulips to
+                  get a better idea of the visual effect. I also sourced and painted a planter box for the tulips to sit
+                  in, making this mock setup much closer to the original concept sketch.
+                </p>
+
+                <div class="media">
+                  <div class="hover-video-wrap">
+                    <video class="hover-video" muted loop playsinline preload="auto">
+                      <source src="../images-media2/CTLVideo.mp4" type="video/mp4">
+                    </video>
+                    <div class="hover-video-overlay">
+                      <div class="hover-video-hint">
+                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <span>hover to play</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="caption">Video recording in the CTL during testing</p>
+                </div>
+
+                <p>Due to the limited time, I was unable to align the projections perfectly. I would hope to be able to
+                  execute this better at the time of actually exhibiting the work. It is really challenging to avoid
+                  having any visible projection on the wall. At this stage, I am considering the possibility of
+                  installing something behind the work, other than a blank white wall, that will make the slivers of
+                  visible projection less noticeable. I know, for instance, that additional black curtains can be
+                  installed in the CTL. I may inquire about whether this will be possible. </p>
+
+              </section>
+
+
+              <section id="step9">
+                <h2>9. Final Thoughts</h2>
+                <p>Overall, I am happy with the outcome of this project as I feel that I have fulfilled my own brief in
+                  terms of what I hoped to achieve. Prior to exhibiting this work at Gradfest, there are a few finer
+                  details to sort out however, with respect to the interactive experience project assignment, I think
+                  that I have reached a successful conclusion.
+                </p>
+
+                <p>Moving into 3rd year, I have already begun to have conversations with the 3D fabrication workshop
+                  about expanding on this work in terms of scale. I would really like to revisit this concept on a
+                  larger scale and dedicate more time to develop the interactive sound element of the work.
+                </p>
+
+                <p>Beyond this, I am eager to continue to develop work which intersects Touch Designer with interactive
+                  mediums as I hope to develop my portfolio within this field of practice.
+                </p>
+
+
+
+
               </section>
 
           </main>

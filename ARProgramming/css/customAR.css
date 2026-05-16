@@ -221,16 +221,24 @@ body {
    LARGE SECTION NUMBER
 ================================= */
 
-.section-label {
+.section-major .section-label {
   position: absolute;
-  top: 4rem;
+  top: 1rem;
   left: 2rem;
 
   font-size: 6rem;
   font-weight: 600;
+  line-height: 1;
   opacity: 0.05;
 
   pointer-events: none;
+  padding-left: 0;
+  border-left: none;
+  letter-spacing: normal;
+  text-transform: none;
+  color: inherit;
+  align-self: auto;
+  transition: none;
 }
 
 /* ===============================
