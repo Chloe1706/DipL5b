@@ -89,11 +89,7 @@ header h1 {
 }
 
 .banner:nth-child(5) {
-    grid-column: 1 / 9;
-}
-
-.banner:nth-child(6) {
-    grid-column: 9 / 13;
+    grid-column: 1 / 13;
 }
 
 /* -------------------- */
@@ -143,9 +139,6 @@ header h1 {
     animation-delay: 0.45s;
 }
 
-.banner:nth-child(6) {
-    animation-delay: 0.55s;
-}
 
 .banner img {
     width: 100%;

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TD Experience</title>
+  <title>Touch Designer Experience</title>
 
   <!-- Google Font: Cormorant Garamond -->
   <link
@@ -76,9 +76,9 @@
           <section id="intro">
             <p>
               Coinciding with this project, I was borrowing a Boss RC 505-mk2 Loop station from a friend. This is a
-              device which can record and loop vocals or instruments via an input in order to build up a musical track.
+              device which can record and loop vocals or instruments to build up a musical track.
               By connecting the device to my computer via a cable, I am able to bring the live audio data into touch
-              designer and through CHOP operators, can use this to drive real-time, interactive visuals.
+              designer and through CHOP operators, can use this to drive real-time, responsive visuals.
             </p>
 
           </section>
@@ -86,17 +86,19 @@
           <section id="section1">
             <h2>1. Audio Analysis and Beat Isolation of Live Audio Input </h2>
             <p>
-              Following on from the Touch Designer lessons on the VLE, in particular the audio analysis lesson, I
-              decided to look into methods by which I can isolate the audio data from a beat. This is beneficial for two
-              reasons. Firstly, as I am doing live vocal looping, procedurally I would begin by beat boxing as this
-              forms the tempo for the vocals that follow. Secondly, In doing this, the transformations on the synced
-              visuals are sharper and more accurate compared to using unfiltered audio data.
+              Following the TouchDesigner lessons on the VLE, particularly the session focused on audio analysis, I
+              began researching methods for isolating beat data from live audio data. This proved beneficial for two
+              main reasons. Firstly, because my process involved live vocal looping, I would typically begin by
+              beatboxing in order to establish the tempo for the layers that followed. Secondly, isolating the beat data
+              allowed the synced visuals to respond with greater precision, producing sharper and more accurate
+              transformations than when using unfiltered audio data.
 
             </p>
 
             <p>
               I found a tutorial on youtube (referenced below) which demonstrates how to make a kick and snare detection
-              using CHOPs in Touch Designer. I more or less followed the tutorial exactly with the exception of
+              network
+              using CHOPs in Touch Designer. I followed the tutorial more or less exactly with the exception of
               substituting the Audio File In CHOP with Audio Devise In (the loop station) and tweaking certain
               parameters on the operators within the network to make them slightly more sensitive, so they can pick up
               on the noises I am able to make with my mouth (less percussive and distinct than a real drum beat).
@@ -107,7 +109,7 @@
               This process enabled me to familiarise myself with the Trigger CHOP which rationalises the detection of a
               beat as a one and the absence of a beat as a zero (like a binary representation of data). This means that
               each beat translates to the same data and sustains the same length of time, creating more consistent
-              changes when used as a reference to alter visuals.
+              changes when used as a reference to alter a perameter.
 
             </p>
 
@@ -153,7 +155,7 @@
               I followed this tutorial (referenced below) but used the data from the previously mentioned Snare
               detection network as a reference for the Z translate field on the Point Transform operator. Crucially,
               after the snare detection network that I had already created, I implemented a Math CHOP with the
-              multiplier increased to 30 and the range changed to 1 and 2. The multiplier makes the movement triggered
+              multiplier increased to 30 and the range changed to 1 and 2. This multiplier makes the movement triggered
               by the audio data noticeable and the range makes it so that the particles are consistently moving forward
               but they jump forward more when the beat is detected and initialises the trigger.
             </p>
@@ -169,8 +171,10 @@
           <section id="section3">
             <h2>3. Audio Reactive Moon</h2>
             <p>
-              After making the audio reactive particles or ‘stars’, I decided to render a moon-textured sphere TOP with
-              references to the kick detection data to control its scale and rotation.
+              After making the audio reactive particles or ‘stars’, I decided to render a moon-textured sphere SOP using
+              a Phong Material and a texture map of the moons surface.
+              A transform SOP in the sphere's network references the kick detection data to control its scale and
+              rotation.
             </p>
 
             <div class="media placeholder">
@@ -178,7 +182,7 @@
             </div>
 
             <p>
-              This was adapted from the same tutorial that I followed to create the audio reactive stars, however
+              This was adapted from the same tutorial that I followed to create the audio reactive stars, however I
               changed the SOP to resemble a moon and altered the Math operators as well as the parameters that the
               references effect.
             </p>
@@ -201,19 +205,21 @@
           <section id="section4">
             <h2>4. Syncing Video Playback with Audio</h2>
             <p>
-              I was curious about syncing video playback speed with audio references. Once I’d created the Kick/Snare
+              I was curious about syncing video playback speed with audio data references. Once I’d created the
+              Kick/Snare
               detection network, I wanted to use them to add quick pulses to a video's playback.
             </p>
 
             <p>
               This was fairly simple to implement. I sourced a video online that I thought would work well for this
-              purpose. I pasted the Snare detection network into the project and added a series of CHOPs.
+              purpose. I pasted the Snare detection network into the project and added a series of CHOPs which converts
+              the audio data into a suitable reference for video playback speed.
             </p>
 
             <p>
               On a Movie File In TOP there is an option in the ‘Play’ parameters window to turn on cue points. Once
-              enabled, this opens a parameter field where a reference can be embedded to sync a video's playback with
-              something like audio data. After the snare detection network, I used a Math CHOP and converted the range
+              enabled, this opens a parameter field where you can embed a CHOP reference to control video playback.
+              After the snare detection network, I used a Math CHOP and converted the range
               from 0 and 1 to 1 and 10. I also used a Lag Chop, setting the lag to 0 and 0.2. The result is that the
               video plays at normal speed but when a beat is detected, it jumps forward with a sharp attack but more
               gradual release.
@@ -270,14 +276,14 @@
             <p>
               During a workshop, course leader, Jamie demonstrated to me how to create a switch network where by using a
               Switch TOP, Keyboard In, Rename and Constant CHOP and a CHOP Execute DAT with the script:
-              op('constant1').par.value0 =
-              int(channel.name), it is possible to create a network where I can switch between different visual outputs
-              using keys.
+              <code>op('constant1').par.value0 =
+              int(channel.name)</code>, I can switch between different visual
+              output using my keyboard.
             </p>
 
             <p>
-              This was crucial for my final project as my plan remained to be that I would film live vocal looping while
-              showing the audio reactive visuals and I needed a quick and easy way to switch between channels.
+              This was crucial for my final project as I needed a quick an easy way to switch between channels while
+              performing live vocal looping.
             </p>
 
             <p>

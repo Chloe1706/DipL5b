@@ -1240,3 +1240,34 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+  .body-content.sources {
+    display: block;
+    padding: 3rem 1.25rem;
+  }
+
+  .body-content.sources .section-label {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
+  .body-content.sources .body-text {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .source-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    padding: 1rem 0;
+  }
+
+  .source-link {
+    flex-shrink: 1;
+    word-break: break-all;
+  }
+}

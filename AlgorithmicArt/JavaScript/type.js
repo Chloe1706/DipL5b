@@ -92,10 +92,10 @@ if (targetQuote) {
         if (indexQuote < textQuote.length) {
             targetQuote.textContent += textQuote.charAt(indexQuote);
             indexQuote++;
-            setTimeout(typeQuote, 80);
+            setTimeout(typeQuote, 40);
         } else {
             cursorQuote.style.animation = 'blink 0.9s steps(1, end) infinite';
-            document.querySelector('.quote-author').style.display = 'block';
+            document.querySelector('.quote-author').classList.add('visible');
         }
     }
 
@@ -134,7 +134,7 @@ if (targetWhite) {
         if (indexWhite < textWhite.length) {
             targetWhite.textContent += textWhite.charAt(indexWhite);
             indexWhite++;
-            setTimeout(typeWhite, 80);
+            setTimeout(typeWhite, 40);
         } else {
             cursorWhite.style.animation = 'blink 0.9s steps(1, end) infinite';
             //document.querySelector('.quote-author').style.display = 'block';

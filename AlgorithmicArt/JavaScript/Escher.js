@@ -6,7 +6,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1400, 500);
+  createCanvas(1400, 500).parent('escher-canvas');
   noLoop();
 }
 
@@ -19,9 +19,7 @@ function draw() {
   const ySpacing = 260; // distance in pixels between birds vertically 
 
 
-  // Draw grid starting at top-left canvas corner
-  - imageMode(CORNER);
-  + imageMode(CENTER);
+  imageMode(CENTER);
 
   //nested while loop that fills the canvas with 'image' (bird SVG)
   let row = 0;

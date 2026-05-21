@@ -268,6 +268,69 @@ html {
 }
 
 /* ------------------
+   Canvas embed
+------------------ */
+
+.canvas-embed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+    background: #f5f5f0;
+}
+
+.canvas-embed canvas {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+.canvas-caption {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #888;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin: 0;
+}
+
+.spiral-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#scrollBackBtn {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+#reloadButton,
+#kusamaButton,
+#scrollBackBtn {
+    padding: 0.6rem 2rem;
+    font-family: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid #25170c;
+    color: #25170c;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#reloadButton:hover,
+#kusamaButton:hover,
+#scrollBackBtn:hover {
+    background: #25170c;
+    color: #fafafa;
+}
+
+/* ------------------
    Sources section
 ------------------ */
 .sources {
@@ -466,9 +529,10 @@ typing headers
     background-color: rgba(0, 71, 171, 0.4);
     padding: 1.5rem 2rem;
     width: min(30rem, 90vw);
-    min-height: 16rem;
-    height: auto;
+    height: min(28rem, 70vh);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -487,11 +551,17 @@ typing headers
 }
 
 .quote-author {
-    margin-top: 9rem;
+    margin-top: auto;
+    padding-top: 1rem;
     font-weight: 300;
-    opacity: 0.8;
     color: #f5f5f5;
     font-family: "Cormorant Garamond", serif;
+    opacity: 0;
+    transition: opacity 1.8s ease-out;
+}
+
+.quote-author.visible {
+    opacity: 0.8;
 }
 
 /* white text on blue background */
@@ -546,6 +616,50 @@ typing headers
 }
 
 /* ------------------
+   Scroll Reveal
+------------------ */
+.text-block {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.text-block.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-block {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out 0.15s, transform 0.6s ease-out 0.15s;
+}
+
+.image-block.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.artwork {
+    opacity: 0;
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    transition-delay: calc(var(--artwork-index, 0) * 0.12s);
+}
+
+.artwork:nth-child(odd) {
+    transform: translateX(-30px);
+}
+
+.artwork:nth-child(even) {
+    transform: translateX(30px);
+}
+
+.artwork.artwork-in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ------------------
    Responsive
 ------------------ */
 @media (max-width: 900px) {
@@ -579,11 +693,41 @@ typing headers
     }
 
     .quote-author {
-        margin-top: 3rem;
+        margin-top: auto;
     }
 
     .section {
         padding: 60px 0;
+    }
+
+    /* Sources section */
+    .body-content.sources {
+        display: block;
+        padding: 3rem 1.25rem;
+    }
+
+    .body-content.sources .section-label {
+        position: static;
+        margin-bottom: 1.5rem;
+    }
+
+    .body-content.sources .body-text {
+        grid-column: 1 / -1;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .source-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        font-size: 0.85rem;
+        padding: 1rem 0;
+    }
+
+    .source-link {
+        flex-shrink: 1;
+        word-break: break-all;
     }
 }
 
@@ -608,7 +752,7 @@ typing headers
     }
 
     .quote-author {
-        margin-top: 2rem;
+        margin-top: auto;
     }
 }
 

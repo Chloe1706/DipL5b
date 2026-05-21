@@ -25,7 +25,7 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.main-body + .section-major {
+.main-body+.section-major {
   padding-top: 4rem;
 }
 
@@ -352,7 +352,8 @@ body {
   position: relative;
   width: 280px;
   max-width: 100%;
-  margin: 3rem auto; /* centers the whole block */
+  margin: 3rem auto;
+  /* centers the whole block */
 }
 
 .phone-video {
@@ -366,7 +367,8 @@ body {
 .video-caption {
   position: absolute;
   top: 0;
-  left: -220px; /* moves caption to left of video */
+  left: -220px;
+  /* moves caption to left of video */
   width: 200px;
 
   font-size: 0.95rem;
@@ -499,10 +501,8 @@ body {
   text-decoration: none;
   word-break: break-word;
 
-  background-image: linear-gradient(
-    rgba(230, 226, 126, 0.6),
-    rgba(230, 226, 126, 0.6)
-  );
+  background-image: linear-gradient(rgba(230, 226, 126, 0.6),
+      rgba(230, 226, 126, 0.6));
   background-repeat: no-repeat;
   background-size: 100% 0.6em;
   background-position: 0 90%;
@@ -517,60 +517,165 @@ body {
   opacity: 0.9;
 }
 
+/* ===============================
+   FIXED SIDEBAR NAV
+================================= */
+
+.ar-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  z-index: 200;
+  background: #1f242b;
+  padding: 1rem 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-left: 4px solid rgba(232, 237, 242, 0.45);
+  border-radius: 4px 0 0 4px;
+  box-shadow: -4px 4px 24px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.ar-sidebar:hover {
+  box-shadow: -4px 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.ar-sidebar h3 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: rgba(232, 237, 242, 0.45);
+}
+
+.ar-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ar-sidebar-list a {
+  text-decoration: none;
+  color: rgba(232, 237, 242, 0.7);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.ar-sidebar-list a:hover {
+  color: #e6e27e;
+}
+
+.ar-sidebar-list a.active {
+  color: #e6e27e;
+  font-weight: bold;
+}
+
+@media (max-width: 1280px) {
+  .ar-sidebar {
+    display: none;
+  }
+}
+
+/* ===============================
+   FINAL THOUGHTS LAYOUT
+================================= */
+
+.ft-lead {
+  max-width: 900px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid #e6e27e;
+}
+
+.ft-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  max-width: 1050px;
+  margin-bottom: 2rem;
+}
+
+.ft-col p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
 /* ------------------
    Responsive
 ------------------ */
 @media (max-width: 768px) {
-    .master-header {
-        height: 70vh;
-        min-height: 400px;
-    }
+  .master-header {
+    height: 70vh;
+    min-height: 400px;
+  }
 
-    .header-content {
-        padding: 1.5rem;
-        max-width: 100%;
-    }
+  .header-content {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
 
-    .major-inner {
-        padding: 0 1.5rem;
-    }
+  .major-inner {
+    padding: 0 1.5rem;
+  }
 
-    .section-major {
-        padding: 4rem 0;
-    }
+  .section-major {
+    padding: 4rem 0;
+  }
+
+  .ft-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ft-lead {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
-    /* On narrow screens, show video caption below the video */
-    .video-wrapper {
-        width: 100%;
-        max-width: 260px;
-    }
 
-    .video-caption {
-        position: static;
-        width: 100%;
-        text-align: center;
-        margin-top: 0.75rem;
-        font-size: 0.85rem;
-        color: inherit;
-    }
+  /* On narrow screens, show video caption below the video */
+  .video-wrapper {
+    width: 100%;
+    max-width: 260px;
+  }
 
-    .major-inner {
-        padding: 0 1rem;
-    }
+  .video-caption {
+    position: static;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: inherit;
+  }
 
-    .sources-section {
-        padding: 4rem 1rem;
-    }
+  .major-inner {
+    padding: 0 1rem;
+  }
+
+  .sources-section {
+    padding: 4rem 1rem;
+  }
 }
 
 @media (max-width: 414px) {
-    .section-major {
-        padding: 3rem 0;
-    }
+  .section-major {
+    padding: 3rem 0;
+  }
 
-    .subsection {
-        margin-bottom: 3rem;
-    }
+  .subsection {
+    margin-bottom: 3rem;
+  }
 }

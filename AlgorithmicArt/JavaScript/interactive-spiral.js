@@ -1,25 +1,35 @@
-function setup() {
-  createCanvas(1405, 600);
-  angleMode(DEGREES);
+let spiralInView = false;
 
+function setup() {
+  let cnv = createCanvas(1405, 600);
+  if (document.getElementById('spiral-canvas')) {
+    cnv.parent('spiral-canvas');
+
+    const observer = new IntersectionObserver((entries) => {
+      spiralInView = entries[0].isIntersecting;
+    }, { threshold: 0.9 });
+
+    observer.observe(document.getElementById('spiral-canvas'));
+  } else {
+    // full-page version — always active
+    spiralInView = true;
+  }
+
+  angleMode(DEGREES);
   noFill();
   strokeWeight(1);
-
   stroke(255, 230, 0);
-
 }
 
-//scroll integration for interactive artwork 
 function mouseWheel(event) {
+  if (!spiralInView) return; // let page scroll pass through
 
-  //improve scroll consistency on mouse 
   if (event.delta > 5) {
     event.delta = 5;
   }
-  count += event.delta * 0.5; // scroll modifies evolution
-  return false; // prevents page scroll
+  count += event.delta * 0.5;
+  return false; // prevents page scroll only when canvas is in view
 }
-
 
 function polarToCartesianX(r, angle) {
   return r * cos(angle);
@@ -31,37 +41,21 @@ function polarToCartesianY(r, angle) {
 
 let count = 0;
 
-
 function draw() {
-
   background(255, 111, 0);
-
   translate(width / 2, height / 2);
 
-
-  //draw shape
   beginShape();
 
   let angle = 0;
 
-  while (angle < 6 * 360) { //number of loops around the centre 
-
+  while (angle < 6 * 360) {
     let radius = 100 * tan(count * 0.001 * angle);
-
     let x = polarToCartesianX(radius, angle);
     let y = polarToCartesianY(radius, angle);
-
-    //draw a point of the shape
     curveVertex(x, y);
-
     angle = angle + 1;
   }
 
-  //shape is finished 
   endShape();
-
-
 }
-
-
-

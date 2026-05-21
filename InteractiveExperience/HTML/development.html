@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Experience — Development</title>
+  <title>Interactive Experience | Development</title>
 
   <!-- Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
@@ -65,7 +65,8 @@
     <section class="hero">
       <div>
         <h2>Interactive Experience:<br>Development</h2>
-        <p class="hero-text">Step-by-step documentation of the development process.</p>
+        <p class="hero-text">Step-by-step documentation of the development process for the Interactive Experience
+          project.</p>
       </div>
       <div class="hero-meta">
         <p>DipL5b</p>
@@ -80,12 +81,14 @@
 
         <!-- SIDEBAR NAV -->
         <aside class="sidebar">
-          <a href="#step1">1. MediaPipe Setup</a>
-          <a href="#step2">2. Hand Tracking Data</a>
-          <a href="#step3">3. MIDI Output</a>
-          <a href="#step4">4. Ableton Integration</a>
-          <a href="#step5">5. Visual Feedback</a>
-          <a href="#step6">6. Final Build</a>
+          <a href="#step1">1. Setup</a>
+          <a href="#step2">2. Hand Tracking</a>
+          <a href="#step3">3. Interactivity</a>
+          <a href="#step4">4. 3D Printing</a>
+          <a href="#step5">5. User Testing</a>
+          <a href="#step6">6. Ableton Live</a>
+          <a href="#step7">7. Multi-User</a>
+          <a href="#step8">8. Final Result</a>
         </aside>
 
         <!-- CONTENT -->
@@ -99,7 +102,7 @@
                 </video>
                 <div class="hover-video-overlay">
                   <div class="hover-video-hint">
-                    <i class="fa-solid fa-play hover-play-icon"></i>
+                    <div class="hover-play-icon"></div>
                     <span>hover to play</span>
                   </div>
                 </div>
@@ -153,7 +156,8 @@
                 </p>
               </div>
 
-              <p>After doing this, I realised I could make some alterations so that this would work for my concept:
+              <p>I realised that I could make alterations to this existing network in order to create my hand tracking
+                concept for this project.
               </p>
 
               <div class="media">
@@ -220,7 +224,7 @@
                 bright colours and fed these into the input of a switch operator. The colours are cycled through by
                 first using a series of channel operators to register when thumb and index finger tip touch by defining
                 the minimum distance between the fingers and triggering a change when this distance is registered. I fed
-                this into the input of a count CHOP clamped and a maximum of 4; this is the reference CHOP for the
+                this into the input of a count CHOP clamped at a maximum of 4; this is the reference CHOP for the
                 Switch index parameter. By using this data as a reference for the switch index, each time the user makes
                 a pinching motion with their fingers, they switch between the five colours.
               </p>
@@ -261,6 +265,12 @@
                   sourced an open source STL file for a tulip model which I had printed:
                 </p>
 
+                <div class="media" style="text-align: center;">
+                  <img src="../images-media2/Tulip.jpg" alt="MediaPipe plugin install" class="zoomable"
+                    style="max-width: 50%; display: block; margin: 0 auto;" />
+                  <p class="caption">Photograph of tulip model</p>
+                </div>
+
                 <p class="caption">Printables.com. (2024). Beautiful Tulip With Stem - Best Valentine’s Day Gift.
                   [online] Available at:
                   https://www.printables.com/model/681635-beautiful-tulip-with-stem-best-valentines-day-gift </p>
@@ -281,7 +291,7 @@
 
                 <p>In order for the projected visuals to be aligned with the tulips models, I needed to use projection
                   mapping. For this, I used the software MadMapper. At the end of the network in Touch Designer, I fed
-                  the final output into a Syphon Spout Out component. This is a component that can share the visuals in
+                  the final output into a Syphon Spout Out TOP. This is a component that can share the visuals in
                   Touch Designer locally with other applications, including Madmapper.</p>
 
                 <p>I aligned the projectionion to the Tulip model using the mask feature in Madmapper:
@@ -300,7 +310,7 @@
                     </video>
                     <div class="hover-video-overlay">
                       <div class="hover-video-hint">
-                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <div class="hover-play-icon"></div>
                         <span>hover to play</span>
                       </div>
                     </div>
@@ -321,7 +331,7 @@
                     </video>
                     <div class="hover-video-overlay">
                       <div class="hover-video-hint">
-                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <div class="hover-play-icon"></div>
                         <span>hover to play</span>
                       </div>
                     </div>
@@ -339,7 +349,8 @@
                 </p>
 
                 <p>At this point I was starting to consider more how I would exhibit the final work. Because I was
-                  projected onto the tulips, it was necessary for these to be white. For better cohesion, I decided that
+                  projecting onto the tulips, it was necessary for these to be white. For better cohesion, I decided
+                  that
                   I would make everything else white to reference the ‘white cube’ contemporary art ideology and have a
                   bigger contrast between active and inactive parts of the work.
                 </p>
@@ -383,8 +394,8 @@
 
               <section id="step6">
                 <h2>6. Sound</h2>
-                <p>As mentioned on the previous page, with the help of Zhou Zhou, I was able to transmit hand tracking
-                  data into the Ableton live and use it as a midi input to control sound parameters. I included this
+                <p>As mentioned on the previous page, with the help of Jo-Jo, I was able to transmit hand tracking
+                  data into Ableton live and use it as a midi input to control sound parameters. I included this
                   method in the network for this project. As an extension of the Tulip project, I can optionally include
                   this element to add a further layer of interaction. However, given that I will be exhibiting this work
                   at Gradfest and sharing the space with others, I will probably opt to not include the sound element on
@@ -426,7 +437,7 @@
                     </video>
                     <div class="hover-video-overlay">
                       <div class="hover-video-hint">
-                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <div class="hover-play-icon"></div>
                         <span>hover to play</span>
                       </div>
                     </div>
@@ -454,12 +465,12 @@
 
                 <div class="media">
                   <div class="hover-video-wrap">
-                    <video class="hover-video" muted loop playsinline preload="auto">
+                    <video class="hover-video" loop playsinline preload="auto">
                       <source src="../images-media2/CTLVideo.mp4" type="video/mp4">
                     </video>
                     <div class="hover-video-overlay">
                       <div class="hover-video-hint">
-                        <i class="fa-solid fa-play hover-play-icon"></i>
+                        <div class="hover-play-icon"></div>
                         <span>hover to play</span>
                       </div>
                     </div>

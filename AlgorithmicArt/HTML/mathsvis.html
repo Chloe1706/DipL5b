@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Grid in Modernist Art</title>
+    <title>Mathmatic visualisation | Research</title>
 
     <!-- Pixelify Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -29,9 +29,13 @@
     <!-- js for insersection observer to trigger page animations  -->
     <script src="../JavaScript/script.js" defer></script>
 
+    <!-- scroll reveal -->
+    <script src="../JavaScript/scroll-reveal.js" defer></script>
+
     <!-- p5.js extension -->
     <script src="../P5.js-extension/libraries/p5.min.js"></script>
-    <script src="../P5.js-extension/libraries/p5.sound.min.js"></script>
+
+
 
 </head>
 
@@ -55,7 +59,6 @@
             <li><a href="./SVG-tessellation.html">SVG Tessellation</a></li>
             <li><a href="./grid-composition.html">Grid Composition</a></li>
             <li><a href="./mathsvis.html">MathsVis</a></li>
-            <li><a href="./interactive-spiral.html">Interactive Spiral</a></li>
         </ul>
     </nav>
 
@@ -90,7 +93,7 @@
             <div class="text-block">
 
                 <p>I have already discussed Escher’s work within this project however it felt relevant to mention his
-                    tessellation artworks again in context with the maths visualisation assignment. In particular, works
+                    tessellation artworks again in context with the Maths Visualisation assignment. In particular, works
                     from his “Circle Limit” series which follows rules of hyperbolic geometry; (a system that provides a
                     mathematical framework for distortion and scaling where the pattern shrinks towards the edges).
                     Additionally, these works also utilise tessellation; an intrinsically mathematical process which
@@ -100,7 +103,7 @@
 
                 <p>When tasked with researching artists and artworks that visualise mathematics, I first thought of
                     Escher. What makes his tessellations so memorable is they depict recognisable imagery. Escher's
-                    process was one of intuition and experimentation. He would add a recognisable human dimension to an
+                    process was one of intuition and experimentation. He would add a recognisable human dimension to
                     otherwise simple and stark mathematics; visualising mammals, birds and sea creatures within the
                     tiles. This approach represents the perfect amalgamation of mathematics and visual art.
                 </p>
@@ -112,9 +115,7 @@
                 <figure class="artwork">
                     <img src="../Images5/circle-limit-.jpeg">
                     <figcaption class="artwork-credit2">
-                        Pablo Picasso, <em>Ma Jolie</em>, Oil on canvas, 1911-12. © 2026 Estate of Pablo Picasso /
-                        Artists Rights
-                        Society (ARS), New York
+                        M.C. Escher, <em>Circle Limit I</em>, 1958.
                     </figcaption>
                 </figure>
             </div>
@@ -156,9 +157,8 @@
                     whose positions and orientations are determined by trigonometric equations, (equations that use
                     functions like sin, cos and tan to express an angle as numbers that can be used to plot lines of
                     shapes). This and many other works by Naderi Yeganeh adopt an iterative approach where something is
-                    generated, and then the equations are tweaked until the work resembles something. I would argue that
-                    works such as these are the contemporary answer to the blend of art and mathematics that was first
-                    introduced by individuals like Escher.
+                    generated, and then the equations are tweaked until the work resembles something. This exemplifies
+                    how the blend of mathmatics with visual art lives on within contemporary art practice.
                 </p>
 
 
@@ -168,14 +168,14 @@
                 <figure class="artwork">
                     <img src="../Images5/heart.jpeg">
                     <figcaption class="artwork-credit2">
-                        Pablo Picasso, <em>Ma Jolie</em>, Oil on canvas, 1911-12. © 2026 Estate of Pablo Picasso /
-                        Artists Rights
-                        Society (ARS), New York
+                        Hamid Naderi Yeganeh, <em>Heart</em>, 2016.
                     </figcaption>
                 </figure>
             </div>
         </div>
     </section>
+
+    <a id="above-spiral"></a>
 
     <div class="pixel-yellow">
         <span class="typing-block">
@@ -235,18 +235,28 @@
     </section>
 
     <section class="final-context">
-        <h3>Final Visual Result:</h3>
+        <h3>Final Result:</h3>
         <p>
-            The final result is able to be viewed in the 'Interactive Spiral' page. I am quite happy with the outcome
-            as it formed the basis for the work I later produced in collaboration with the MA students in the Banking
-            Hall project. Beyond this project, I am interested in developing more work which combines interactive,
-            mathematical artwork with projection. In particular, I think it would be interesting to integrate techniques
-            like this with projection mapping. Exploring the intersection of technology and contempory art and
-            installation was a key motivation for me to take this course. I am exceited to develop these ideas further
-            in future, self-defined projects.
+            I really liked the interactive nature of this work, and it later helped form the basis for the piece I
+            produced in collaboration with the MA students for the Banking Hall project. Beyond this assignment, I have
+            become increasingly interested in creating interactive digital artwork that incorporates projection,
+            external controllers and real-time input. Exploring the intersection of technology, contemporary art and
+            installation has been one of my main motivations for taking this course, and I am excited to continue
+            developing these ideas through future self-directed projects.
 
         </p>
     </section>
 
+    <div class="canvas-embed">
+        <div class="spiral-wrapper">
+            <div id="spiral-canvas"></div>
+            <button id="scrollBackBtn"
+                onclick="document.getElementById('above-spiral').scrollIntoView({ behavior: 'smooth' })">↑ Scroll back
+                up</button>
+        </div>
+        <p class="canvas-caption">Scroll to interact</p>
+    </div>
+
+    <script src="../JavaScript/interactive-spiral.js"></script>
 
 </body>

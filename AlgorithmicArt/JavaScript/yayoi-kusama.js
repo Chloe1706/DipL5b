@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(1400, 500);
+    createCanvas(1400, 500).parent('kusama-canvas');
     background(254, 221, 0); // yellow background
 
     let y = 0;

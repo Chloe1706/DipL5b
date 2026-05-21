@@ -961,6 +961,7 @@ section {
 
     .parallax-header {
         min-height: 60vh;
+        background-attachment: scroll;
     }
 
     .title .main {
@@ -971,20 +972,74 @@ section {
         font-size: clamp(1.75rem, 5vw, 3rem);
     }
 
-    .parallax-header {
-        background-attachment: scroll;
-    }
-
     .case-header {
         background-attachment: scroll;
         height: auto;
         min-height: 60vh;
     }
 
+    /* Banner header: stack left title + right text box vertically */
+    .banner-header {
+        min-height: auto;
+    }
+
+    .banner-header::before {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-header .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .banner-header .header-left {
+        padding-right: 0;
+    }
+
+    .banner-header .header-left::after {
+        display: none;
+    }
+
+    .banner-header .header-text-box {
+        width: 100%;
+    }
+
+    /* Layout: stack content area on small screens */
+    .layout {
+        flex-direction: column;
+        padding: 0 1.25rem;
+        gap: 1rem;
+    }
+
+    .layout .sidebar {
+        display: none;
+    }
+
+    /* Reduce section padding */
+    .body-content {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .bridge-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .featured {
+        padding: 2rem 0;
+    }
+
+    /* Hover video: full width on mobile (touch, not hover) */
     #section1 .media img,
     #section1 .media video,
     #section1 .media .hover-video-wrap {
-        max-width: 80%;
+        max-width: 90%;
+    }
+
+    .layout .media .hover-video-wrap {
+        max-width: 90%;
     }
 
     .timeline-section-label {
@@ -1024,7 +1079,34 @@ section {
     #section1 .media img,
     #section1 .media video,
     #section1 .media .hover-video-wrap {
-        max-width: 95%;
+        max-width: 100%;
+    }
+
+    .layout .media .hover-video-wrap {
+        max-width: 100%;
+    }
+
+    .banner-header .header-content {
+        padding: 2.5rem 1rem;
+    }
+
+    .body-content {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .bridge-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .mindmap-section {
+        padding: 3rem 1rem;
+    }
+
+    .image-section,
+    .image-section.inverted {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 }
 

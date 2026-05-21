@@ -49,6 +49,11 @@ main h2 {
     padding-left: 10px;
     color: var(--primary);
     font-weight: 400;
+    margin-bottom: 1.25rem;
+}
+
+main p {
+    margin-bottom: 1.5rem;
 }
 
 .media {

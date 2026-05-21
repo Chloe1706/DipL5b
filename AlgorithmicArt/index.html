@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Grid in Modernist Art</title>
+    <title>Algorithmic Art | Research</title>
 
     <!-- Google Font: Cormorant Garamond -->
     <link
@@ -19,6 +19,9 @@
 
     <!-- self-typing headers -->
     <script src="./JavaScript/type.js" defer></script>
+
+    <!-- Algorithmic art -->
+    <script src="./P5.js-extension/libraries/p5.min.js"></script>
 
 
     <!-- navigation bar  -->
@@ -51,7 +54,6 @@
             <li><a href="./HTML/SVG-tessellation.html">SVG Tessellation</a></li>
             <li><a href="./HTML/grid-composition.html">Grid Composition</a></li>
             <li><a href="./HTML/mathsvis.html">MathsVis</a></li>
-            <li><a href="./HTML/interactive-spiral.html">Interactive Spiral</a></li>
         </ul>
 
     </nav>
@@ -67,7 +69,7 @@
                     data-text='"The grid is an instrument of modernity through which art announces its will to silence."'></span>
                 <span class="cursor-quote"></span>
 
-                <div class="quote-author" style="display: none;">— Rosalind Krauss, <em>Grids,</em> 1979
+                <div class="quote-author">— Rosalind Krauss, <em>Grids,</em> 1979
             </span>
         </div>
         </span>
@@ -258,11 +260,6 @@
                     produce infinite results from following a similar set of parameters.
                 </p>
 
-                <!-- transitional statement -->
-                <p>Jumping forward, an artist that utilises grids by Krauss’s loose definition but in a manner that
-                    is
-                    altogether more playful than austere, M.C. Escher:
-                </p>
             </div>
             <div class="image-block">
 
@@ -286,6 +283,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Mondrian Canvas -->
+    <div class="canvas-embed">
+        <div id="mondrian-canvas"></div>
+        <p class="canvas-caption">Piet Mondrian-Inspired Generative P5.js Artwork</p>
+        <button id="reloadButton">Generate</button>
+    </div>
 
     <!-- SECTION 4 -->
     <section id="section-4" class="section">
@@ -528,6 +532,8 @@
         </div>
     </section>
 
+    <script src="./PietMondrian/sketch.js"></script>
+    <script src="./PietMondrian/button.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exploratory Research</title>
+  <title>AR Programming | Development</title>
 
   <!-- Google Font: Cormorant Garamond -->
   <link
@@ -61,7 +61,7 @@
   </div>
 
 
-  <section class="section-major alt">
+  <section id="s01" class="section-major alt">
     <div class="section-label">01</div>
     <div class="major-inner">
 
@@ -80,11 +80,10 @@
         <h3>Workshop: AR Simple Image Tracking</h3>
 
         <p>
-          I began by following the ‘AR Simple Image Tracking’ workshop
-          provided on the VLE. In place of the QR code example, I used a photo
-          of a playing card from the Gypsy Witch deck. This, the ace of
-          hearts,was the first card I used, from which expanded to incorporate
-          more cards in a multi-image tracking AR experience.
+          I began by following the ‘AR Simple Image Tracking’ workshop provided on the VLE. Instead of using the QR code
+          example from the tutorial, I used a photograph of a playing card from the Gypsy Witch deck. The Ace of Hearts
+          became the first card used within the project, which later expanded into a multi-image tracking AR experience
+          incorporating additional cards from the deck.
         </p>
 
         <div class="image-container unity-image section">
@@ -118,7 +117,7 @@
     </div>
   </section>
 
-  <section class="section-major grid">
+  <section id="s02" class="section-major grid">
     <div class="section-label">02</div>
     <div class="major-inner">
 
@@ -212,7 +211,7 @@
 
         <p>
           The previous script used <code>SetSelected()</code> and
-          <code>SetUnselected()</code>. After some research I learnt then
+          <code>SetUnselected()</code>. After some research, I learnt that
           introducing a Toggle event would solve the issue I had earlier with
           the object not retaining its altered material until tapped again. I
           researched Boolean state management. To summarise my understanding,
@@ -252,7 +251,7 @@
     </div>
   </section>
 
-  <section class="section-major alt">
+  <section id="s03" class="section-major alt">
     <div class="section-label">03</div>
     <div class="major-inner">
 
@@ -346,7 +345,7 @@
 
       <!-- SUBSECTION 3 -->
       <div class="subsection section">
-        <h3>Animtation Controllers</h3>
+        <h3>Animation Controllers</h3>
 
         <p>
           When it came to using animated imported assets, I had to learn how
@@ -437,7 +436,7 @@
     </div>
   </section>
 
-  <section class="section-major grid">
+  <section id="s04" class="section-major grid">
     <div class="section-label">04</div>
     <div class="major-inner">
 
@@ -640,7 +639,7 @@
         </div>
 
         <p>
-          I used<code>PlayOneShot()</code> because it plays the sound once,
+          I used <code>PlayOneShot()</code> because it plays the sound once,
           immediately and does not require manual stopping. I employed the
           same method to create this effect inside of
           <code>PlayDespawn()</code>
@@ -666,7 +665,7 @@
     </div>
   </section>
 
-  <section class="section-major alt">
+  <section id="s05" class="section-major alt">
     <div class="section-label">05</div>
     <div class="major-inner">
 
@@ -720,7 +719,7 @@
     </div>
   </section>
 
-  <section class="section-major grid">
+  <section id="s06" class="section-major grid">
     <div class="section-label">06</div>
     <div class="major-inner">
 
@@ -866,7 +865,7 @@
           Inside <code>Update()</code> the script continuously checks whether
           the image is detected/lost using a method called
           <code>TrackingState</code>. There are three possible tracking states
-          for AR Tracked Images; None, Limited and Tracking, where the AR SDK
+          for AR Tracked Images; None, Limited and Tracking - where the AR SDK
           reports that it is actively tracking the image. Using the
           TrackingState property I am toggling game object visibility
           depending on whether the image is being actively tracked. While
@@ -889,7 +888,7 @@
     </div>
   </section>
 
-  <section class="section-major alt">
+  <section id="s07" class="section-major alt">
     <div class="section-label">07</div>
     <div class="major-inner">
 
@@ -918,7 +917,7 @@
     </div>
   </section>
 
-  <section class="section-major grid">
+  <section id="s08" class="section-major grid">
     <div class="section-label">08</div>
     <div class="major-inner">
 
@@ -930,7 +929,7 @@
           to freeze the animation of a 3D model part way through. One of the
           models I had imported into my project came as a GLB file. As they
           are not as geared towards Unity as FBX files, It is not possible to
-          alter the animation of one of these file types. The file depicts a
+          alter the animation of one of these file types using the Unity animation controller. The file depicts a
           flower slowly opening however, frustratingly the animation ends with
           the model snapping back to its original state.
         </p>
@@ -942,11 +941,11 @@
       <div class="subsection section">
         <p>
           I researched this dilemma and it seemed there were two possible
-          solutions; import the file into Blender and edit it from there and
+          solutions: import the file into Blender and edit it from there and
           then re-export or, attach a script to the prefab that informs the
           model at what point to freeze the animation. As I did not want to
-          risk facing further issues by editing the file in Blender I resolved
-          to go with the script solution. This section dissects that process
+          risk facing further issues by editing the file in Blender so, I resolved
+          to go with the script solution. This section explains that process
           and the methods and resources used.
         </p>
 
@@ -962,8 +961,8 @@
 
         <p>
           First the script needs to retrieve the animator component attached
-          to the game object. I used the method
-          <code>GetComponent&lt;&gt;()</code> as I have done in
+          to the game object. I used the method:
+          <code>GetComponent&lt;&gt;()</code> as I have done in the
           <code>MultiCardController</code> script:
         </p>
 
@@ -1002,7 +1001,7 @@
         <p>
           The script is tracking the animation's progress using
           <code>NormalizeTime</code>. Normalized time is a progression ratio
-          where 0 is the start and 1 is the end. By using this method it meant
+          where 0 is the start and 1 is the end. By using this method, it meant that
           I could freeze the animation at a percentage e.g. 90% rather than
           specify the exact time. This and the
           <code>AnimatorStateInfo</code> are inside an
@@ -1051,7 +1050,7 @@
         <h3>Freeze Animation</h3>
 
         <p>
-          When the animation reaches the 90% mark (or 0.9), I use the method
+          When the animation duration reaches 90% (or 0.9), I use the method
           of targeting animator.speed, setting it to 0 and subsequently
           freezing the animation at this point. So to summarise, inside of the
           update() method, the progress of the animation is monitored and once
@@ -1064,6 +1063,83 @@
           <em>Animator.speed, Unity</em>. Available at:
           https://docs.unity3d.com/ScriptReference/Animator-speed.html
         </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ar-sidebar">
+    <h3>Contents</h3>
+    <ul class="ar-sidebar-list">
+      <li><a href="#s01">Image Tracking</a></li>
+      <li><a href="#s02">SetSelectedState</a></li>
+      <li><a href="#s03">Prefabs</a></li>
+      <li><a href="#s04">Spawn/Despawn Effects</a></li>
+      <li><a href="#s05">Tracking Multiple Images</a></li>
+      <li><a href="#s06">Tracking Multiple Images Script</a></li>
+      <li><a href="#s07">Expansion</a></li>
+      <li><a href="#s08">FreezeAnimationAtPoint</a></li>
+      <li><a href="#s09">Final Thoughts</a></li>
+    </ul>
+  </aside>
+
+  <section id="s09" class="section-major alt">
+    <div class="section-label">09</div>
+    <div class="major-inner">
+
+      <div class="major-header section">
+        <h2>Final Thoughts</h2>
+        <div class="accent-line section"></div>
+      </div>
+
+      <p class="ft-lead section">
+        I am very pleased with the progress I was able to make within the time allotted for this project. I feel that I
+        was able to create a concise proof of concept that could easily be expanded to support the entire deck of
+        playing cards with more development time.
+      </p>
+
+      <div class="ft-grid section">
+        <div class="ft-col">
+
+          <p> Early on, I encountered a lot of difficulties working with Unity. When I first began using the software,
+            initially with a different set of markers, it was often unclear why I was encountering so many runtime
+            errors and failed builds. Unity’s interface was not immediately intuitive to navigate, and the error
+            messages logged within the console were often difficult to interpret. As a result, I frequently relied on
+            online forums, Google searches and LLMs such as Claude to assist with troubleshooting and understanding
+            errors.
+          </p>
+
+          <p>Identifying that the original markers I was attempting to use were invalid became a significant turning
+            point in the development process. As I continued building the project infrastructure and working through the
+            VLE lessons, I gradually stopped encountering as many errors and became more familiar with Unity’s workflow.
+            Once I understood the core processes, scaling the project horizontally by adding additional markers, prefabs
+            and materials became relatively straightforward. This helped me recognise how much of learning unfamiliar
+            software comes from repetition.
+          </p>
+
+          <p>I used a large number of free assets throughout the project. Given the limited timeframe, prioritising
+            asset creation would have significantly restricted the scope of the final outcome, so I believe this was the
+            correct decision as it allowed me to focus on becoming more confident with Unity and C#.</p>
+
+        </div>
+
+        <div class="ft-col">
+
+          <p>
+            However, because so many external assets were used, I do not feel that I can claim complete artistic
+            ownership over the outcome
+            of the project. If I were to revisit AR within a more self-directed project, I would likely either develop
+            my own assets through software such as Blender and Adobe After Effects or approach it as a collaborative
+            project.
+          </p>
+
+          <p>At this stage, I think the most likely context in which I would return to Unity and AR would be within a
+            more commercially-orientated project. While researching marker-based AR, I became particularly interested in
+            examples involving interactive business cards and promotional material. I also discovered MindAR, an
+            open-source JavaScript library for creating browser-based AR experiences with image and face tracking.
+            Exploring web-based AR feels especially relevant to my broader interest in web development and may be
+            relevant when developing content for an employability and Industry project in 3rd year Fine Art.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -1187,9 +1263,11 @@
       </div>
     </div>
   </section>
-  <script src="../js/video-audio.js"></script>
 
+
+  <script src="../js/video-audio.js"></script>
   <script src="../js/intersectionObserver.js"></script>
+  <script src="../js/navHighlight.js"></script>
 </body>
 
 </html>

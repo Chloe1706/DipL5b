@@ -52,26 +52,6 @@ h2 {
     border: 3px solid #111;
 }
 
-/* Hover credit */
-.artwork-credit {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 1rem;
-}
-
-.artwork-container:hover .artwork-credit {
-    opacity: 1;
-}
-
 
 /* DOCUMENTATION */
 main {
@@ -81,6 +61,7 @@ main {
 .step {
     max-width: 1000px;
     margin: 0 auto 4rem auto;
+    padding-top: 1.5rem;
 }
 
 .step h3 {
@@ -89,6 +70,15 @@ main {
 }
 
 .step p {
+    margin-bottom: 1.5rem;
+}
+
+.step-reference {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #888;
+    letter-spacing: 0.03em;
+    margin-top: -0.75rem;
     margin-bottom: 1.5rem;
 }
 
@@ -120,6 +110,37 @@ main {
 }
 
 
+
+/* ------------------
+   Scroll Reveal
+------------------ */
+.artwork-section,
+.step,
+.final-context {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.artwork-section.in-view,
+.step.in-view,
+.final-context.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-grid,
+.image-single {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s;
+}
+
+.step.in-view .image-grid,
+.step.in-view .image-single {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* FINAL SECTION */
 section.final-context {

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+    <title>p5.js 3</title>
 
     <!-- Hero layout styles (borrowed from Visual Programming) -->
     <link rel="stylesheet" href="../../VisualProgramming/CSS/stylesheet.css" />
@@ -17,6 +17,9 @@
     <!-- navigation bar  -->
     <link rel="stylesheet" type="text/css" href="../CSS/nav-bar.css">
     <script src="../JavaScript/nav.js" defer></script>
+
+    <!-- scroll reveal -->
+    <script src="../JavaScript/scroll-reveal.js" defer></script>
 
     <!-- p5.js extension -->
     <script src="../P5.js-extension/libraries/p5.min.js"></script>
@@ -46,7 +49,6 @@
             <li><a href="./SVG-tessellation.html">SVG Tessellation</a></li>
             <li><a href="./grid-composition.html">Grid Composition</a></li>
             <li><a href="./mathsvis.html">MathsVis</a></li>
-            <li><a href="./interactive-spiral.html">Interactive Spiral</a></li>
         </ul>
     </nav>
 
@@ -86,10 +88,13 @@
             <h3>Step 1 — Canvas Setup</h3>
             <p>
                 In this sketch I began by creating a 600 x 600 canvas, setting the background to white and adjusting
-                stroke weight (sw) so it would more closely resemble the reference. I defined the value of ‘inset’, and
-                drew a border around the parameter of the canvas using rect() where the x and y coordinates are set to
+                stroke weight (sw) so it would resemble the reference image more accurately. I defined the value of
+                ‘inset’, and
+                drew a border around the parameter of the canvas using Rect() where the X and Y coordinates are set to
                 inset. The reason for this is so that the full width of the border is contained within the canvas.
+            </p>
 
+            <p class="step-reference">P5js.org. (2024). rect. [online] Available at: https://p5js.org/reference/p5/rect/
             </p>
             <div class="image-grid">
                 <img src="../Images2/setup.jpg" />
@@ -117,7 +122,7 @@
                 I defined the value of spacing e.g. the space between each line that will be drawn, and using the value
                 of half, created a while loop that fills the quadrant with vertical parallel lines with 20px of spacing
                 in between them. However, there was an issue where the spacing between where the lines begin and where
-                they ended was not evenly distributed. E.g:
+                they ended was not evenly distributed:
 
             </p>
 
@@ -136,7 +141,7 @@
                 this value I then defined a series of parametres that make up the quadrant, accounting for the left and
                 right side of the quadrant to determine the usable width. Additionally, I created the offsetL which
                 calculated how much the lines would need to be offset to compensate for the black border. This resulted
-                in the lines having even spacing on either side of them.
+                in the lines having even spacing on either side of them:
 
             </p>
             <div class="image-grid">
@@ -162,13 +167,13 @@
         <section class="step single-image">
             <h3>Step 6 — Drawing diagonal lines in the bottom, left quadrant</h3>
             <p>
-                I implemented a while loop to draw diagonal lines across the bottom left quadrant. The diagonal line is
-                achieved by the two coordinate points for each line, which increase while maintaining the same
-                difference to create parallel diagonal lines.
+                I implemented a while loop to draw diagonal lines across the bottom left quadrant. A diagonal line can
+                be drawn by differentiating the value of X and Y and both connecting points. This value than needs to
+                increase proportionally in order to create parallel, diagonal lines.
             </p>
             <p>
-                This however created multiple changes where initially the lines exceeded their designated area and the
-                spacing between lines appeared smaller.
+                This initally created a few issues where the lines exceeded their designated area and the
+                spacing between lines appeared smaller:
             </p>
 
             <div class="image-single">
@@ -181,9 +186,14 @@
             <p>
                 To solve the issue of the lines exceeding their area I implemented clipping constraints. This first
                 required me to define the area of the quadrant in a similar way to that which I’d done previously. I
-                used a push() and pop(), enabling me to introduce new rules inside. I then added clipping constraints
-                which are defined within the new variable clip(), so that the lines stay within the quadrant.
+                then added clipping constraints
+                which are defined within the new variable Clip(). This defines a shape that masks anything drawn after
+                it. For this reason, I needed to contain this new perameter within a Push() and Pop() so that the
+                clipping contraints would only effect the lines within the bottom left quadrant:
 
+            </p>
+
+            <p class="step-reference">P5js.org. (2026). clip. [online] Available at: https://p5js.org/reference/p5/clip/
             </p>
 
             <div class="image-single">
@@ -198,8 +208,7 @@
             <h3>Step 8 — Increasing Spacing Between Lines</h3>
             <p>
                 I needed to adjust the spacing between the lines so that it matched the other segments. Within the
-                push()/pop() I added a new spacing rule e.g. let spacingBL = 25.
-
+                Push()/Pop() I added a new spacing rule: let spacingBL = 25.
             </p>
             <div class="image-grid">
                 <img src="../Images2/bottom-left.jpg" />
@@ -208,9 +217,10 @@
         </section>
 
         <section class="step">
-            <h3>Step 9 — Drawing vertical lines in bottom, right quadrant</h3>
+            <h3>Step 9 — Drawing diagonal lines in the bottom, right quadrant</h3>
             <p>
-                Now I just needed to add the diagonal lines to the bottom right quadrant and went about doing this in a
+                After this, I just needed to add the diagonal lines to the bottom right quadrant and went about doing
+                this in a
                 similar way to what I had done previously:
 
             </p>
@@ -226,19 +236,18 @@
         <p>
             This is the final of the artist studies that I have completed for the 2D algorithmic art project. I am
             satisfied that I managed to recreate the reference with reasonable accurancy however, if I were to take it
-            further, I would be interested in potentially implementing some movement within the image as I think this
+            further, I would be interested in potentially implementing some subtle movement within the image as I think
+            this
             would really lend itself to the optical nature of Sol LeWitt's work.
 
         </p>
     </section>
 
-
-
     <!-- Linked algorithmic art -->
-
+    <div class="canvas-embed">
+        <div id="canvas-container"></div>
+    </div>
     <script src="../JavaScript/sol-lewitt.js"></script>
-
-
 
 </body>
 
