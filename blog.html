@@ -3,28 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chloe Marrs — Blog</title>
+<title>Chloe Marrs — Notes</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #f5f4f0;
-  --ink:       #1a1a1e;
-  --ink-mid:   rgba(26,26,30,0.52);
-  --ink-dim:   rgba(26,26,30,0.36);
-  --font-serif:'Georgia', 'Times New Roman', serif;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --nav-h:     56px;
+  --bg:         #f5f4f0;
+  --ink:        #1a1a1e;
+  --ink-mid:    rgba(26,26,30,0.52);
+  --ink-dim:    rgba(26,26,30,0.36);
+  --accent:     #d4d44a;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --nav-h:      56px;
+  --col-gap:    10px;
 }
 
-html, body { height: 100%; margin: 0; }
-body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  cursor: none;
+}
 
-/* Nav */
+/* ---- Nav ---- */
 #main-nav {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  z-index: 100;
+  z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 40px;
 }
@@ -32,12 +40,11 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); 
 #main-nav .nav-name {
   font-family: var(--font-serif);
   font-size: 13px; letter-spacing: 0.02em;
-  color: var(--ink-mid);
-  text-decoration: none;
+  color: var(--ink-mid); text-decoration: none;
 }
 
 #main-nav ul {
-  list-style: none; display: flex; gap: 0;
+  list-style: none; display: flex;
   background: rgba(26,26,30,0.07);
   border: 1px solid rgba(26,26,30,0.14);
   border-radius: 999px; padding: 6px 18px;
@@ -49,16 +56,17 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); 
   font-size: 11.5px; letter-spacing: 0.06em;
   text-decoration: none; color: var(--ink);
   opacity: 0.65; transition: opacity 0.2s;
+  white-space: nowrap;
 }
 
-#main-nav ul a:hover { opacity: 1; }
+#main-nav ul a:hover,
+#main-nav ul a[aria-current="page"] { opacity: 1; }
 
-/* Burger */
 #burger {
   display: none; flex-direction: column;
   justify-content: center; gap: 5px;
   width: 36px; height: 36px;
-  background: none; border: none; cursor: pointer; padding: 4px;
+  background: none; border: none; cursor: none; padding: 4px;
 }
 
 #burger span {
@@ -73,7 +81,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); 
 #burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 #mobile-drawer {
-  display: none; position: fixed; inset: 0; z-index: 150;
+  display: none; position: fixed; inset: 0; z-index: 300;
   background: rgba(212,212,74,0.96); backdrop-filter: blur(12px);
   flex-direction: column; align-items: center; justify-content: center; gap: 36px;
   opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
@@ -88,32 +96,245 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); 
 
 #mobile-drawer a:hover { opacity: 1; }
 
-/* Content */
-.page-content {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: calc(var(--nav-h) + 80px) 40px 120px;
+/* ---- Page header ---- */
+.page-header {
+  padding: calc(var(--nav-h) + 40px) 40px 28px;
+  display: flex; align-items: baseline; justify-content: space-between;
+  border-bottom: 1px solid rgba(26,26,30,0.10);
+  margin-bottom: var(--col-gap);
 }
 
-.page-content h1 {
+.page-header h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: normal; color: var(--ink);
-  margin-bottom: 16px; letter-spacing: -0.01em;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: normal; letter-spacing: -0.01em;
 }
 
-.page-content p {
-  font-size: 15px; line-height: 1.8;
+.page-header .entry-count {
+  font-size: 11px; letter-spacing: 0.06em;
+  color: var(--ink-dim);
+}
+
+/* ---- Masonry grid ---- */
+.grid {
+  column-count: 3;
+  column-gap: var(--col-gap);
+  padding: 0 40px 80px;
+}
+
+/* ---- Tile ---- */
+.tile {
+  break-inside: avoid;
+  margin-bottom: var(--col-gap);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  background: rgba(26,26,30,0.04);
+  transition: opacity 0.2s ease;
+}
+
+.tile:hover { opacity: 0.88; }
+
+.tile-media {
+  display: block; width: 100%;
+  position: relative; overflow: hidden;
+  line-height: 0;
+}
+
+.tile-media img,
+.tile-media video {
+  display: block; width: 100%; height: auto;
+  transition: transform 0.55s ease;
+}
+
+.tile:hover .tile-media img,
+.tile:hover .tile-media video { transform: scale(1.025); }
+
+/* Text tile */
+.tile.tile-text {
+  background: rgba(26,26,30,0.07);
+  padding: 28px 24px 24px;
+}
+
+.tile.tile-text .tile-label {
+  font-size: 10px; letter-spacing: 0.1em;
+  color: var(--ink-dim); margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.tile.tile-text .tile-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem; font-weight: normal;
+  line-height: 1.4; margin-bottom: 10px;
+}
+
+.tile.tile-text .tile-excerpt {
+  font-size: 12.5px; line-height: 1.7;
   color: var(--ink-mid);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Responsive */
+/* Tile footer */
+.tile-footer {
+  padding: 9px 11px 11px;
+}
+
+.tile-footer .tile-title {
+  font-family: var(--font-serif);
+  font-size: 12.5px; font-weight: normal;
+  color: var(--ink); line-height: 1.35;
+  margin-bottom: 2px;
+}
+
+.tile-footer .tile-date {
+  font-size: 10px; color: var(--ink-dim);
+  letter-spacing: 0.03em;
+}
+
+/* ---- Overlay ---- */
+#overlay {
+  position: fixed; inset: 0; z-index: 400;
+  pointer-events: none;
+}
+
+#overlay-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(26,26,30,0);
+  backdrop-filter: blur(0px);
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+#overlay-panel {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: min(660px, 100vw);
+  background: var(--bg);
+  transform: translateX(100%);
+  transition: transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+  box-shadow: -2px 0 40px rgba(26,26,30,0.08);
+}
+
+#overlay.open { pointer-events: all; }
+
+#overlay.open #overlay-backdrop {
+  background: rgba(26,26,30,0.3);
+  backdrop-filter: blur(10px);
+}
+
+#overlay.open #overlay-panel { transform: translateX(0); }
+
+#overlay-close {
+  position: sticky; top: 0;
+  display: flex; justify-content: flex-end;
+  padding: 14px 20px;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(26,26,30,0.08);
+  z-index: 2;
+}
+
+#overlay-close button {
+  background: none; border: 1px solid rgba(26,26,30,0.18);
+  border-radius: 999px; padding: 5px 14px;
+  font-size: 11px; letter-spacing: 0.05em;
+  color: var(--ink-mid); cursor: none;
+  transition: border-color 0.15s, color 0.15s;
+  font-family: var(--font-sans);
+}
+
+#overlay-close button:hover { color: var(--ink); border-color: rgba(26,26,30,0.5); }
+
+#overlay-content {
+  padding: 32px 36px 64px;
+  flex: 1;
+}
+
+#overlay-content .entry-date {
+  font-size: 10.5px; letter-spacing: 0.07em;
+  color: var(--ink-dim); margin-bottom: 10px;
+}
+
+#overlay-content .entry-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: normal; line-height: 1.25;
+  letter-spacing: -0.01em; margin-bottom: 24px;
+}
+
+.entry-media {
+  margin-bottom: 20px; line-height: 0;
+}
+
+.entry-media img,
+.entry-media video {
+  width: 100%; height: auto; display: block;
+}
+
+/* Multi-image gallery inside entry */
+.entry-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.entry-gallery.single { grid-template-columns: 1fr; }
+.entry-gallery.triple { grid-template-columns: 1fr 1fr; }
+.entry-gallery.triple img:first-child { grid-column: 1 / -1; }
+
+.entry-gallery img {
+  width: 100%; height: auto;
+  display: block; object-fit: cover;
+}
+
+.entry-body {
+  font-size: 14px; line-height: 1.9;
+  color: var(--ink); max-width: 54ch;
+}
+
+.entry-body p + p { margin-top: 1em; }
+
+/* ---- Custom cursor ---- */
+#custom-cursor {
+  position: fixed;
+  top: -100px; left: -100px;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  transition: width 0.18s ease, height 0.18s ease;
+  mix-blend-mode: multiply;
+}
+
+#custom-cursor.hovering { width: 52px; height: 52px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .grid { column-count: 2; padding-left: 24px; padding-right: 24px; }
+  .page-header { padding-left: 24px; padding-right: 24px; }
+}
+
 @media (max-width: 600px) {
   #main-nav { padding: 0 20px; }
   #main-nav ul { display: none; }
   #burger { display: flex; }
   #mobile-drawer { display: flex; }
-  .page-content { padding: calc(var(--nav-h) + 48px) 20px 80px; }
+  .page-header { padding: calc(var(--nav-h) + 24px) 16px 20px; }
+  .grid { column-count: 2; column-gap: 6px; padding: 0 12px 60px; }
+  .tile { margin-bottom: 6px; }
+  #overlay-panel { width: 100vw; }
+  #overlay-content { padding: 24px 20px 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-media img, .tile-media video,
+  #overlay-panel, #overlay-backdrop { transition: none; }
 }
 </style>
 </head>
@@ -124,7 +345,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); 
   <ul>
     <li><a href="index.html">About Me</a></li>
     <li><a href="portfolio.html">Previous Work</a></li>
-    <li><a href="blog.html">Blog</a></li>
+    <li><a href="blog.html" aria-current="page">Notes</a></li>
   </ul>
   <button id="burger" aria-label="Open navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -134,28 +355,250 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--ink); 
 <div id="mobile-drawer" role="dialog" aria-label="Navigation">
   <a href="index.html"     class="drawer-link">About Me</a>
   <a href="portfolio.html" class="drawer-link">Previous Work</a>
-  <a href="blog.html"      class="drawer-link">Blog</a>
+  <a href="blog.html"      class="drawer-link">Notes</a>
 </div>
 
-<main class="page-content">
-  <h1>Blog</h1>
-  <p>Coming soon.</p>
+<header class="page-header">
+  <h1>Notes</h1>
+  <span class="entry-count" id="entry-count"></span>
+</header>
+
+<main class="grid" id="grid">
+
+  <!-- ==============================================
+       TYPE 1: Single image
+       Duplicate for new single-image entries.
+       ============================================== -->
+  <article class="tile" data-entry="1">
+    <div class="tile-media">
+      <img loading="lazy" src="assets/IMG_0289.JPG" alt="Beach huts in sand dunes" />
+    </div>
+    <div class="tile-footer">
+      <p class="tile-title">Beach huts, Holkham</p>
+      <p class="tile-date">September 2026</p>
+    </div>
+  </article>
+
+  <!-- ==============================================
+       TYPE 2: Video (loops silently in grid)
+       Duplicate for new video entries.
+       ============================================== -->
+  <article class="tile" data-entry="2">
+    <div class="tile-media">
+      <video data-src="assets/ramp_box.mp4"
+             loop muted playsinline preload="none"
+             aria-label="Ramp box study"></video>
+    </div>
+    <div class="tile-footer">
+      <p class="tile-title">Ramp box study</p>
+      <p class="tile-date">August 2026</p>
+    </div>
+  </article>
+
+  <!-- ==============================================
+       TYPE 3: Multiple images (gallery in overlay)
+       Tile shows first image. All images shown inside
+       the entry panel when opened.
+       ============================================== -->
+  <article class="tile" data-entry="3">
+    <div class="tile-media">
+      <img loading="lazy" src="assets/IMG_0291.JPG" alt="Isobar studies" />
+    </div>
+    <div class="tile-footer">
+      <p class="tile-title">Isobar studies</p>
+      <p class="tile-date">July 2026</p>
+    </div>
+  </article>
+
+  <!-- ==============================================
+       TYPE 4: Text / process entry (no lead image)
+       Duplicate for research or written posts.
+       ============================================== -->
+  <article class="tile tile-text" data-entry="4">
+    <p class="tile-label">Process</p>
+    <p class="tile-title">On working with weather data</p>
+    <p class="tile-excerpt">Notes on sourcing real-time API data and feeding it into TouchDesigner — what works, what breaks, and what the data looks like when rendered directly.</p>
+  </article>
+
+  <!-- Add more tiles above this line -->
+
 </main>
 
+<!-- ==============================================
+     ENTRY CONTENT TEMPLATES
+     Each <template> matches a tile via data-for.
+     Edit the content here — it appears in the overlay.
+     ============================================== -->
+
+<template data-for="1">
+  <p class="entry-date">September 2026</p>
+  <h2 class="entry-title">Beach huts, Holkham</h2>
+  <div class="entry-media">
+    <img src="assets/IMG_0289.JPG" alt="Beach huts in sand dunes" />
+  </div>
+  <div class="entry-body">
+    <p>Replace with your caption or notes about this image.</p>
+  </div>
+</template>
+
+<template data-for="2">
+  <p class="entry-date">August 2026</p>
+  <h2 class="entry-title">Ramp box study</h2>
+  <div class="entry-media">
+    <video src="assets/ramp_box.mp4" loop muted playsinline controls preload="none"></video>
+  </div>
+  <div class="entry-body">
+    <p>TouchDesigner study exploring ramp geometry and feedback loops.</p>
+    <p>Notes on the process go here.</p>
+  </div>
+</template>
+
+<template data-for="3">
+  <p class="entry-date">July 2026</p>
+  <h2 class="entry-title">Isobar studies</h2>
+  <!-- 
+    Gallery layout options:
+    - Two images:  class="entry-gallery"
+    - One image:   class="entry-gallery single"
+    - Three images: class="entry-gallery triple"
+      (first image spans full width, two below sit side by side)
+  -->
+  <div class="entry-gallery triple">
+    <img src="assets/IMG_0289.JPG" alt="Isobar study 1" />
+    <img src="assets/IMG_0291.JPG" alt="Isobar study 2" />
+    <img src="assets/IMG_0297.JPG" alt="Isobar study 3" />
+  </div>
+  <div class="entry-body">
+    <p>A series made alongside the Isobar Study paintings. Notes on the relationship between the photographic work and the painted work go here.</p>
+  </div>
+</template>
+
+<template data-for="4">
+  <p class="entry-date">June 2026</p>
+  <h2 class="entry-title">On working with weather data</h2>
+  <div class="entry-body">
+    <p>Notes on sourcing real-time API data and feeding it into TouchDesigner — what works, what breaks, and what the data looks like when rendered directly without interpretation.</p>
+    <p>Continue with as much process writing as needed. Add an entry-media block above entry-body if you want an image partway through.</p>
+  </div>
+</template>
+
+<!-- Overlay panel -->
+<div id="overlay" role="dialog" aria-modal="true" aria-label="Entry">
+  <div id="overlay-backdrop"></div>
+  <div id="overlay-panel">
+    <div id="overlay-close">
+      <button id="overlay-close-btn" aria-label="Close entry">Close</button>
+    </div>
+    <div id="overlay-content"></div>
+  </div>
+</div>
+
+<div id="custom-cursor"></div>
+
 <script>
+// ---- Custom cursor ----
+const cursor = document.getElementById('custom-cursor');
+
+window.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top  = e.clientY + 'px';
+});
+
+document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+
+function addHover(els) {
+  els.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+  });
+}
+
+addHover(document.querySelectorAll('.tile, button, a'));
+
+// ---- Entry count ----
+const tiles = document.querySelectorAll('.tile');
+document.getElementById('entry-count').textContent = tiles.length + ' entries';
+
+// ---- Lazy video loading + autoplay in viewport ----
+const videoObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      if (video.dataset.src && !video.getAttribute('src')) {
+        video.setAttribute('src', video.dataset.src);
+      }
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.25 });
+
+document.querySelectorAll('.tile-media video').forEach(v => videoObserver.observe(v));
+
+// ---- Overlay ----
+const overlay  = document.getElementById('overlay');
+const closeBtn = document.getElementById('overlay-close-btn');
+const backdrop = document.getElementById('overlay-backdrop');
+const content  = document.getElementById('overlay-content');
+let lastFocused = null;
+
+function openEntry(tile) {
+  const id   = tile.dataset.entry;
+  const tmpl = document.querySelector('template[data-for="' + id + '"]');
+  if (!tmpl) return;
+
+  lastFocused = document.activeElement;
+  content.innerHTML = '';
+  content.appendChild(tmpl.content.cloneNode(true));
+
+  // autoplay video inside panel if present
+  content.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  closeBtn.focus();
+}
+
+function closeEntry() {
+  if (!overlay.classList.contains('open')) return;
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  content.querySelectorAll('video').forEach(v => v.pause());
+  setTimeout(() => { content.innerHTML = ''; }, 440);
+  if (lastFocused) lastFocused.focus();
+}
+
+tiles.forEach(tile => {
+  tile.setAttribute('role', 'button');
+  tile.setAttribute('tabindex', '0');
+  tile.addEventListener('click', () => openEntry(tile));
+  tile.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEntry(tile); }
+  });
+});
+
+closeBtn.addEventListener('click', closeEntry);
+backdrop.addEventListener('click', closeEntry);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEntry(); });
+
+// ---- Burger ----
 const burgerBtn = document.getElementById('burger');
 const drawer    = document.getElementById('mobile-drawer');
 
 function toggleDrawer(open) {
   burgerBtn.classList.toggle('open', open);
   drawer.classList.toggle('open', open);
-  burgerBtn.setAttribute('aria-expanded', open);
+  burgerBtn.setAttribute('aria-expanded', String(open));
   document.body.style.overflow = open ? 'hidden' : '';
 }
 
 burgerBtn.addEventListener('click', () => toggleDrawer(!burgerBtn.classList.contains('open')));
 document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
-document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && drawer.classList.contains('open')) toggleDrawer(false);
+});
 </script>
 </body>
 </html>
