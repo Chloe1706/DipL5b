@@ -1,1431 +1,2188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chloe Marrs — Work</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/cicadafavicon.png" />
+    <title>Chloe Marrs — Work</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-:root {
-  --bg:          #f5f4f0;
-  --ink:         #1a1a1e;
-  --ink-mid:     rgba(26,26,30,0.50);
-  --ink-dim:     rgba(26,26,30,0.34);
-  --font-serif:  Georgia, 'Times New Roman', serif;
-  --font-sans:   'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --nav-h:       56px;
-  --ann-col-w:   130px; /* width of each flanking annotation column */
-  --gap:         24px;  /* gap between annotation column and media */
-}
+      :root {
+        --bg: #f5f4f0;
+        --ink: #1a1a1e;
+        --ink-mid: rgba(26, 26, 30, 0.5);
+        --ink-dim: rgba(26, 26, 30, 0.34);
+        --font-serif: Georgia, "Times New Roman", serif;
+        --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --nav-h: 56px;
+        --ann-col-w: 130px; /* width of each flanking annotation column */
+        --gap: 24px; /* gap between annotation column and media */
+      }
 
-html, body { height: 100%; margin: 0; }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
 
-body {
-  font-family: var(--font-sans);
-  color: var(--ink);
-  overflow: hidden;
-  background: var(--bg);
-}
+      body {
+        font-family: var(--font-sans);
+        color: var(--ink);
+        overflow: hidden;
+        background: var(--bg);
+      }
 
-/* ======================================================
+      /* ======================================================
    NAV
    ====================================================== */
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--nav-h);
-  z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px;
-  pointer-events: none;
-}
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--nav-h);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        pointer-events: none;
+      }
 
-nav .nav-name {
-  font-family: var(--font-serif);
-  font-size: 13px; letter-spacing: 0.02em;
-  color: var(--ink-mid);
-}
+      nav .nav-name {
+        font-family: var(--font-serif);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        color: var(--ink-mid);
+      }
 
-/* ======================================================
+      /* ======================================================
    OUTER SCROLL — title ↔ gallery
    ====================================================== */
-#outer {
-  position: fixed; inset: 0; z-index: 1;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
-}
-#outer::-webkit-scrollbar { display: none; }
+      #outer {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: none;
+      }
+      #outer::-webkit-scrollbar {
+        display: none;
+      }
 
-/* ======================================================
+      /* ======================================================
    TITLE PAGE
    ====================================================== */
-#title-page {
-  height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 0 40px;
-  position: relative;
-}
+      #title-page {
+        height: 100vh;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 40px;
+        position: relative;
+      }
 
-#title-page h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3.8rem);
-  font-weight: normal; color: var(--ink);
-  line-height: 1.2; margin-bottom: 20px;
-  letter-spacing: -0.01em;
-}
+      #title-page h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 5vw, 3.8rem);
+        font-weight: normal;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 20px;
+        letter-spacing: -0.01em;
+      }
 
-#title-page .meta {
-  font-size: 12px; letter-spacing: 0.1em; color: var(--ink-mid);
-}
+      #title-page .meta {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        color: var(--ink-mid);
+      }
 
-#title-page .scroll-hint {
-  position: absolute; bottom: 40px;
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  font-size: 10px; letter-spacing: 0.14em; color: var(--ink-dim);
-  animation: hint-fade 2.8s ease-in-out infinite;
-}
-#title-page .scroll-hint svg { animation: hint-bounce 2.8s ease-in-out infinite; }
-@keyframes hint-fade   { 0%,100%{opacity:.3} 50%{opacity:.8} }
-@keyframes hint-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+      #title-page .scroll-hint {
+        position: absolute;
+        bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--ink-dim);
+        animation: hint-fade 2.8s ease-in-out infinite;
+      }
+      #title-page .scroll-hint svg {
+        animation: hint-bounce 2.8s ease-in-out infinite;
+      }
+      @keyframes hint-fade {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+      @keyframes hint-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
 
-/* ======================================================
+      /* ======================================================
    GALLERY STAGE
    ====================================================== */
-#gallery-stage {
-  height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  position: relative;
-}
+      #gallery-stage {
+        height: 100vh;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        position: relative;
+      }
 
-/* ======================================================
+      /* ======================================================
    MEDIA TRACK — snaps between works
    ====================================================== */
-#media-track {
-  position: absolute;
-  top: var(--nav-h); left: 0; right: 0; bottom: 0;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
-}
-#media-track::-webkit-scrollbar { display: none; }
+      #media-track {
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: none;
+      }
+      #media-track::-webkit-scrollbar {
+        display: none;
+      }
 
-/* ======================================================
+      /* ======================================================
    EACH WORK — full track height, media centred
    ====================================================== */
-.media-item {
-  height: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 28px 40px;
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+      .media-item {
+        height: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 40px;
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
 
-.media-item.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+      .media-item.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-/* exit up (scrolling down — default) */
-.media-item.exiting-up {
-  opacity: 0;
-  transform: translateY(-24px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
+      /* exit up (scrolling down — default) */
+      .media-item.exiting-up {
+        opacity: 0;
+        transform: translateY(-24px);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
 
-/* exit down (scrolling up) */
-.media-item.exiting-down {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
+      /* exit down (scrolling up) */
+      .media-item.exiting-down {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
 
-/* ---- Media column — constrained for breathing room ---- */
-.media-col {
-  width: 100%;
-  max-width: 680px;
-  max-height: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
+      /* ---- Media column — constrained for breathing room ---- */
+      .media-col {
+        width: 100%;
+        max-width: 680px;
+        max-height: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
 
-/* portrait: narrower */
-.media-item.portrait .media-col { max-width: 380px; }
+      /* portrait: narrower */
+      .media-item.portrait .media-col {
+        max-width: 380px;
+      }
 
-/* ======================================================
+      /* ======================================================
    FLANKING ANNOTATION OVERLAY
    Fixed to viewport, updates via JS, transitions opacity
    ====================================================== */
-#ann-overlay {
-  position: fixed;
-  /* sits within the gallery stage area — below nav */
-  top: var(--nav-h); left: 0; right: 0; bottom: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  pointer-events: none;
-}
+      #ann-overlay {
+        position: fixed;
+        /* sits within the gallery stage area — below nav */
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        pointer-events: none;
+      }
 
-/* each annotation set: positioned left or right */
-.ann-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: var(--ann-col-w);
-}
+      /* each annotation set: positioned left or right */
+      .ann-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: var(--ann-col-w);
+      }
 
-#ann-left  { align-items: flex-start; }
-#ann-right { align-items: flex-end; text-align: right; }
+      #ann-left {
+        align-items: flex-start;
+      }
+      #ann-right {
+        align-items: flex-end;
+        text-align: right;
+      }
 
-.ann-title {
-  font-family: var(--font-serif);
-  font-size: 0.82rem; font-weight: normal; font-style: italic;
-  color: var(--ink); line-height: 1.4;
-  opacity: 0; transition: opacity 0.45s ease;
-}
+      .ann-title {
+        font-family: var(--font-serif);
+        font-size: 0.82rem;
+        font-weight: normal;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.4;
+        opacity: 0;
+        transition: opacity 0.45s ease;
+      }
 
-.ann-medium {
-  font-size: 10px; letter-spacing: 0.04em;
-  color: var(--ink-mid); line-height: 1.5;
-  opacity: 0; transition: opacity 0.45s ease 0.05s;
-}
+      .ann-medium {
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--ink-mid);
+        line-height: 1.5;
+        opacity: 0;
+        transition: opacity 0.45s ease 0.05s;
+      }
 
-.ann-dims {
-  font-size: 10px; letter-spacing: 0.04em;
-  color: var(--ink-dim);
-  opacity: 0; transition: opacity 0.45s ease 0.05s;
-}
+      .ann-dims {
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--ink-dim);
+        opacity: 0;
+        transition: opacity 0.45s ease 0.05s;
+      }
 
-.ann-counter {
-  font-size: 10px; letter-spacing: 0.1em;
-  color: var(--ink-dim); font-variant-numeric: tabular-nums;
-  margin-top: 3px;
-  opacity: 0; transition: opacity 0.45s ease 0.08s;
-  /* tick animation container */
-  overflow: hidden;
-  height: 1.2em;
-  position: relative;
-}
+      .ann-counter {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: var(--ink-dim);
+        font-variant-numeric: tabular-nums;
+        margin-top: 3px;
+        opacity: 0;
+        transition: opacity 0.45s ease 0.08s;
+        /* tick animation container */
+        overflow: hidden;
+        height: 1.2em;
+        position: relative;
+      }
 
-/* the inner span that ticks up */
-.ann-counter-inner {
-  display: block;
-  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.2s ease;
-}
+      /* the inner span that ticks up */
+      .ann-counter-inner {
+        display: block;
+        transition:
+          transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+          opacity 0.2s ease;
+      }
 
-.ann-counter-inner.tick-out {
-  transform: translateY(-100%);
-  opacity: 0;
-}
+      .ann-counter-inner.tick-out {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
 
-.ann-counter-inner.tick-in {
-  transform: translateY(100%);
-  opacity: 0;
-}
+      .ann-counter-inner.tick-in {
+        transform: translateY(100%);
+        opacity: 0;
+      }
 
-/* active state — all children visible */
-#ann-overlay.active .ann-title,
-#ann-overlay.active .ann-medium,
-#ann-overlay.active .ann-dims,
-#ann-overlay.active .ann-counter { opacity: 1; }
+      /* active state — all children visible */
+      #ann-overlay.active .ann-title,
+      #ann-overlay.active .ann-medium,
+      #ann-overlay.active .ann-dims,
+      #ann-overlay.active .ann-counter {
+        opacity: 1;
+      }
 
-/* hide overlay on title page */
-#ann-overlay.hidden { display: none; }
+      /* hide overlay on title page */
+      #ann-overlay.hidden {
+        display: none;
+      }
 
-/* ---- Placeholder slots ---- */
-.img-slot {
-  max-width: 100%; max-height: 100%;
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 12px;
-  background: rgba(26,26,30,0.05);
-  border: 1px dashed rgba(26,26,30,0.15);
-  color: var(--ink-dim);
-  font-size: 11px; letter-spacing: 0.05em;
-  text-align: center; padding: 20px;
-}
-.img-slot svg { opacity: 0.3; }
+      /* ---- Placeholder slots ---- */
+      .img-slot {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: rgba(26, 26, 30, 0.05);
+        border: 1px dashed rgba(26, 26, 30, 0.15);
+        color: var(--ink-dim);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        padding: 20px;
+      }
+      .img-slot svg {
+        opacity: 0.3;
+      }
 
-.img-slot.video-slot {
-  background: rgba(6,6,8,0.85);
-  border-color: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.25);
-}
+      .img-slot.video-slot {
+        background: rgba(6, 6, 8, 0.85);
+        border-color: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.25);
+      }
 
-/* ---- Real images — shadow, contained ---- */
-.media-col img {
-  max-width: 100%; max-height: 100%;
-  width: auto; height: auto;
-  display: block; object-fit: contain;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.13), 0 1px 6px rgba(0,0,0,0.08);
-}
+      /* ---- Real images — shadow, contained ---- */
+      .media-col img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        box-shadow:
+          0 4px 32px rgba(0, 0, 0, 0.13),
+          0 1px 6px rgba(0, 0, 0, 0.08);
+      }
 
-/* ---- Expand icon — shown on hover over image wrapper ---- */
-.media-expandable {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+      /* ---- Expand icon — shown on hover over image wrapper ---- */
+      .media-expandable {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-.expand-icon {
-  position: absolute;
-  bottom: 10px; right: 10px;
-  width: 28px; height: 28px;
-  background: rgba(245,244,240,0.88);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
+      .expand-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 28px;
+        height: 28px;
+        background: rgba(245, 244, 240, 0.88);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+      }
 
-.expand-icon svg { width: 13px; height: 13px; color: var(--ink); }
+      .expand-icon svg {
+        width: 13px;
+        height: 13px;
+        color: var(--ink);
+      }
 
-.media-expandable:hover .expand-icon { opacity: 1; }
+      .media-expandable:hover .expand-icon {
+        opacity: 1;
+      }
 
-/* ---- Custom cursor ---- */
-body { cursor: none; }
+      /* ---- Custom cursor ---- */
+      body {
+        cursor: none;
+      }
 
-#custom-cursor {
-  position: fixed;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  background: rgba(212, 212, 74, 0.85);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease;
-  mix-blend-mode: multiply;
-}
+      #custom-cursor {
+        position: fixed;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(212, 212, 74, 0.85);
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.2s ease,
+          height 0.2s ease;
+        mix-blend-mode: multiply;
+      }
 
-#custom-cursor.hovering {
-  width: 52px; height: 52px;
-}
+      #custom-cursor.hovering {
+        width: 52px;
+        height: 52px;
+      }
 
-/* cursor:none applied via body — no overrides needed */
+      /* cursor:none applied via body — no overrides needed */
 
-/* ---- Video ---- */
-.media-col video {
-  max-width: 100%; max-height: 100%;
-  width: 100%; display: block;
-  background: #060608; object-fit: contain;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-}
+      /* ---- Video ---- */
+      .media-col video {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        display: block;
+        background: #060608;
+        object-fit: contain;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+      }
 
-.video-wrap {
-  position: relative;
-  width: 100%; max-height: 100%;
-  display: flex; align-items: center; justify-content: center;
-}
+      .video-wrap {
+        position: relative;
+        width: 100%;
+        max-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-/* large central play button overlay */
-.video-play-btn {
-  position: absolute;
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: rgba(245,244,240,0.92);
-  border: none;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 2;
-  transition: background 0.18s, transform 0.18s, opacity 0.25s;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
-}
+      /* large central play button overlay */
+      .video-play-btn {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(245, 244, 240, 0.92);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        transition:
+          background 0.18s,
+          transform 0.18s,
+          opacity 0.25s;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+      }
 
-.video-play-btn svg {
-  width: 22px; height: 22px;
-  color: var(--ink);
-  margin-left: 3px; /* optical centre for play triangle */
-}
+      .video-play-btn svg {
+        width: 22px;
+        height: 22px;
+        color: var(--ink);
+        margin-left: 3px; /* optical centre for play triangle */
+      }
 
-.video-play-btn:hover {
-  background: #fff;
-  transform: scale(1.08);
-}
+      .video-play-btn:hover {
+        background: #fff;
+        transform: scale(1.08);
+      }
 
-.video-play-btn.hidden { opacity: 0; pointer-events: none; }
+      .video-play-btn.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
 
+      /* ---- Audio ---- */
+      .audio-player {
+        width: 100%;
+        max-width: 480px;
+        padding: 36px 32px;
+        background: rgba(26, 26, 30, 0.05);
+        border: 1px dashed rgba(26, 26, 30, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .audio-file-label {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: var(--ink-dim);
+        font-style: italic;
+      }
+      .audio-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .play-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(26, 26, 30, 0.25);
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--ink);
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .play-btn:hover {
+        background: rgba(26, 26, 30, 0.07);
+        border-color: rgba(26, 26, 30, 0.4);
+      }
+      .audio-progress-wrap {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .audio-bar-track {
+        width: 100%;
+        height: 1px;
+        background: rgba(26, 26, 30, 0.16);
+        position: relative;
+      }
+      .audio-bar-fill {
+        height: 100%;
+        background: var(--ink);
+        width: 0%;
+        pointer-events: none;
+      }
+      .audio-bar-thumb {
+        position: absolute;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        background: var(--ink);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        left: 0%;
+        pointer-events: none;
+      }
+      .audio-times {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: var(--ink-dim);
+        font-variant-numeric: tabular-nums;
+      }
 
+      /* ---- Flexible slot ---- */
+      .flexible-slot {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 14px;
+        background: rgba(26, 26, 30, 0.04);
+        border: 1px dashed rgba(26, 26, 30, 0.15);
+        color: var(--ink-dim);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        padding: 40px;
+        line-height: 1.8;
+      }
 
-/* ---- Audio ---- */
-.audio-player {
-  width: 100%; max-width: 480px;
-  padding: 36px 32px;
-  background: rgba(26,26,30,0.05);
-  border: 1px dashed rgba(26,26,30,0.15);
-  display: flex; flex-direction: column; gap: 20px;
-}
-.audio-file-label { font-size:11px; letter-spacing:0.05em; color:var(--ink-dim); font-style:italic; }
-.audio-controls { display:flex; align-items:center; gap:20px; }
-.play-btn {
-  width:44px; height:44px; border-radius:50%;
-  border:1px solid rgba(26,26,30,0.25); background:transparent;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; color:var(--ink); transition:background .15s,border-color .15s;
-}
-.play-btn:hover { background:rgba(26,26,30,0.07); border-color:rgba(26,26,30,0.4); }
-.audio-progress-wrap { flex:1; display:flex; flex-direction:column; gap:8px; }
-.audio-bar-track { width:100%; height:1px; background:rgba(26,26,30,0.16); position:relative; }
-.audio-bar-fill  { height:100%; background:var(--ink); width:0%; pointer-events:none; }
-.audio-bar-thumb { position:absolute; top:50%; width:8px; height:8px; background:var(--ink); border-radius:50%; transform:translate(-50%,-50%); left:0%; pointer-events:none; }
-.audio-times { display:flex; justify-content:space-between; font-size:10px; letter-spacing:0.06em; color:var(--ink-dim); font-variant-numeric:tabular-nums; }
-
-/* ---- Flexible slot ---- */
-.flexible-slot {
-  max-width: 100%; max-height: 100%;
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 14px;
-  background: rgba(26,26,30,0.04);
-  border: 1px dashed rgba(26,26,30,0.15);
-  color: var(--ink-dim); font-size: 11px;
-  letter-spacing: 0.05em; text-align: center;
-  padding: 40px; line-height: 1.8;
-}
-
-/* ======================================================
+      /* ======================================================
    LIGHTBOX
    ====================================================== */
-#lightbox {
-  position: fixed; inset: 0; z-index: 500;
-  display: flex; align-items: center; justify-content: center;
-  padding: 48px;
-  pointer-events: none;
-}
+      #lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px;
+        pointer-events: none;
+      }
 
-/* white wash fades in first, then blur builds on top */
-#lightbox-backdrop {
-  position: absolute; inset: 0;
-  background: rgba(245,244,240,0);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  transition: background 0.5s ease, backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
-}
+      /* white wash fades in first, then blur builds on top */
+      #lightbox-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(245, 244, 240, 0);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        transition:
+          background 0.5s ease,
+          backdrop-filter 0.5s ease,
+          -webkit-backdrop-filter 0.5s ease;
+      }
 
-#lightbox.open {
-  pointer-events: all;
-}
+      #lightbox.open {
+        pointer-events: all;
+      }
 
-#lightbox.open #lightbox-backdrop {
-  background: rgba(245,244,240,0.45);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-}
+      #lightbox.open #lightbox-backdrop {
+        background: rgba(245, 244, 240, 0.45);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+      }
 
-#lightbox img, #lightbox video {
-  position: relative; z-index: 1;
-  max-width: 100%; max-height: 100%;
-  object-fit: contain;
-  transform: scale(0.94);
-  opacity: 0;
-  transition: transform 0.45s ease, opacity 0.45s ease;
-  box-shadow: 0 8px 60px rgba(0,0,0,0.15);
-}
+      #lightbox img,
+      #lightbox video {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transform: scale(0.94);
+        opacity: 0;
+        transition:
+          transform 0.45s ease,
+          opacity 0.45s ease;
+        box-shadow: 0 8px 60px rgba(0, 0, 0, 0.15);
+      }
 
-#lightbox.open img, #lightbox.open video {
-  transform: scale(1);
-  opacity: 1;
-}
+      #lightbox.open img,
+      #lightbox.open video {
+        transform: scale(1);
+        opacity: 1;
+      }
 
-/* ======================================================
+      /* ======================================================
    RESPONSIVE
    ====================================================== */
-@media (max-width: 900px) {
-  :root { --ann-col-w: 90px; }
-  nav { padding: 0 28px; }
-  .media-item { padding: 16px 28px; }
-  #ann-overlay { padding: 0 28px; }
-}
+      @media (max-width: 900px) {
+        :root {
+          --ann-col-w: 90px;
+        }
+        nav {
+          padding: 0 28px;
+        }
+        .media-item {
+          padding: 16px 28px;
+        }
+        #ann-overlay {
+          padding: 0 28px;
+        }
+      }
 
-/* ======================================================
+      /* ======================================================
    TWO-LAYOUT TOGGLE
    ====================================================== */
-#mobile-layout  { display: none; }
-#desktop-layout { display: block; }
+      #mobile-layout {
+        display: none;
+      }
+      #desktop-layout {
+        display: block;
+      }
 
-@media (max-width: 600px) {
-  #desktop-layout { display: none; }
-  #mobile-layout  { display: block; }
-  #custom-cursor  { display: none; }
-  /* override desktop scroll lockout */
-  html, body { height: auto; overflow: auto; }
-}
+      @media (max-width: 600px) {
+        #desktop-layout {
+          display: none;
+        }
+        #mobile-layout {
+          display: block;
+        }
+        #custom-cursor {
+          display: none;
+        }
+        /* override desktop scroll lockout */
+        html,
+        body {
+          height: auto;
+          overflow: auto;
+        }
+      }
 
-/* ======================================================
+      /* ======================================================
    MOBILE LAYOUT STYLES — simple, no JS, no snap
    ====================================================== */
-#mobile-layout {
-  font-family: var(--font-sans);
-  color: var(--ink);
-  background: var(--bg);
-  min-height: 100vh;
-}
+      #mobile-layout {
+        font-family: var(--font-sans);
+        color: var(--ink);
+        background: var(--bg);
+        min-height: 100vh;
+      }
 
-/* mobile title page */
-.m-title {
-  height: 100svh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 0 24px;
-  position: relative;
-}
+      /* mobile title page */
+      .m-title {
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 24px;
+        position: relative;
+      }
 
-.m-title h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 8vw, 2.6rem);
-  font-weight: normal; color: var(--ink);
-  line-height: 1.2; margin-bottom: 18px;
-  letter-spacing: -0.01em;
-}
+      .m-title h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(1.8rem, 8vw, 2.6rem);
+        font-weight: normal;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 18px;
+        letter-spacing: -0.01em;
+      }
 
-.m-title .meta {
-  font-size: 11px; letter-spacing: 0.1em; color: var(--ink-mid);
-}
+      .m-title .meta {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        color: var(--ink-mid);
+      }
 
-.m-title .scroll-hint {
-  position: absolute; bottom: 36px;
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  font-size: 10px; letter-spacing: 0.14em; color: var(--ink-dim);
-  animation: hint-fade 2.8s ease-in-out infinite;
-}
+      .m-title .scroll-hint {
+        position: absolute;
+        bottom: 36px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--ink-dim);
+        animation: hint-fade 2.8s ease-in-out infinite;
+      }
 
-.m-title .scroll-hint svg { animation: hint-bounce 2.8s ease-in-out infinite; }
+      .m-title .scroll-hint svg {
+        animation: hint-bounce 2.8s ease-in-out infinite;
+      }
 
-/* mobile works */
-.m-works { padding: 0 24px 80px; }
+      /* mobile works */
+      .m-works {
+        padding: 0 24px 80px;
+      }
 
-.m-work {
-  padding-top: 72px;
-}
+      .m-work {
+        padding-top: 72px;
+      }
 
-.m-work:first-child { padding-top: 48px; }
+      .m-work:first-child {
+        padding-top: 48px;
+      }
 
-/* media */
-.m-media {
-  width: 100%;
-}
+      /* media */
+      .m-media {
+        width: 100%;
+      }
 
-.m-media img,
-.m-media video {
-  width: 100%;
-  max-height: 70svh;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
-}
+      .m-media img,
+      .m-media video {
+        width: 100%;
+        max-height: 70svh;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.1),
+          0 1px 4px rgba(0, 0, 0, 0.06);
+      }
 
-.m-img-slot {
-  width: 100%; height: 220px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 10px;
-  background: rgba(26,26,30,0.05);
-  border: 1px dashed rgba(26,26,30,0.15);
-  color: var(--ink-dim);
-  font-size: 11px; letter-spacing: 0.05em; text-align: center;
-}
+      .m-img-slot {
+        width: 100%;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: rgba(26, 26, 30, 0.05);
+        border: 1px dashed rgba(26, 26, 30, 0.15);
+        color: var(--ink-dim);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-align: center;
+      }
 
-.m-img-slot.dark {
-  background: rgba(6,6,8,0.88);
-  border-color: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.28);
-}
+      .m-img-slot.dark {
+        background: rgba(6, 6, 8, 0.88);
+        border-color: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.28);
+      }
 
-.m-img-slot svg { opacity: 0.3; }
+      .m-img-slot svg {
+        opacity: 0.3;
+      }
 
-/* mobile video */
-.m-video-wrap {
-  position: relative;
-  width: 100%;
-}
+      /* mobile video */
+      .m-video-wrap {
+        position: relative;
+        width: 100%;
+      }
 
-.m-video-wrap video {
-  width: 100%; display: block;
-  background: #060608;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-}
+      .m-video-wrap video {
+        width: 100%;
+        display: block;
+        background: #060608;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+      }
 
-/* mobile audio */
-.m-audio-player {
-  width: 100%;
-  padding: 32px 24px;
-  background: rgba(26,26,30,0.05);
-  border: 1px dashed rgba(26,26,30,0.15);
-  display: flex; flex-direction: column; gap: 18px;
-}
+      /* mobile audio */
+      .m-audio-player {
+        width: 100%;
+        padding: 32px 24px;
+        background: rgba(26, 26, 30, 0.05);
+        border: 1px dashed rgba(26, 26, 30, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
 
-.m-flexible-slot {
-  width: 100%; min-height: 200px;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 12px;
-  background: rgba(26,26,30,0.04);
-  border: 1px dashed rgba(26,26,30,0.15);
-  color: var(--ink-dim);
-  font-size: 11px; letter-spacing: 0.05em;
-  text-align: center; padding: 32px; line-height: 1.8;
-}
+      .m-flexible-slot {
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        background: rgba(26, 26, 30, 0.04);
+        border: 1px dashed rgba(26, 26, 30, 0.15);
+        color: var(--ink-dim);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        padding: 32px;
+        line-height: 1.8;
+      }
 
-/* annotation directly below media */
-.m-annotation {
-  padding-top: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-}
+      /* annotation directly below media */
+      .m-annotation {
+        padding-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+      }
 
-.m-ann-title {
-  font-family: var(--font-serif);
-  font-size: 0.85rem; font-style: italic;
-  font-weight: normal; color: var(--ink);
-}
+      .m-ann-title {
+        font-family: var(--font-serif);
+        font-size: 0.85rem;
+        font-style: italic;
+        font-weight: normal;
+        color: var(--ink);
+      }
 
-.m-ann-meta {
-  font-size: 10px; letter-spacing: 0.04em;
-  color: var(--ink-mid); text-align: right;
-  white-space: nowrap; flex-shrink: 0;
-}
+      .m-ann-meta {
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--ink-mid);
+        text-align: right;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
 
+      @media (prefers-reduced-motion: reduce) {
+        #title-page .scroll-hint,
+        #title-page .scroll-hint svg {
+          animation: none;
+          opacity: 0.5;
+        }
+        .ann-left-col,
+        .ann-right-col {
+          transition: none;
+        }
+        #lightbox,
+        #lightbox img,
+        #lightbox video {
+          transition: none;
+        }
+      }
 
+      /* ---- Carousel (desktop) ---- */
+      .carousel-wrap {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
+      .carousel-strip {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-@media (prefers-reduced-motion: reduce) {
-  #title-page .scroll-hint,
-  #title-page .scroll-hint svg { animation: none; opacity: 0.5; }
-  .ann-left-col, .ann-right-col { transition: none; }
-  #lightbox, #lightbox img, #lightbox video { transition: none; }
-}
+      /* all slides stacked, only active one visible — no display toggling to avoid reflow */
+      .carousel-slide {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+        pointer-events: none;
+      }
 
-/* ---- Carousel (desktop) ---- */
-.carousel-wrap {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      .carousel-slide.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
 
-.carousel-strip {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      .carousel-slide img {
+        max-width: 100%;
+        max-height: calc(100vh - 200px);
+        width: auto;
+        height: auto;
+        display: block;
+        box-shadow:
+          0 4px 32px rgba(0, 0, 0, 0.13),
+          0 1px 6px rgba(0, 0, 0, 0.08);
+      }
 
-/* all slides stacked, only active one visible — no display toggling to avoid reflow */
-.carousel-slide {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-  pointer-events: none;
-}
+      .c-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(245, 244, 240, 0.92);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        transition:
+          background 0.15s,
+          opacity 0.2s;
+        z-index: 5;
+      }
+      .c-btn:hover {
+        background: #fff;
+      }
+      .c-btn.c-prev {
+        left: 8px;
+      }
+      .c-btn.c-next {
+        right: 8px;
+      }
+      .c-btn.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .c-btn svg {
+        width: 13px;
+        height: 13px;
+        color: var(--ink);
+      }
 
-.carousel-slide.active {
-  position: relative;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
+      .c-dots {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 5px;
+        pointer-events: none;
+      }
+      .c-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(26, 26, 30, 0.2);
+        transition: background 0.2s;
+      }
+      .c-dot.on {
+        background: var(--ink);
+      }
 
-.carousel-slide img {
-  max-width: 100%;
-  max-height: calc(100vh - 200px);
-  width: auto; height: auto;
-  display: block;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.13), 0 1px 6px rgba(0,0,0,0.08);
-}
+      /* ---- Carousel (mobile) ---- */
+      .m-carousel-wrap {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .m-carousel-strip {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .m-carousel-slide {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
+      .m-carousel-slide.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
+      .m-carousel-slide img {
+        width: 100%;
+        max-height: 70svh;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.1),
+          0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+      .m-c-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(245, 244, 240, 0.92);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        z-index: 5;
+        transition: opacity 0.2s;
+      }
+      .m-c-btn.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .m-c-btn.c-prev {
+        left: 6px;
+      }
+      .m-c-btn.c-next {
+        right: 6px;
+      }
+      .m-c-btn svg {
+        width: 11px;
+        height: 11px;
+        color: var(--ink);
+      }
+      .m-c-dots {
+        display: none;
+      }
+      .m-c-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(26, 26, 30, 0.2);
+        transition: background 0.2s;
+      }
+      .m-c-dot.on {
+        background: var(--ink);
+      }
 
-.c-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 34px; height: 34px; border-radius: 50%;
-  background: rgba(245,244,240,0.92); border: none;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
-  transition: background 0.15s, opacity 0.2s;
-  z-index: 5;
-}
-.c-btn:hover { background: #fff; }
-.c-btn.c-prev { left: 8px; }
-.c-btn.c-next { right: 8px; }
-.c-btn.hide { opacity: 0; pointer-events: none; }
-.c-btn svg { width: 13px; height: 13px; color: var(--ink); }
+      /* ---- Nav ---- */
+      #main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--nav-h);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        pointer-events: none;
+      }
 
-.c-dots {
-  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 5px; pointer-events: none;
-}
-.c-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: rgba(26,26,30,0.2); transition: background 0.2s;
-}
-.c-dot.on { background: var(--ink); }
+      #main-nav .nav-name {
+        font-family: var(--font-serif);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        color: var(--ink-mid);
+        pointer-events: all;
+      }
 
-/* ---- Carousel (mobile) ---- */
-.m-carousel-wrap {
-  position: relative; width: 100%;
-  display: flex; align-items: center; justify-content: center;
-}
-.m-carousel-strip {
-  position: relative; width: 100%;
-  display: flex; align-items: center; justify-content: center;
-}
-.m-carousel-slide {
-  position: absolute;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; visibility: hidden; pointer-events: none;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-.m-carousel-slide.active {
-  position: relative;
-  opacity: 1; visibility: visible; pointer-events: all;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-.m-carousel-slide img {
-  width: 100%; max-height: 70svh; height: auto;
-  display: block; object-fit: contain;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
-}
-.m-c-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 30px; height: 30px; border-radius: 50%;
-  background: rgba(245,244,240,0.92); border: none;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.10); z-index: 5;
-  transition: opacity 0.2s;
-}
-.m-c-btn.hide { opacity: 0; pointer-events: none; }
-.m-c-btn.c-prev { left: 6px; }
-.m-c-btn.c-next { right: 6px; }
-.m-c-btn svg { width: 11px; height: 11px; color: var(--ink); }
-.m-c-dots { display: none; }
-.m-c-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: rgba(26,26,30,0.2); transition: background 0.2s;
-}
-.m-c-dot.on { background: var(--ink); }
+      #main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 0;
+        background: rgba(26, 26, 30, 0.07);
+        border: 1px solid rgba(26, 26, 30, 0.14);
+        border-radius: 999px;
+        padding: 6px 18px;
+        pointer-events: all;
+      }
 
+      #main-nav ul li {
+        display: flex;
+        align-items: center;
+      }
+      #main-nav ul li + li {
+        margin-left: 24px;
+      }
 
-/* ---- Nav ---- */
-#main-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--nav-h);
-  z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px;
-  pointer-events: none;
-}
+      #main-nav ul a {
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        color: var(--ink);
+        opacity: 0.65;
+        transition: opacity 0.2s;
+        white-space: nowrap;
+      }
 
-#main-nav .nav-name {
-  font-family: var(--font-serif);
-  font-size: 13px; letter-spacing: 0.02em;
-  color: var(--ink-mid);
-  pointer-events: all;
-}
+      #main-nav ul a:hover {
+        opacity: 1;
+      }
 
-#main-nav ul {
-  list-style: none;
-  display: flex; gap: 0;
-  background: rgba(26,26,30,0.07);
-  border: 1px solid rgba(26,26,30,0.14);
-  border-radius: 999px;
-  padding: 6px 18px;
-  pointer-events: all;
-}
+      /* Burger (mobile) */
+      #burger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        pointer-events: all;
+      }
 
-#main-nav ul li { display: flex; align-items: center; }
-#main-nav ul li + li { margin-left: 24px; }
+      #burger span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--ink);
+        border-radius: 2px;
+        transition:
+          transform 0.25s ease,
+          opacity 0.2s ease;
+        transform-origin: center;
+      }
 
-#main-nav ul a {
-  font-size: 11.5px; letter-spacing: 0.06em;
-  text-decoration: none;
-  color: var(--ink);
-  opacity: 0.65;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-}
+      #burger.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      #burger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      #burger.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
 
-#main-nav ul a:hover { opacity: 1; }
+      #mobile-drawer {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 150;
+        background: rgba(212, 212, 74, 0.96);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
 
-/* Burger (mobile) */
-#burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 36px; height: 36px;
-  background: none; border: none;
-  cursor: pointer; padding: 4px;
-  pointer-events: all;
-}
+      #mobile-drawer.open {
+        opacity: 1;
+        pointer-events: all;
+      }
 
-#burger span {
-  display: block;
-  width: 22px; height: 1.5px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-  transform-origin: center;
-}
+      #mobile-drawer a {
+        font-family: var(--font-serif);
+        font-size: clamp(1.4rem, 6vw, 2rem);
+        text-decoration: none;
+        color: var(--ink);
+        opacity: 0.75;
+        transition: opacity 0.2s;
+      }
 
-#burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-#burger.open span:nth-child(2) { opacity: 0; }
-#burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+      #mobile-drawer a:hover {
+        opacity: 1;
+      }
 
-#mobile-drawer {
-  display: none;
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 150;
-  background: rgba(212,212,74,0.96);
-  backdrop-filter: blur(12px);
-  flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 36px;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease;
-}
+      @media (max-width: 600px) {
+        #main-nav ul {
+          display: none;
+        }
+        #burger {
+          display: flex;
+        }
+        #mobile-drawer {
+          display: flex;
+        }
+        #main-nav {
+          padding: 0 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="main-nav">
+      <span class="nav-name">Chloe Marrs</span>
+      <ul>
+        <li><a href="index.html">About Me</a></li>
+        <li><a href="portfolio.html">Previous Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <button
+        id="burger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
 
-#mobile-drawer.open { opacity: 1; pointer-events: all; }
-
-#mobile-drawer a {
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 6vw, 2rem);
-  text-decoration: none;
-  color: var(--ink);
-  opacity: 0.75;
-  transition: opacity 0.2s;
-}
-
-#mobile-drawer a:hover { opacity: 1; }
-
-@media (max-width: 600px) {
-  #main-nav ul { display: none; }
-  #burger { display: flex; }
-  #mobile-drawer { display: flex; }
-  #main-nav { padding: 0 20px; }
-}
-
-</style>
-</head>
-<body>
-
-<nav id="main-nav">
-  <span class="nav-name">Chloe Marrs</span>
-  <ul>
-    <li><a href="index.html">About Me</a></li>
-    <li><a href="portfolio.html">Previous Work</a></li>
-    <li><a href="blog.html">Blog</a></li>
-  </ul>
-  <button id="burger" aria-label="Open navigation menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile full-screen drawer -->
-<div id="mobile-drawer" role="dialog" aria-label="Navigation">
-  <a href="index.html"     class="drawer-link">About Me</a>
-  <a href="portfolio.html" class="drawer-link">Previous Work</a>
-  <a href="blog.html"      class="drawer-link">Blog</a>
-</div>
-
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged view">
-  <div id="lightbox-backdrop"></div>
-</div>
-
-<div id="desktop-layout">
-<div id="outer">
-
-  <!-- TITLE PAGE -->
-  <div id="title-page">
-    <h1>Previous Work</h1>
-    <p class="meta">Selected Works</p>
-    <span class="scroll-hint">
-      scroll
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </span>
-  </div>
-
-  <!-- GALLERY STAGE -->
-  <div id="gallery-stage">
-
-    <!-- Fixed flanking annotation overlay -->
-    <div id="ann-overlay" class="hidden">
-      <div class="ann-panel" id="ann-left">
-        <span class="ann-title" id="ann-title-text"></span>
-      </div>
-      <div class="ann-panel" id="ann-right">
-        <span class="ann-medium" id="ann-medium-text"></span>
-        <span class="ann-dims" id="ann-dims-text"></span>
-        <span class="ann-counter" id="ann-counter-text"></span>
-      </div>
+    <!-- Mobile full-screen drawer -->
+    <div id="mobile-drawer" role="dialog" aria-label="Navigation">
+      <a href="index.html" class="drawer-link">About Me</a>
+      <a href="portfolio.html" class="drawer-link">Previous Work</a>
+      <a href="blog.html" class="drawer-link">Blog</a>
     </div>
 
-    <div id="media-track">
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged view"
+    >
+      <div id="lightbox-backdrop"></div>
+    </div>
 
-      <!-- 1. PORTRAIT -->
-      <div class="media-item" data-index="0" data-title="Yellow Facades, Norwich" data-medium="Archival pigment print" data-dims="84 × 59 cm">
-        <div class="media-col">
-          <div class="media-expandable">
-            <img src="assets/IMG_0101.JPG" alt="Yellow rendered building facades with pointed black rooflines against a blue sky" />
-            <div class="expand-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+    <div id="desktop-layout">
+      <div id="outer">
+        <!-- TITLE PAGE -->
+        <div id="title-page">
+          <h1>Previous Work</h1>
+          <p class="meta">Selected Works</p>
+          <span class="scroll-hint">
+            scroll
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </span>
+        </div>
+
+        <!-- GALLERY STAGE -->
+        <div id="gallery-stage">
+          <!-- Fixed flanking annotation overlay -->
+          <div id="ann-overlay" class="hidden">
+            <div class="ann-panel" id="ann-left">
+              <span class="ann-title" id="ann-title-text"></span>
+            </div>
+            <div class="ann-panel" id="ann-right">
+              <span class="ann-medium" id="ann-medium-text"></span>
+              <span class="ann-dims" id="ann-dims-text"></span>
+              <span class="ann-counter" id="ann-counter-text"></span>
             </div>
           </div>
-        </div>
-        </div>
 
-      <!-- 2. CAROUSEL — click any image to open in lightbox -->
-      <div class="media-item" data-index="1" data-title="Isobar Study No. 3" data-medium="Oil on canvas" data-dims="60 × 90 cm">
-        <div class="media-col">
-          <div class="carousel-wrap" id="c-desk">
-            <div class="carousel-strip" id="c-desk-strip">
-              <div class="carousel-slide">
-                <img src="assets/IMG_0289.JPG" alt="Beach huts, wide view" />
-              </div>
-              <div class="carousel-slide">
-                <img src="assets/IMG_0291.JPG" alt="Beach huts, close view" />
-              </div>
-              <div class="carousel-slide">
-                <img src="assets/IMG_0297.JPG" alt="Reed field with telegraph poles" />
+          <div id="media-track">
+            <!-- 1. PORTRAIT -->
+            <div
+              class="media-item"
+              data-index="0"
+              data-title="Yellow Facades, Norwich"
+              data-medium="Archival pigment print"
+              data-dims="84 × 59 cm"
+            >
+              <div class="media-col">
+                <div class="media-expandable">
+                  <img
+                    src="assets/IMG_0101.JPG"
+                    alt="Yellow rendered building facades with pointed black rooflines against a blue sky"
+                  />
+                  <div class="expand-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="15 3 21 3 21 9" />
+                      <polyline points="9 21 3 21 3 15" />
+                      <line x1="21" y1="3" x2="14" y2="10" />
+                      <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
-            <button class="c-btn c-prev hide" id="c-desk-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-            <button class="c-btn c-next" id="c-desk-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-            <div class="c-dots" id="c-desk-dots">
-              <div class="c-dot on"></div><div class="c-dot"></div><div class="c-dot"></div>
+
+            <!-- 2. CAROUSEL — click any image to open in lightbox -->
+            <div
+              class="media-item"
+              data-index="1"
+              data-title="Isobar Study No. 3"
+              data-medium="Oil on canvas"
+              data-dims="60 × 90 cm"
+            >
+              <div class="media-col">
+                <div class="carousel-wrap" id="c-desk">
+                  <div class="carousel-strip" id="c-desk-strip">
+                    <div class="carousel-slide">
+                      <img
+                        src="assets/IMG_0289.JPG"
+                        alt="Beach huts, wide view"
+                      />
+                    </div>
+                    <div class="carousel-slide">
+                      <img
+                        src="assets/IMG_0291.JPG"
+                        alt="Beach huts, close view"
+                      />
+                    </div>
+                    <div class="carousel-slide">
+                      <img
+                        src="assets/IMG_0297.JPG"
+                        alt="Reed field with telegraph poles"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="c-btn c-prev hide"
+                    id="c-desk-prev"
+                    aria-label="Previous"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </button>
+                  <button
+                    class="c-btn c-next"
+                    id="c-desk-next"
+                    aria-label="Next"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </button>
+                  <div class="c-dots" id="c-desk-dots">
+                    <div class="c-dot on"></div>
+                    <div class="c-dot"></div>
+                    <div class="c-dot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. SQUARE -->
+            <div
+              class="media-item"
+              data-index="2"
+              data-title="Pressure Drop"
+              data-medium="Digital print"
+              data-dims="50 × 50 cm"
+            >
+              <div class="media-col">
+                <div class="img-slot">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="M21 15l-5-5L5 21" />
+                  </svg>
+                  <span>Square image — digital work, film still</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. VIDEO (local file) -->
+            <div
+              class="media-item"
+              data-index="3"
+              data-title="North Sea, November 1987"
+              data-medium="Single-channel video"
+              data-dims="18 min 22 sec"
+            >
+              <div class="media-col">
+                <div class="video-wrap" id="video-wrap-3">
+                  <video id="work-video-3" preload="metadata">
+                    <source src="assets/ramp_box.mp4" type="video/mp4" />
+                  </video>
+                  <!-- large central play button -->
+                  <button class="video-play-btn" aria-label="Play video">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. AUDIO -->
+            <div
+              class="media-item"
+              data-index="4"
+              data-title="Storm Archive I"
+              data-medium="Generative audio"
+              data-dims="Four-channel · 18 min 22 sec"
+            >
+              <div class="media-col">
+                <div class="audio-player" data-src="">
+                  <div class="audio-file-label">
+                    Audio — set data-src="assets/yourfile.mp3" to activate
+                  </div>
+                  <div class="audio-controls">
+                    <button class="play-btn" aria-label="Play / pause">
+                      <svg
+                        class="icon-play"
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                      <svg
+                        class="icon-pause"
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        style="display: none"
+                      >
+                        <rect x="6" y="4" width="4" height="16" />
+                        <rect x="14" y="4" width="4" height="16" />
+                      </svg>
+                    </button>
+                    <div class="audio-progress-wrap">
+                      <div class="audio-bar-track">
+                        <div class="audio-bar-fill"></div>
+                        <div class="audio-bar-thumb"></div>
+                      </div>
+                      <div class="audio-times">
+                        <span class="time-current">0:00</span>
+                        <span class="time-total">—</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. FLEXIBLE -->
+            <div
+              class="media-item"
+              data-index="5"
+              data-title="Atmospheric Conditions"
+              data-medium="Installation"
+              data-dims="Projection and sound · Dimensions variable"
+            >
+              <div class="media-col">
+                <div class="flexible-slot">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  >
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                  </svg>
+                  <span
+                    >Flexible slot — installation, multiple images, mixed
+                    media<br />
+                    <span style="font-size: 10px; opacity: 0.6"
+                      >replace with img, video, or a grid of images</span
+                    ></span
+                  >
+                </div>
+              </div>
             </div>
           </div>
+          <!-- /media-track -->
         </div>
-        </div>
-
-      <!-- 3. SQUARE -->
-      <div class="media-item" data-index="2" data-title="Pressure Drop" data-medium="Digital print" data-dims="50 × 50 cm">
-        <div class="media-col">
-          <div class="img-slot">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Square image — digital work, film still</span>
-          </div>
-        </div>
-        </div>
-
-      <!-- 4. VIDEO (local file) -->
-      <div class="media-item" data-index="3" data-title="North Sea, November 1987" data-medium="Single-channel video" data-dims="18 min 22 sec">
-        <div class="media-col">
-          <div class="video-wrap" id="video-wrap-3">
-            <video id="work-video-3" preload="metadata">
-              <source src="assets/ramp_box.mp4" type="video/mp4">
-            </video>
-            <!-- large central play button -->
-            <button class="video-play-btn" aria-label="Play video">
-              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </button>
-          </div>
-        </div>
+        <!-- /gallery-stage -->
       </div>
+      <!-- /outer -->
+    </div>
+    <!-- /desktop-layout -->
 
-      <!-- 5. AUDIO -->
-      <div class="media-item" data-index="4" data-title="Storm Archive I" data-medium="Generative audio" data-dims="Four-channel · 18 min 22 sec">
-        <div class="media-col">
-          <div class="audio-player" data-src="">
-            <div class="audio-file-label">Audio — set data-src="assets/yourfile.mp3" to activate</div>
-            <div class="audio-controls">
-              <button class="play-btn" aria-label="Play / pause">
-                <svg class="icon-play" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <svg class="icon-pause" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-              </button>
-              <div class="audio-progress-wrap">
-                <div class="audio-bar-track">
-                  <div class="audio-bar-fill"></div>
-                  <div class="audio-bar-thumb"></div>
-                </div>
-                <div class="audio-times">
-                  <span class="time-current">0:00</span>
-                  <span class="time-total">—</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-
-      <!-- 6. FLEXIBLE -->
-      <div class="media-item" data-index="5" data-title="Atmospheric Conditions" data-medium="Installation" data-dims="Projection and sound · Dimensions variable">
-        <div class="media-col">
-          <div class="flexible-slot">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-            <span>Flexible slot — installation, multiple images, mixed media<br>
-            <span style="font-size:10px;opacity:0.6;">replace with img, video, or a grid of images</span></span>
-          </div>
-        </div>
-        </div>
-
-    </div><!-- /media-track -->
-  </div><!-- /gallery-stage -->
-</div><!-- /outer -->
-</div><!-- /desktop-layout -->
-
-
-<!-- ======================================================
+    <!-- ======================================================
      MOBILE LAYOUT — simple vertical scroll
      Edit content here to match the desktop layout above
      ====================================================== -->
-<div id="mobile-layout">
+    <div id="mobile-layout">
+      <!-- Title -->
+      <div class="m-title">
+        <h1>Previous Work</h1>
+        <p class="meta">Selected Works</p>
+        <span class="scroll-hint">
+          scroll
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </span>
+      </div>
 
-  <!-- Title -->
-  <div class="m-title">
-    <h1>Previous Work</h1>
-    <p class="meta">Selected Works</p>
-    <span class="scroll-hint">
-      scroll
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </span>
-  </div>
-
-  <div class="m-works">
-
-    <!-- 1. PORTRAIT IMAGE
+      <div class="m-works">
+        <!-- 1. PORTRAIT IMAGE
          Replace .m-img-slot with <img src="assets/yourfile.jpg" alt="..." /> -->
-    <div class="m-work">
-      <div class="m-media">
-        <img src="assets/IMG_0101.JPG" alt="Yellow rendered building facades with pointed black rooflines against a blue sky" />
-      </div>
-      <div class="m-annotation">
-        <span class="m-ann-title">Yellow Facades, Norwich</span>
-        <span class="m-ann-meta">Archival pigment print · 84 × 59 cm</span>
-      </div>
-    </div>
-
-    <!-- 2. CAROUSEL (tap image to open in lightbox) -->
-    <div class="m-work">
-      <div class="m-media">
-        <div class="m-carousel-wrap" id="c-mob">
-          <div class="m-carousel-strip" id="c-mob-strip">
-            <div class="m-carousel-slide"><img src="assets/IMG_0289.JPG" alt="Beach huts, wide view" /></div>
-            <div class="m-carousel-slide"><img src="assets/IMG_0291.JPG" alt="Beach huts, close view" /></div>
-            <div class="m-carousel-slide"><img src="assets/IMG_0297.JPG" alt="Reed field with telegraph poles" /></div>
+        <div class="m-work">
+          <div class="m-media">
+            <img
+              src="assets/IMG_0101.JPG"
+              alt="Yellow rendered building facades with pointed black rooflines against a blue sky"
+            />
           </div>
-          <button class="m-c-btn c-prev hide" id="c-mob-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-          <button class="m-c-btn c-next" id="c-mob-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-          <div class="m-c-dots" id="c-mob-dots">
-            <div class="m-c-dot on"></div><div class="m-c-dot"></div><div class="m-c-dot"></div>
+          <div class="m-annotation">
+            <span class="m-ann-title">Yellow Facades, Norwich</span>
+            <span class="m-ann-meta">Archival pigment print · 84 × 59 cm</span>
           </div>
         </div>
-      </div>
-      <div class="m-annotation">
-        <span class="m-ann-title">Isobar Study No. 3</span>
-        <span class="m-ann-meta">Oil on canvas · 60 × 90 cm</span>
-      </div>
-    </div>
 
-    <!-- 3. SQUARE IMAGE -->
-    <div class="m-work">
-      <div class="m-media">
-        <div class="m-img-slot">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Square image</span>
-        </div>
-      </div>
-      <div class="m-annotation">
-        <span class="m-ann-title">Pressure Drop</span>
-        <span class="m-ann-meta">Digital print · 50 × 50 cm</span>
-      </div>
-    </div>
-
-    <!-- 4. VIDEO
-         Replace .m-img-slot with <video controls><source src="assets/ramp_box.mp4" type="video/mp4"></video> -->
-    <div class="m-work">
-      <div class="m-media">
-        <div class="m-video-wrap">
-          <video controls preload="metadata">
-            <source src="assets/ramp_box.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="m-annotation">
-        <span class="m-ann-title">North Sea, November 1987</span>
-        <span class="m-ann-meta">Single-channel video · 18 min 22 sec</span>
-      </div>
-    </div>
-
-    <!-- 5. AUDIO
-         Set data-src="assets/yourfile.mp3" to activate -->
-    <div class="m-work">
-      <div class="m-media">
-        <div class="m-audio-player" data-src="" data-mobile="true">
-          <div class="audio-file-label">Audio — set data-src="assets/yourfile.mp3" to activate</div>
-          <div class="audio-controls">
-            <button class="play-btn" aria-label="Play / pause">
-              <svg class="icon-play" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <svg class="icon-pause" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="audio-progress-wrap">
-              <div class="audio-bar-track">
-                <div class="audio-bar-fill"></div>
-                <div class="audio-bar-thumb"></div>
+        <!-- 2. CAROUSEL (tap image to open in lightbox) -->
+        <div class="m-work">
+          <div class="m-media">
+            <div class="m-carousel-wrap" id="c-mob">
+              <div class="m-carousel-strip" id="c-mob-strip">
+                <div class="m-carousel-slide">
+                  <img src="assets/IMG_0289.JPG" alt="Beach huts, wide view" />
+                </div>
+                <div class="m-carousel-slide">
+                  <img src="assets/IMG_0291.JPG" alt="Beach huts, close view" />
+                </div>
+                <div class="m-carousel-slide">
+                  <img
+                    src="assets/IMG_0297.JPG"
+                    alt="Reed field with telegraph poles"
+                  />
+                </div>
               </div>
-              <div class="audio-times">
-                <span class="time-current">0:00</span>
-                <span class="time-total">—</span>
+              <button
+                class="m-c-btn c-prev hide"
+                id="c-mob-prev"
+                aria-label="Previous"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button class="m-c-btn c-next" id="c-mob-next" aria-label="Next">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+              <div class="m-c-dots" id="c-mob-dots">
+                <div class="m-c-dot on"></div>
+                <div class="m-c-dot"></div>
+                <div class="m-c-dot"></div>
               </div>
             </div>
           </div>
+          <div class="m-annotation">
+            <span class="m-ann-title">Isobar Study No. 3</span>
+            <span class="m-ann-meta">Oil on canvas · 60 × 90 cm</span>
+          </div>
+        </div>
+
+        <!-- 3. SQUARE IMAGE -->
+        <div class="m-work">
+          <div class="m-media">
+            <div class="m-img-slot">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Square image</span>
+            </div>
+          </div>
+          <div class="m-annotation">
+            <span class="m-ann-title">Pressure Drop</span>
+            <span class="m-ann-meta">Digital print · 50 × 50 cm</span>
+          </div>
+        </div>
+
+        <!-- 4. VIDEO
+         Replace .m-img-slot with <video controls><source src="assets/ramp_box.mp4" type="video/mp4"></video> -->
+        <div class="m-work">
+          <div class="m-media">
+            <div class="m-video-wrap">
+              <video controls preload="metadata">
+                <source src="assets/ramp_box.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div class="m-annotation">
+            <span class="m-ann-title">North Sea, November 1987</span>
+            <span class="m-ann-meta">Single-channel video · 18 min 22 sec</span>
+          </div>
+        </div>
+
+        <!-- 5. AUDIO
+         Set data-src="assets/yourfile.mp3" to activate -->
+        <div class="m-work">
+          <div class="m-media">
+            <div class="m-audio-player" data-src="" data-mobile="true">
+              <div class="audio-file-label">
+                Audio — set data-src="assets/yourfile.mp3" to activate
+              </div>
+              <div class="audio-controls">
+                <button class="play-btn" aria-label="Play / pause">
+                  <svg
+                    class="icon-play"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  <svg
+                    class="icon-pause"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    style="display: none"
+                  >
+                    <rect x="6" y="4" width="4" height="16" />
+                    <rect x="14" y="4" width="4" height="16" />
+                  </svg>
+                </button>
+                <div class="audio-progress-wrap">
+                  <div class="audio-bar-track">
+                    <div class="audio-bar-fill"></div>
+                    <div class="audio-bar-thumb"></div>
+                  </div>
+                  <div class="audio-times">
+                    <span class="time-current">0:00</span>
+                    <span class="time-total">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="m-annotation">
+            <span class="m-ann-title">Storm Archive I</span>
+            <span class="m-ann-meta">Generative audio · 18 min 22 sec</span>
+          </div>
+        </div>
+
+        <!-- 6. FLEXIBLE / INSTALLATION -->
+        <div class="m-work">
+          <div class="m-media">
+            <div class="m-flexible-slot">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+              <span
+                >Flexible slot — installation, multiple images, mixed
+                media</span
+              >
+            </div>
+          </div>
+          <div class="m-annotation">
+            <span class="m-ann-title">Atmospheric Conditions</span>
+            <span class="m-ann-meta">Installation · Dimensions variable</span>
+          </div>
         </div>
       </div>
-      <div class="m-annotation">
-        <span class="m-ann-title">Storm Archive I</span>
-        <span class="m-ann-meta">Generative audio · 18 min 22 sec</span>
-      </div>
+      <!-- /m-works -->
     </div>
+    <!-- /mobile-layout -->
 
-    <!-- 6. FLEXIBLE / INSTALLATION -->
-    <div class="m-work">
-      <div class="m-media">
-        <div class="m-flexible-slot">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <span>Flexible slot — installation, multiple images, mixed media</span>
-        </div>
-      </div>
-      <div class="m-annotation">
-        <span class="m-ann-title">Atmospheric Conditions</span>
-        <span class="m-ann-meta">Installation · Dimensions variable</span>
-      </div>
-    </div>
+    <!-- Custom cursor -->
+    <div id="custom-cursor"></div>
 
-  </div><!-- /m-works -->
-</div><!-- /mobile-layout -->
+    <script>
+      // ---- Custom cursor ----
+      const cursor = document.getElementById("custom-cursor");
 
-<!-- Custom cursor -->
-<div id="custom-cursor"></div>
-
-<script>
-// ---- Custom cursor ----
-const cursor = document.getElementById('custom-cursor');
-
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
-});
-
-document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
-document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
-
-// grow cursor on interactive elements
-// enlarge cursor on all images and carousel images
-document.querySelectorAll('.media-expandable, .carousel-slide img, .media-col img')
-  .forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-  });
-
-// ---- Setup ----
-const mediaTrack   = document.getElementById('media-track');
-const mediaItems   = document.querySelectorAll('.media-item');
-const annOverlay   = document.getElementById('ann-overlay');
-const annTitle     = document.getElementById('ann-title-text');
-const annMedium    = document.getElementById('ann-medium-text');
-const annDims      = document.getElementById('ann-dims-text');
-const annCounter   = document.getElementById('ann-counter-text');
-const total        = mediaItems.length;
-
-// Wrap counter text in a ticking inner span
-annCounter.innerHTML = '<span class="ann-counter-inner">01 / ' + String(total).padStart(2,'0') + '</span>';
-
-// show/hide overlay when gallery stage scrolls into view
-const outerEl      = document.getElementById('outer');
-const galleryStage = document.getElementById('gallery-stage');
-
-const stageObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    annOverlay.classList.toggle('hidden', !e.isIntersecting);
-  });
-}, { root: outerEl, threshold: 0.5 });
-stageObserver.observe(galleryStage);
-
-// ---- Scroll direction tracking ----
-let lastScrollTop = 0;
-let scrollDir = 'down';
-mediaTrack.addEventListener('scroll', () => {
-  const st = mediaTrack.scrollTop;
-  scrollDir = st > lastScrollTop ? 'down' : 'up';
-  lastScrollTop = st;
-}, { passive: true });
-
-function exitItem(item) {
-  const exitClass = scrollDir === 'down' ? 'exiting-up' : 'exiting-down';
-  item.classList.add(exitClass);
-  item.classList.remove('active');
-  setTimeout(() => item.classList.remove(exitClass), 400);
-}
-function tickCounter(newText) {
-  const inner = annCounter.querySelector('.ann-counter-inner');
-  if (!inner) return;
-
-  // slide current number up and out
-  inner.classList.add('tick-out');
-
-  setTimeout(() => {
-    inner.textContent = newText;
-    inner.classList.remove('tick-out');
-    // snap to bottom offscreen, then slide up into place
-    inner.classList.add('tick-in');
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        inner.classList.remove('tick-in');
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
       });
-    });
-  }, 220);
-}
 
-// ---- Active item tracking ----
-let currentIndex = -1;
+      document.addEventListener("mouseleave", () => {
+        cursor.style.opacity = "0";
+      });
+      document.addEventListener("mouseenter", () => {
+        cursor.style.opacity = "1";
+      });
 
-function setActiveItem(item) {
-  const idx = parseInt(item.dataset.index);
-  if (idx === currentIndex) return;
+      // grow cursor on interactive elements
+      // enlarge cursor on all images and carousel images
+      document
+        .querySelectorAll(
+          ".media-expandable, .carousel-slide img, .media-col img",
+        )
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            cursor.classList.add("hovering"),
+          );
+          el.addEventListener("mouseleave", () =>
+            cursor.classList.remove("hovering"),
+          );
+        });
 
-  // exit outgoing item in the scroll direction
-  mediaItems.forEach(i => {
-    if (i.classList.contains('active')) exitItem(i);
-    else i.classList.remove('active');
-  });
+      // ---- Setup ----
+      const mediaTrack = document.getElementById("media-track");
+      const mediaItems = document.querySelectorAll(".media-item");
+      const annOverlay = document.getElementById("ann-overlay");
+      const annTitle = document.getElementById("ann-title-text");
+      const annMedium = document.getElementById("ann-medium-text");
+      const annDims = document.getElementById("ann-dims-text");
+      const annCounter = document.getElementById("ann-counter-text");
+      const total = mediaItems.length;
 
-  item.classList.add('active');
+      // Wrap counter text in a ticking inner span
+      annCounter.innerHTML =
+        '<span class="ann-counter-inner">01 / ' +
+        String(total).padStart(2, "0") +
+        "</span>";
 
-  // update annotation text (fade via css transition)
-  const title  = item.dataset.title  || 'Work Title';
-  const medium = item.dataset.medium || '';
-  const dims   = item.dataset.dims   || '';
+      // show/hide overlay when gallery stage scrolls into view
+      const outerEl = document.getElementById("outer");
+      const galleryStage = document.getElementById("gallery-stage");
 
-  annOverlay.classList.remove('active');
-  setTimeout(() => {
-    annTitle.textContent  = title;
-    annMedium.textContent = medium;
-    annDims.textContent   = dims;
-    annOverlay.classList.add('active');
-  }, 180);
+      const stageObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            annOverlay.classList.toggle("hidden", !e.isIntersecting);
+          });
+        },
+        { root: outerEl, threshold: 0.5 },
+      );
+      stageObserver.observe(galleryStage);
 
-  // tick counter
-  tickCounter(`${String(idx + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`);
+      // ---- Scroll direction tracking ----
+      let lastScrollTop = 0;
+      let scrollDir = "down";
+      mediaTrack.addEventListener(
+        "scroll",
+        () => {
+          const st = mediaTrack.scrollTop;
+          scrollDir = st > lastScrollTop ? "down" : "up";
+          lastScrollTop = st;
+        },
+        { passive: true },
+      );
 
-  currentIndex = idx;
-}
+      function exitItem(item) {
+        const exitClass = scrollDir === "down" ? "exiting-up" : "exiting-down";
+        item.classList.add(exitClass);
+        item.classList.remove("active");
+        setTimeout(() => item.classList.remove(exitClass), 400);
+      }
+      function tickCounter(newText) {
+        const inner = annCounter.querySelector(".ann-counter-inner");
+        if (!inner) return;
 
-// init with first item
-setActiveItem(mediaItems[0]);
-annOverlay.classList.add('active');
+        // slide current number up and out
+        inner.classList.add("tick-out");
 
-const trackObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      setActiveItem(entry.target);
-    } else if (entry.target.classList.contains('active')) {
-      exitItem(entry.target);
-    }
-  });
-}, { root: mediaTrack, threshold: 0.5 });
+        setTimeout(() => {
+          inner.textContent = newText;
+          inner.classList.remove("tick-out");
+          // snap to bottom offscreen, then slide up into place
+          inner.classList.add("tick-in");
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              inner.classList.remove("tick-in");
+            });
+          });
+        }, 220);
+      }
 
-mediaItems.forEach(item => trackObserver.observe(item));
+      // ---- Active item tracking ----
+      let currentIndex = -1;
 
-// ---- Lightbox ----
-const lightbox   = document.getElementById('lightbox');
-const lbBackdrop = document.getElementById('lightbox-backdrop');
+      function setActiveItem(item) {
+        const idx = parseInt(item.dataset.index);
+        if (idx === currentIndex) return;
 
-function openLightbox(el) {
-  const existing = lightbox.querySelector('img, video');
-  if (existing) existing.remove();
+        // exit outgoing item in the scroll direction
+        mediaItems.forEach((i) => {
+          if (i.classList.contains("active")) exitItem(i);
+          else i.classList.remove("active");
+        });
 
-  if (el.tagName === 'VIDEO') {
-    // for video: move the actual element into the lightbox so playback continues
-    const placeholder = document.createElement('div');
-    placeholder.id = 'video-placeholder-' + el.id;
-    el.parentNode.insertBefore(placeholder, el);
-    el.style.cursor = 'default';
-    el.style.maxWidth = '100%';
-    el.style.maxHeight = '100%';
-    lightbox.appendChild(el);
-    lightbox._videoEl = el;
-    lightbox._videoPlaceholder = placeholder;
-  } else {
-    const clone = el.cloneNode(true);
-    clone.style.cursor = 'zoom-out';
-    lightbox.appendChild(clone);
-  }
+        item.classList.add("active");
 
-  lightbox.classList.add('open');
-}
+        // update annotation text (fade via css transition)
+        const title = item.dataset.title || "Work Title";
+        const medium = item.dataset.medium || "";
+        const dims = item.dataset.dims || "";
 
-function closeLightbox() {
-  if (!lightbox.classList.contains('open')) return;
-  lightbox.classList.remove('open');
+        annOverlay.classList.remove("active");
+        setTimeout(() => {
+          annTitle.textContent = title;
+          annMedium.textContent = medium;
+          annDims.textContent = dims;
+          annOverlay.classList.add("active");
+        }, 180);
 
-  // return video to its original place
-  if (lightbox._videoEl) {
-    const v = lightbox._videoEl;
-    v.pause();
-    v.style.cursor = '';
-    v.style.maxWidth = '';
-    v.style.maxHeight = '';
-    lightbox._videoPlaceholder.parentNode.insertBefore(v, lightbox._videoPlaceholder);
-    lightbox._videoPlaceholder.remove();
-    lightbox._videoEl = null;
-    lightbox._videoPlaceholder = null;
-  }
+        // tick counter
+        tickCounter(
+          `${String(idx + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`,
+        );
 
-  setTimeout(() => { const m = lightbox.querySelector('img'); if(m) m.remove(); }, 350);
-}
+        currentIndex = idx;
+      }
 
-// click on image or expand icon opens lightbox
-document.querySelectorAll('.media-expandable').forEach(wrap => {
-  wrap.addEventListener('click', () => {
-    const img = wrap.querySelector('img');
-    if (img) openLightbox(img);
-  });
-});
+      // init with first item
+      setActiveItem(mediaItems[0]);
+      annOverlay.classList.add("active");
 
-// ---- Video play button ----
-document.querySelectorAll('.video-wrap').forEach(wrap => {
-  const video   = wrap.querySelector('video');
-  const playBtn = wrap.querySelector('.video-play-btn');
-  if (!video || !playBtn) return;
+      const trackObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveItem(entry.target);
+            } else if (entry.target.classList.contains("active")) {
+              exitItem(entry.target);
+            }
+          });
+        },
+        { root: mediaTrack, threshold: 0.5 },
+      );
 
-  playBtn.addEventListener('click', () => {
-    playBtn.classList.add('hidden');
-    openLightbox(video);
-    // slight delay so element is in lightbox before playing
-    setTimeout(() => { video.play(); }, 80);
-  });
+      mediaItems.forEach((item) => trackObserver.observe(item));
 
-  video.addEventListener('pause', () => {
-    playBtn.classList.remove('hidden');
-    closeLightbox();
-  });
+      // ---- Lightbox ----
+      const lightbox = document.getElementById("lightbox");
+      const lbBackdrop = document.getElementById("lightbox-backdrop");
 
-  video.addEventListener('ended', () => {
-    playBtn.classList.remove('hidden');
-    closeLightbox();
-  });
-});
+      function openLightbox(el) {
+        const existing = lightbox.querySelector("img, video");
+        if (existing) existing.remove();
 
-lbBackdrop.addEventListener('click', closeLightbox);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+        if (el.tagName === "VIDEO") {
+          // for video: move the actual element into the lightbox so playback continues
+          const placeholder = document.createElement("div");
+          placeholder.id = "video-placeholder-" + el.id;
+          el.parentNode.insertBefore(placeholder, el);
+          el.style.cursor = "default";
+          el.style.maxWidth = "100%";
+          el.style.maxHeight = "100%";
+          lightbox.appendChild(el);
+          lightbox._videoEl = el;
+          lightbox._videoPlaceholder = placeholder;
+        } else {
+          const clone = el.cloneNode(true);
+          clone.style.cursor = "zoom-out";
+          lightbox.appendChild(clone);
+        }
 
-// ---- Audio players ----
-document.querySelectorAll('.audio-player, .m-audio-player').forEach(player => {
-  const src = player.dataset.src;
-  if (!src) return;
-  const audio     = new Audio(src);
-  const playBtn   = player.querySelector('.play-btn');
-  const iconPlay  = player.querySelector('.icon-play');
-  const iconPause = player.querySelector('.icon-pause');
-  const barFill   = player.querySelector('.audio-bar-fill');
-  const barThumb  = player.querySelector('.audio-bar-thumb');
-  const barTrack  = player.querySelector('.audio-bar-track');
-  const timeCur   = player.querySelector('.time-current');
-  const timeTotal = player.querySelector('.time-total');
-  const fileLabel = player.querySelector('.audio-file-label');
-  if (fileLabel) fileLabel.style.display = 'none';
-  const fmt = s => `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
-  audio.addEventListener('loadedmetadata', () => { timeTotal.textContent = fmt(audio.duration); });
-  audio.addEventListener('timeupdate', () => {
-    const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
-    barFill.style.width = pct + '%'; barThumb.style.left = pct + '%';
-    timeCur.textContent = fmt(audio.currentTime);
-  });
-  audio.addEventListener('ended', () => { iconPlay.style.display=''; iconPause.style.display='none'; });
-  playBtn.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); iconPlay.style.display='none'; iconPause.style.display=''; }
-    else { audio.pause(); iconPlay.style.display=''; iconPause.style.display='none'; }
-  });
-  barTrack.addEventListener('click', e => {
-    const rect = barTrack.getBoundingClientRect();
-    audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
-  });
-});
+        lightbox.classList.add("open");
+      }
 
-// ---- Carousel ----
-function makeCarousel(stripId, prevId, nextId, dotsId, imgClickFn) {
-  const strip = document.getElementById(stripId);
-  const prev  = document.getElementById(prevId);
-  const next  = document.getElementById(nextId);
-  const dotsWrap = document.getElementById(dotsId);
-  if (!strip) return;
+      function closeLightbox() {
+        if (!lightbox.classList.contains("open")) return;
+        lightbox.classList.remove("open");
 
-  const slides = Array.from(strip.children);
-  const dots   = dotsWrap ? Array.from(dotsWrap.children) : [];
-  const total  = slides.length;
-  let cur = 0;
+        // return video to its original place
+        if (lightbox._videoEl) {
+          const v = lightbox._videoEl;
+          v.pause();
+          v.style.cursor = "";
+          v.style.maxWidth = "";
+          v.style.maxHeight = "";
+          lightbox._videoPlaceholder.parentNode.insertBefore(
+            v,
+            lightbox._videoPlaceholder,
+          );
+          lightbox._videoPlaceholder.remove();
+          lightbox._videoEl = null;
+          lightbox._videoPlaceholder = null;
+        }
 
-  function go(idx) {
-    cur = Math.max(0, Math.min(idx, total - 1));
-    slides.forEach((s, i) => s.classList.toggle('active', i === cur));
-    dots.forEach((d, i) => d.classList.toggle('on', i === cur));
-    if (prev) prev.classList.toggle('hide', cur === 0);
-    if (next) next.classList.toggle('hide', cur === total - 1);
-  }
+        setTimeout(() => {
+          const m = lightbox.querySelector("img");
+          if (m) m.remove();
+        }, 350);
+      }
 
-  if (prev) prev.addEventListener('click', e => { e.stopPropagation(); go(cur - 1); });
-  if (next) next.addEventListener('click', e => { e.stopPropagation(); go(cur + 1); });
+      // click on image or expand icon opens lightbox
+      document.querySelectorAll(".media-expandable").forEach((wrap) => {
+        wrap.addEventListener("click", () => {
+          const img = wrap.querySelector("img");
+          if (img) openLightbox(img);
+        });
+      });
 
-  // wire image clicks to lightbox
-  slides.forEach(slide => {
-    const img = slide.querySelector('img');
-    if (img && imgClickFn) img.addEventListener('click', () => imgClickFn(img));
-  });
+      // ---- Video play button ----
+      document.querySelectorAll(".video-wrap").forEach((wrap) => {
+        const video = wrap.querySelector("video");
+        const playBtn = wrap.querySelector(".video-play-btn");
+        if (!video || !playBtn) return;
 
-  // swipe
-  let tx = 0;
-  strip.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-  strip.addEventListener('touchend', e => {
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 40) go(d > 0 ? cur + 1 : cur - 1);
-  });
+        playBtn.addEventListener("click", () => {
+          playBtn.classList.add("hidden");
+          openLightbox(video);
+          // slight delay so element is in lightbox before playing
+          setTimeout(() => {
+            video.play();
+          }, 80);
+        });
 
-  go(0);
-}
+        video.addEventListener("pause", () => {
+          playBtn.classList.remove("hidden");
+          closeLightbox();
+        });
 
-makeCarousel('c-desk-strip', 'c-desk-prev', 'c-desk-next', 'c-desk-dots', img => openLightbox(img));
-makeCarousel('c-mob-strip',  'c-mob-prev',  'c-mob-next',  'c-mob-dots',  img => openLightbox(img));
+        video.addEventListener("ended", () => {
+          playBtn.classList.remove("hidden");
+          closeLightbox();
+        });
+      });
 
-// ---- Burger menu ----
-const burgerBtn = document.getElementById('burger');
-const drawer    = document.getElementById('mobile-drawer');
+      lbBackdrop.addEventListener("click", closeLightbox);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
 
-if (burgerBtn && drawer) {
-  function toggleDrawer(open) {
-    burgerBtn.classList.toggle('open', open);
-    drawer.classList.toggle('open', open);
-    burgerBtn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  burgerBtn.addEventListener('click', () => toggleDrawer(!burgerBtn.classList.contains('open')));
-  document.querySelectorAll('.drawer-link').forEach(link => {
-    link.addEventListener('click', () => toggleDrawer(false));
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
-}
+      // ---- Audio players ----
+      document
+        .querySelectorAll(".audio-player, .m-audio-player")
+        .forEach((player) => {
+          const src = player.dataset.src;
+          if (!src) return;
+          const audio = new Audio(src);
+          const playBtn = player.querySelector(".play-btn");
+          const iconPlay = player.querySelector(".icon-play");
+          const iconPause = player.querySelector(".icon-pause");
+          const barFill = player.querySelector(".audio-bar-fill");
+          const barThumb = player.querySelector(".audio-bar-thumb");
+          const barTrack = player.querySelector(".audio-bar-track");
+          const timeCur = player.querySelector(".time-current");
+          const timeTotal = player.querySelector(".time-total");
+          const fileLabel = player.querySelector(".audio-file-label");
+          if (fileLabel) fileLabel.style.display = "none";
+          const fmt = (s) =>
+            `${Math.floor(s / 60)}:${Math.floor(s % 60)
+              .toString()
+              .padStart(2, "0")}`;
+          audio.addEventListener("loadedmetadata", () => {
+            timeTotal.textContent = fmt(audio.duration);
+          });
+          audio.addEventListener("timeupdate", () => {
+            const pct = audio.duration
+              ? (audio.currentTime / audio.duration) * 100
+              : 0;
+            barFill.style.width = pct + "%";
+            barThumb.style.left = pct + "%";
+            timeCur.textContent = fmt(audio.currentTime);
+          });
+          audio.addEventListener("ended", () => {
+            iconPlay.style.display = "";
+            iconPause.style.display = "none";
+          });
+          playBtn.addEventListener("click", () => {
+            if (audio.paused) {
+              audio.play();
+              iconPlay.style.display = "none";
+              iconPause.style.display = "";
+            } else {
+              audio.pause();
+              iconPlay.style.display = "";
+              iconPause.style.display = "none";
+            }
+          });
+          barTrack.addEventListener("click", (e) => {
+            const rect = barTrack.getBoundingClientRect();
+            audio.currentTime =
+              ((e.clientX - rect.left) / rect.width) * audio.duration;
+          });
+        });
 
-</script>
-</body>
+      // ---- Carousel ----
+      function makeCarousel(stripId, prevId, nextId, dotsId, imgClickFn) {
+        const strip = document.getElementById(stripId);
+        const prev = document.getElementById(prevId);
+        const next = document.getElementById(nextId);
+        const dotsWrap = document.getElementById(dotsId);
+        if (!strip) return;
+
+        const slides = Array.from(strip.children);
+        const dots = dotsWrap ? Array.from(dotsWrap.children) : [];
+        const total = slides.length;
+        let cur = 0;
+
+        function go(idx) {
+          cur = Math.max(0, Math.min(idx, total - 1));
+          slides.forEach((s, i) => s.classList.toggle("active", i === cur));
+          dots.forEach((d, i) => d.classList.toggle("on", i === cur));
+          if (prev) prev.classList.toggle("hide", cur === 0);
+          if (next) next.classList.toggle("hide", cur === total - 1);
+        }
+
+        if (prev)
+          prev.addEventListener("click", (e) => {
+            e.stopPropagation();
+            go(cur - 1);
+          });
+        if (next)
+          next.addEventListener("click", (e) => {
+            e.stopPropagation();
+            go(cur + 1);
+          });
+
+        // wire image clicks to lightbox
+        slides.forEach((slide) => {
+          const img = slide.querySelector("img");
+          if (img && imgClickFn)
+            img.addEventListener("click", () => imgClickFn(img));
+        });
+
+        // swipe
+        let tx = 0;
+        strip.addEventListener(
+          "touchstart",
+          (e) => {
+            tx = e.touches[0].clientX;
+          },
+          { passive: true },
+        );
+        strip.addEventListener("touchend", (e) => {
+          const d = tx - e.changedTouches[0].clientX;
+          if (Math.abs(d) > 40) go(d > 0 ? cur + 1 : cur - 1);
+        });
+
+        go(0);
+      }
+
+      makeCarousel(
+        "c-desk-strip",
+        "c-desk-prev",
+        "c-desk-next",
+        "c-desk-dots",
+        (img) => openLightbox(img),
+      );
+      makeCarousel(
+        "c-mob-strip",
+        "c-mob-prev",
+        "c-mob-next",
+        "c-mob-dots",
+        (img) => openLightbox(img),
+      );
+
+      // ---- Burger menu ----
+      const burgerBtn = document.getElementById("burger");
+      const drawer = document.getElementById("mobile-drawer");
+
+      if (burgerBtn && drawer) {
+        function toggleDrawer(open) {
+          burgerBtn.classList.toggle("open", open);
+          drawer.classList.toggle("open", open);
+          burgerBtn.setAttribute("aria-expanded", open);
+          document.body.style.overflow = open ? "hidden" : "";
+        }
+        burgerBtn.addEventListener("click", () =>
+          toggleDrawer(!burgerBtn.classList.contains("open")),
+        );
+        document.querySelectorAll(".drawer-link").forEach((link) => {
+          link.addEventListener("click", () => toggleDrawer(false));
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") toggleDrawer(false);
+        });
+      }
+    </script>
+  </body>
 </html>
